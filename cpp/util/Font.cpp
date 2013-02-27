@@ -1,12 +1,18 @@
 
-#include "Font.h"
 #include <assert.h>
 #include <stdio.h>
+#include <iostream>
+#include <sstream>
+
+#include "Font.h"
 #include "geometry.h"
 #include "ResourceManager.h"
 
+#define LANTERN_FONT_VERSION 1.0f
+
 Font::Font() {
     charWidth = charHeight = 0;
+    texWidth = texHeight = 0;
     tex = 0;
     idxZero = 0;
     loaded = false;
@@ -24,8 +30,77 @@ Font::~Font() {
     }
 }
 
+/**
+ * format:
+ * version
+ * tex name
+ * tex width
+ * tex height
+ * char width
+ * char height
+ * chars per row
+ * zero index
+ * is fixed width?
+ * (optional) character widths
+ */
+string Font::serialize() {
+    std::ostringstream stream(std::ostringstream::out);
+    if (!stream.good()) {
+        return "";
+    }
+    
+    stream << LANTERN_FONT_VERSION << " ";
+    stream << textureFilename << " ";
+    stream << texWidth << " " << texHeight << " " << charWidth << " " << charHeight << " ";
+    stream << charsPerRow << " " << idxZero << " ";
+    stream << (characterWidths == NULL) << " ";
+    
+    if (characterWidths) {
+        for (int ii = 0; ii < 256; ii++) {
+            stream << characterWidths[ii] << " ";
+        }
+    }
+    
+    return stream.str();
+}
+
+void Font::loadFromString(string serializedFont) {
+    if (loaded)
+        return;
+    
+    std::istringstream stream(serializedFont, std::istringstream::in);
+    if (!stream.good())
+        return;
+    
+    float fontVersion;
+    stream >> fontVersion;
+    if (fontVersion > LANTERN_FONT_VERSION) // assume future versions suck
+        return;
+    
+    stream >> textureFilename;
+    stream >> texWidth >> texHeight >> charWidth >> charHeight;
+    stream >> charsPerRow >> idxZero;
+    
+    bool isFixedWidth;
+    stream >> isFixedWidth;
+    if (isFixedWidth)
+        characterWidths = NULL;
+    else {
+        float widths[256];
+        for (int ii = 0; ii < 256; ii++)
+            stream >> widths[ii];
+        setCharacterWidths(widths, 0, 256);
+    }
+    
+    loadTexture();
+}
+
 void Font::loadTexture(string texName, unsigned int texWidth, unsigned int texHeight, unsigned int charWidth, unsigned int charHeight, unsigned int charsPerRow, int idxZero) {
+    if (loaded)
+        return;
+    
     characterWidths = NULL;
+    this->textureFilename = texName;
 	this->idxZero = idxZero;
 	this->charWidth = charWidth;
 	this->charHeight = charHeight;
@@ -37,16 +112,23 @@ void Font::loadTexture(string texName, unsigned int texWidth, unsigned int texHe
     else
         this->charsPerRow = charsPerRow;
 
-	glGenTextures(1, &tex);
+    loadTexture();
+}
+
+void Font::loadTexture() {
+    if (loaded)
+        return;
+    
+    glGenTextures(1, &tex);
 	
 	glBindTexture(GL_TEXTURE_2D, tex);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    ResourceManager::getInstance().loadTexture(texName.c_str(), "png");
+    
+    ResourceManager::getInstance().loadTexture(textureFilename.c_str(), "png");
 	
 	if (tex == 0) {
-        fprintf(stdout, "Font: Error loading font %s\n", texName.c_str());
+        fprintf(stdout, "Font: Error loading font %s\n", textureFilename.c_str());
 		loaded = false;
 	} else
 		loaded = true;
@@ -256,3 +338,4 @@ bool Font::stringContainsExt(Point3f p, float margin, float x, float y, string s
 	
 	return simpleRectangleContains(Point3f(xAlign - margin, yAlign + margin, 0), Point3f(xAlign + stringWidth + margin, yAlign - stringHeight - margin, 0), p);
 }
+

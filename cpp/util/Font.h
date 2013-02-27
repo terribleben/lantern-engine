@@ -26,16 +26,20 @@ public:
 	Font();
 	~Font();
     
-    /**
-     * load a texture into this font object. Must be called before using any of the draw methods.
-     * params: dimensions of the whole texture image, dimensions of one character, and the index
-     *         (on the image) at which the NULL character (ascii zero) appears.
-     */
+    // Font must have some texture loaded before using any of the draw methods.
+    
+    // Load a texture. Params: dimensions of the whole texture image, dimensions of one character, and the index
+    // (on the image) at which the NULL character (ascii zero) appears.
 	void loadTexture(string texName, unsigned int texWidth, unsigned int texHeight, unsigned int charWidth, unsigned int charHeight, unsigned int charsPerRow, int idxZero);
+    
+    // Load a serialized font.
+    void loadFromString(string serializedFont);
     
     // Use this to add some notion of kerning to a font. Each width is a scale > 0 <= 1.
     // Can pass NULL to indicate a font is fixed-width (i.e. all values are 1).
     void setCharacterWidths(float* widths, int idxStart, int length);
+    
+    string serialize();
     
 public:
 	void drawCharacter(float x, float y, char c);
@@ -53,9 +57,12 @@ public:
 	bool stringContainsExt(Point3f p, float margin, float x, float y, string s, unsigned int hAlign, unsigned int vAlign, float scale, float spacing);
     
 private:
+    void loadTexture();
+    
+    string textureFilename;
 	int idxZero;
 	unsigned int charWidth, charHeight, texWidth, texHeight;
-    unsigned int charsPerRow, charsPerCol;
+    unsigned int charsPerRow;
 	GLuint tex;
 	bool loaded;
     
