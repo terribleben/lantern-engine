@@ -16,7 +16,7 @@ FontManager::FontManager() {
        setFont("default", defaultFont); */
     
     for (map<string, Font*>::iterator itr = fonts.begin(); itr != fonts.end(); itr++) {
-        (*itr).second->setCharacterWidths(getCharacterWidths((*itr).first));
+        (*itr).second->setCharacterWidths(getCharacterWidths((*itr).first), 0, 256);
     }
 }
 

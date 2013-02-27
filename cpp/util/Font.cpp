@@ -10,19 +10,20 @@ Font::Font() {
     tex = 0;
     idxZero = 0;
     loaded = false;
-    isAdditive = false;
     characterWidths = NULL;
 }
 
 Font::~Font() {
-    // TODO glDeleteTextures() ?
+    if (loaded) {
+        glDeleteTextures(1, &tex);
+        tex = 0;
+    }
+    if (characterWidths) {
+        free(characterWidths);
+        characterWidths = NULL;
+    }
 }
 
-/**
- * load a texture into this font object. Must be called before using any of the draw methods.
- * params: dimensions of the whole texture image, dimensions of one character, and the index
- *         (on the image) at which the NULL character (ascii zero) appears.
- */
 void Font::loadTexture(string texName, unsigned int texWidth, unsigned int texHeight, unsigned int charWidth, unsigned int charHeight, unsigned int charsPerRow, int idxZero) {
     characterWidths = NULL;
 	this->idxZero = idxZero;
@@ -51,8 +52,21 @@ void Font::loadTexture(string texName, unsigned int texWidth, unsigned int texHe
 		loaded = true;
 }
 
-void Font::setCharacterWidths(float* widths) {
-    characterWidths = widths;
+void Font::setCharacterWidths(float* widths, int idxStart, int length) {
+    if (characterWidths) {
+        free(characterWidths);
+    }
+    if (widths && idxStart >= 0) {
+        characterWidths = (float*) malloc(sizeof(float) * 255);
+        
+        for (int ii = 0; ii < 256; ii++) {
+            if (ii >= idxStart && ii < idxStart + length)
+                characterWidths[ii] = widths[ii - idxStart];
+            else
+                characterWidths[ii] = 1.0f;
+        }
+    } else
+        characterWidths = NULL;
 }
 
 
@@ -64,11 +78,6 @@ void Font::drawString(float x, float y, string s) {
   this->drawStringExt(x, y, s, LANTERN_FONT_ALIGN_LEFT, LANTERN_FONT_ALIGN_TOP, 1, 1);
 }
 
-
-/**
- * draw char c at (x, y) with a particlar scale (0-1) and horizontal spacing (1 is normal)
- * assumes we are operating in an orthographic projection.
- */
 void Font::drawCharacterExt(float x, float y, char c, float scale) {
 	if (!loaded) return;
 	if (c == ' ') return;
@@ -91,10 +100,6 @@ void Font::drawCharacterExt(float x, float y, char c, float scale) {
         (float)(xF * charWidth) / (float)texWidth, ((float)(yI * charHeight) / (float)texHeight) - (1.0 / texHeight),
         (float)(xI * charWidth) / (float)texWidth, ((float)(yF * charHeight) / (float)texHeight),
         (float)(xF * charWidth) / (float)texWidth, ((float)(yF * charHeight) / (float)texHeight),
-		// (float)xI / (float)charsPerRow, ((float)yI / (float)charsPerCol) - (1.0 / texHeight),
-		// (float)xF / (float)charsPerRow, ((float)yI / (float)charsPerCol) - (1.0 / texHeight),
-		// (float)xI / (float)charsPerRow, ((float)yF / (float)charsPerCol),
-		// (float)xF / (float)charsPerRow, ((float)yF / (float)charsPerCol)
 	};
 	
 	GLfloat vertices[] = {
@@ -104,13 +109,7 @@ void Font::drawCharacterExt(float x, float y, char c, float scale) {
 		x + scaledCharWidth, y - scaledCharHeight, 0
 	};
 	
-    if (isAdditive) {
-        glBlendFunc(GL_ONE, GL_ONE);
-        drawTexture(vertices, texCoords);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    } else {
-        drawTexture(vertices, texCoords);
-    }
+    drawTexture(vertices, texCoords);
 }
 
 float Font::getStringWidth(string s, float scale, float spacing) {
