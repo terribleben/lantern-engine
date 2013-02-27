@@ -153,24 +153,24 @@ void drawLineWithColor(Point3f p1, Point3f p2, Point3f col1, Point3f col2, float
 	glDisableClientState(GL_COLOR_ARRAY);
 }
 
-void drawTexture(Point3f position, float orientation, float width, float height) {
-	Point3f vertices[4];
+void drawTexture(Point3f position, float width, float height) {
 	float halfWidth = width / 2.0f;
 	float halfHeight = height / 2.0f;
-	float radius = sqrt((halfWidth * halfWidth) + (halfHeight * halfHeight));
-	float angle = atan2(-halfHeight, halfWidth);
-	if (angle < 0) angle += M_2_PI;
-	for (unsigned int i = 0; i < 4; i++) {
-		float a = (i % 2 == 0) ? angle : M_PI - angle;
-		if (i >= 2) a += M_PI;
-		vertices[i].x = position.x + radius * cos(a + orientation);
-		vertices[i].y = position.y + radius * sin(a + orientation);
-	}
-	drawTexture(vertices);
-}
-
-void drawTexture(Point3f* vertices) {
-	drawTexture(vertices[1], vertices[0], vertices[2], vertices[3]);
+    
+    GLfloat vertices[] = {
+        position.x - halfWidth, position.y + halfHeight, 0,
+        position.x + halfWidth, position.y + halfHeight, 0,
+        position.x - halfWidth, position.y - halfHeight, 0,
+        position.x + halfWidth, position.y - halfHeight, 0
+    };
+    
+    GLfloat texCoords[] = {
+        0, 0,
+        1, 0,
+        0, 1,
+        1, 1
+    };
+	drawTexture(vertices, texCoords);
 }
 
 void drawTexture(Point3f p1, Point3f p2, Point3f p3, Point3f p4) {

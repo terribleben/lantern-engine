@@ -37,7 +37,11 @@ void Particle::draw() {
     
     if (textureKey.length() > 0) {
         ResourceManager::getInstance().bindTexture(textureKey.c_str());
-        drawTexture(position, orientation, width * scale * internalScale, height * scale * internalScale);
+        glPushMatrix();
+        glTranslatef(position.x, position.y, position.z);
+        glRotatef(orientation, 0, 0, 1);
+        drawTexture(Point3f(), width * scale * internalScale, height * scale * internalScale);
+        glPopMatrix();
     } else {
         drawRectangle(position - Point3f(radius, radius, 0), position + Point3f(radius, radius, 0), true);
     }
