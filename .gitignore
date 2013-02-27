@@ -13,8 +13,8 @@
 *~
 *#
 .DS_Store
-project.xcworkspace
 xcuserdata*
+*.xcuserdatad
 .arc
 .arcconfig
 *.pbxuser
