@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B55D1D0316DEA37A00968D22 /* Lantern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CE816DEA37A00968D22 /* Lantern.cpp */; };
+		B55D1D0416DEA37A00968D22 /* PhysicalObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEB16DEA37A00968D22 /* PhysicalObject.cpp */; };
+		B55D1D0516DEA37A00968D22 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEE16DEA37A00968D22 /* Particle.cpp */; };
+		B55D1D0616DEA37A00968D22 /* ParticleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF016DEA37A00968D22 /* ParticleManager.cpp */; };
+		B55D1D0716DEA37A00968D22 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF316DEA37A00968D22 /* draw.cpp */; };
+		B55D1D0816DEA37A00968D22 /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF516DEA37A00968D22 /* Font.cpp */; };
+		B55D1D0916DEA37A00968D22 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF716DEA37A00968D22 /* FontManager.cpp */; };
+		B55D1D0A16DEA37A00968D22 /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF916DEA37A00968D22 /* geometry.cpp */; };
+		B55D1D0B16DEA37A00968D22 /* Point3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CFB16DEA37A00968D22 /* Point3f.cpp */; };
+		B55D1D0C16DEA37A00968D22 /* ResourceManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */; };
+		B55D1D0D16DEA37A00968D22 /* ViewPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0116DEA37A00968D22 /* ViewPlay.cpp */; };
+		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
+		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
+		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
+		B5AD5276151D3D2800E96979 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5275151D3D2800E96979 /* GLKit.framework */; };
+		B5AD5278151D3D2800E96979 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5277151D3D2800E96979 /* OpenGLES.framework */; };
+		B5AD527E151D3D2800E96979 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5AD527C151D3D2800E96979 /* InfoPlist.strings */; };
+		B5AD5280151D3D2800E96979 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AD527F151D3D2800E96979 /* main.m */; };
+		B5AD5284151D3D2800E96979 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AD5283151D3D2800E96979 /* AppDelegate.m */; };
+		B5AD528B151D3D2800E96979 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5AD528A151D3D2800E96979 /* ViewController.mm */; };
+		B5AD528E151D3D2800E96979 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5AD528C151D3D2800E96979 /* ViewController.xib */; };
+		B5AD529E151D41BC00E96979 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5AD529D151D41BC00E96979 /* EAGLView.mm */; };
+		B5AD52A0151D441A00E96979 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD529F151D441A00E96979 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B55D1CE716DEA37A00968D22 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		B55D1CE816DEA37A00968D22 /* Lantern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lantern.cpp; sourceTree = "<group>"; };
+		B55D1CE916DEA37A00968D22 /* Lantern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lantern.h; sourceTree = "<group>"; };
+		B55D1CEB16DEA37A00968D22 /* PhysicalObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalObject.cpp; sourceTree = "<group>"; };
+		B55D1CEC16DEA37A00968D22 /* PhysicalObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalObject.h; sourceTree = "<group>"; };
+		B55D1CEE16DEA37A00968D22 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
+		B55D1CEF16DEA37A00968D22 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		B55D1CF016DEA37A00968D22 /* ParticleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleManager.cpp; sourceTree = "<group>"; };
+		B55D1CF116DEA37A00968D22 /* ParticleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleManager.h; sourceTree = "<group>"; };
+		B55D1CF316DEA37A00968D22 /* draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw.cpp; sourceTree = "<group>"; };
+		B55D1CF416DEA37A00968D22 /* draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw.h; sourceTree = "<group>"; };
+		B55D1CF516DEA37A00968D22 /* Font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
+		B55D1CF616DEA37A00968D22 /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Font.h; sourceTree = "<group>"; };
+		B55D1CF716DEA37A00968D22 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
+		B55D1CF816DEA37A00968D22 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		B55D1CF916DEA37A00968D22 /* geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geometry.cpp; sourceTree = "<group>"; };
+		B55D1CFA16DEA37A00968D22 /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
+		B55D1CFB16DEA37A00968D22 /* Point3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point3f.cpp; sourceTree = "<group>"; };
+		B55D1CFC16DEA37A00968D22 /* Point3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point3f.h; sourceTree = "<group>"; };
+		B55D1CFD16DEA37A00968D22 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
+		B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourceManager.mm; sourceTree = "<group>"; };
+		B55D1CFF16DEA37A00968D22 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
+		B55D1D0116DEA37A00968D22 /* ViewPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ViewPlay.cpp; sourceTree = "<group>"; };
+		B55D1D0216DEA37A00968D22 /* ViewPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPlay.h; sourceTree = "<group>"; };
+		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B5AD5273151D3D2800E96979 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B5AD5275151D3D2800E96979 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		B5AD5277151D3D2800E96979 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B5AD527B151D3D2800E96979 /* lantern-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "lantern-Info.plist"; sourceTree = "<group>"; };
+		B5AD527D151D3D2800E96979 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B5AD527F151D3D2800E96979 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B5AD5281151D3D2800E96979 /* lantern-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lantern-Prefix.pch"; sourceTree = "<group>"; };
+		B5AD5282151D3D2800E96979 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B5AD5283151D3D2800E96979 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B5AD5289151D3D2800E96979 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B5AD528A151D3D2800E96979 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		B5AD528D151D3D2800E96979 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		B5AD529C151D41BC00E96979 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		B5AD529D151D41BC00E96979 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
+		B5AD529F151D441A00E96979 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5AD5268151D3D2800E96979 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5AD52A0151D441A00E96979 /* QuartzCore.framework in Frameworks */,
+				B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */,
+				B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */,
+				B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */,
+				B5AD5276151D3D2800E96979 /* GLKit.framework in Frameworks */,
+				B5AD5278151D3D2800E96979 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B55D1CE616DEA37A00968D22 /* cpp */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1CE916DEA37A00968D22 /* Lantern.h */,
+				B55D1CE816DEA37A00968D22 /* Lantern.cpp */,
+				B55D1CFF16DEA37A00968D22 /* View.h */,
+				B55D1CE716DEA37A00968D22 /* Event.h */,
+				B55D1CEA16DEA37A00968D22 /* objects */,
+				B55D1CED16DEA37A00968D22 /* particles */,
+				B55D1CF216DEA37A00968D22 /* util */,
+				B55D1D0016DEA37A00968D22 /* views */,
+			);
+			name = cpp;
+			path = ../../cpp;
+			sourceTree = "<group>";
+		};
+		B55D1CEA16DEA37A00968D22 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1CEC16DEA37A00968D22 /* PhysicalObject.h */,
+				B55D1CEB16DEA37A00968D22 /* PhysicalObject.cpp */,
+			);
+			path = objects;
+			sourceTree = "<group>";
+		};
+		B55D1CED16DEA37A00968D22 /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1CF116DEA37A00968D22 /* ParticleManager.h */,
+				B55D1CF016DEA37A00968D22 /* ParticleManager.cpp */,
+				B55D1CEF16DEA37A00968D22 /* Particle.h */,
+				B55D1CEE16DEA37A00968D22 /* Particle.cpp */,
+			);
+			path = particles;
+			sourceTree = "<group>";
+		};
+		B55D1CF216DEA37A00968D22 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1CF416DEA37A00968D22 /* draw.h */,
+				B55D1CF316DEA37A00968D22 /* draw.cpp */,
+				B55D1CFA16DEA37A00968D22 /* geometry.h */,
+				B55D1CF916DEA37A00968D22 /* geometry.cpp */,
+				B55D1CFC16DEA37A00968D22 /* Point3f.h */,
+				B55D1CFB16DEA37A00968D22 /* Point3f.cpp */,
+				B55D1CF616DEA37A00968D22 /* Font.h */,
+				B55D1CF516DEA37A00968D22 /* Font.cpp */,
+				B55D1CF816DEA37A00968D22 /* FontManager.h */,
+				B55D1CF716DEA37A00968D22 /* FontManager.cpp */,
+				B55D1CFD16DEA37A00968D22 /* ResourceManager.h */,
+				B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		B55D1D0016DEA37A00968D22 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1D0216DEA37A00968D22 /* ViewPlay.h */,
+				B55D1D0116DEA37A00968D22 /* ViewPlay.cpp */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B5AD5260151D3D2800E96979 = {
+			isa = PBXGroup;
+			children = (
+				B5AD5279151D3D2800E96979 /* lantern */,
+				B5AD526E151D3D2800E96979 /* Frameworks */,
+				B5AD526C151D3D2800E96979 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B5AD526C151D3D2800E96979 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5AD526B151D3D2800E96979 /* lantern.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5AD526E151D3D2800E96979 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5AD529F151D441A00E96979 /* QuartzCore.framework */,
+				B5AD526F151D3D2800E96979 /* UIKit.framework */,
+				B5AD5271151D3D2800E96979 /* Foundation.framework */,
+				B5AD5273151D3D2800E96979 /* CoreGraphics.framework */,
+				B5AD5275151D3D2800E96979 /* GLKit.framework */,
+				B5AD5277151D3D2800E96979 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5AD5279151D3D2800E96979 /* lantern */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1CE616DEA37A00968D22 /* cpp */,
+				B5AD52A1151D460500E96979 /* iOS */,
+				B5AD527A151D3D2800E96979 /* Supporting Files */,
+			);
+			path = lantern;
+			sourceTree = "<group>";
+		};
+		B5AD527A151D3D2800E96979 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5AD527B151D3D2800E96979 /* lantern-Info.plist */,
+				B5AD527C151D3D2800E96979 /* InfoPlist.strings */,
+				B5AD527F151D3D2800E96979 /* main.m */,
+				B5AD5281151D3D2800E96979 /* lantern-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5AD52A1151D460500E96979 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B5AD529C151D41BC00E96979 /* EAGLView.h */,
+				B5AD529D151D41BC00E96979 /* EAGLView.mm */,
+				B5AD5282151D3D2800E96979 /* AppDelegate.h */,
+				B5AD5283151D3D2800E96979 /* AppDelegate.m */,
+				B5AD5289151D3D2800E96979 /* ViewController.h */,
+				B5AD528A151D3D2800E96979 /* ViewController.mm */,
+				B5AD528C151D3D2800E96979 /* ViewController.xib */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B5AD526A151D3D2800E96979 /* lantern */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5AD5291151D3D2800E96979 /* Build configuration list for PBXNativeTarget "lantern" */;
+			buildPhases = (
+				B5AD5267151D3D2800E96979 /* Sources */,
+				B5AD5268151D3D2800E96979 /* Frameworks */,
+				B5AD5269151D3D2800E96979 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lantern;
+			productName = lantern;
+			productReference = B5AD526B151D3D2800E96979 /* lantern.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5AD5262151D3D2800E96979 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = B5AD5265151D3D2800E96979 /* Build configuration list for PBXProject "lantern" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B5AD5260151D3D2800E96979;
+			productRefGroup = B5AD526C151D3D2800E96979 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5AD526A151D3D2800E96979 /* lantern */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5AD5269151D3D2800E96979 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5AD527E151D3D2800E96979 /* InfoPlist.strings in Resources */,
+				B5AD528E151D3D2800E96979 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5AD5267151D3D2800E96979 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5AD5280151D3D2800E96979 /* main.m in Sources */,
+				B5AD5284151D3D2800E96979 /* AppDelegate.m in Sources */,
+				B5AD528B151D3D2800E96979 /* ViewController.mm in Sources */,
+				B5AD529E151D41BC00E96979 /* EAGLView.mm in Sources */,
+				B55D1D0316DEA37A00968D22 /* Lantern.cpp in Sources */,
+				B55D1D0416DEA37A00968D22 /* PhysicalObject.cpp in Sources */,
+				B55D1D0516DEA37A00968D22 /* Particle.cpp in Sources */,
+				B55D1D0616DEA37A00968D22 /* ParticleManager.cpp in Sources */,
+				B55D1D0716DEA37A00968D22 /* draw.cpp in Sources */,
+				B55D1D0816DEA37A00968D22 /* Font.cpp in Sources */,
+				B55D1D0916DEA37A00968D22 /* FontManager.cpp in Sources */,
+				B55D1D0A16DEA37A00968D22 /* geometry.cpp in Sources */,
+				B55D1D0B16DEA37A00968D22 /* Point3f.cpp in Sources */,
+				B55D1D0C16DEA37A00968D22 /* ResourceManager.mm in Sources */,
+				B55D1D0D16DEA37A00968D22 /* ViewPlay.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B5AD527C151D3D2800E96979 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5AD527D151D3D2800E96979 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B5AD528C151D3D2800E96979 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5AD528D151D3D2800E96979 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B5AD528F151D3D2800E96979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B5AD5290151D3D2800E96979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B5AD5292151D3D2800E96979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lantern/lantern-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "lantern/lantern-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B5AD5293151D3D2800E96979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lantern/lantern-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "lantern/lantern-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5AD5265151D3D2800E96979 /* Build configuration list for PBXProject "lantern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5AD528F151D3D2800E96979 /* Debug */,
+				B5AD5290151D3D2800E96979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5AD5291151D3D2800E96979 /* Build configuration list for PBXNativeTarget "lantern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5AD5292151D3D2800E96979 /* Debug */,
+				B5AD5293151D3D2800E96979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5AD5262151D3D2800E96979 /* Project object */;
+}
