@@ -102,12 +102,22 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 - (void) viewWillAppear: (BOOL)animated
 {
+    // gain focus event
+    Event e(LANTERN_EVENT_GAIN_FOCUS, 0, NULL);
+    Lantern::getInstance().event(e);
+    
+    // restart the graphics loop
     [self startAnimating];
     [super viewWillAppear:animated];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    // lose focus event
+    Event e(LANTERN_EVENT_LOSE_FOCUS, 0, NULL);
+    Lantern::getInstance().event(e);
+    
+    // stop the graphics loop
     [self stopAnimating];
     [super viewWillDisappear:animated];
 }
