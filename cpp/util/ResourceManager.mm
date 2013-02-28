@@ -8,6 +8,7 @@
 #include "ResourceManager.h"
 
 using std::ifstream;
+using std::ofstream;
 using std::istreambuf_iterator;
 
 ResourceManager& ResourceManager::getInstance() {
@@ -22,6 +23,18 @@ string ResourceManager::fileContentsAsString(const char *path) {
     }
     
     return string((istreambuf_iterator<char>(ifs)), istreambuf_iterator<char>());
+}
+
+void ResourceManager::writeStringToFile(string str, const char* path) {
+    ofstream ofs(path);
+    if (!ofs.good())
+        return;
+    
+    if (!ofs.is_open())
+        return;
+    
+    ofs << str;
+    ofs.close();
 }
 
 ResourceManager::ResourceManager() {

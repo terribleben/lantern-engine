@@ -20,6 +20,7 @@ public:
     static ResourceManager& getInstance();
     
     string fileContentsAsString(const char* path);
+    void writeStringToFile(string str, const char* path);
     
     const char* prependResourcePath(const char* path);
     
