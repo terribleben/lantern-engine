@@ -39,6 +39,8 @@ private:
     void transitionView();
     
 private:
+    bool isRunning;
+    
     GLfloat screenWidth, screenHeight, screenScale;
     bool isPortrait;
     

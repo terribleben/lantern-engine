@@ -17,18 +17,27 @@ Lantern& Lantern::getInstance() {
 }
 
 void Lantern::init() {
-    glEnable(GL_TEXTURE_2D);
-	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-	glEnable (GL_BLEND);
-	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnableClientState(GL_VERTEX_ARRAY);
-    
-    FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
-    
-    screenWidth = screenHeight = 0;
-    
-    addView(new ViewPlay(), "play");
-    transitionView();
+    if (!isRunning) {
+        isRunning = true;
+        
+        // reset graphics properties
+        screenWidth = screenHeight = 0;
+        screenScale = 1.0f;
+        isPortrait = false;
+        
+        glEnable(GL_TEXTURE_2D);
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+        glEnable (GL_BLEND);
+        glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        
+        // load the example font
+        FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
+        
+        // start the first view
+        addView(new ViewPlay(), "play");
+        transitionView();
+    }
 }
 
 void Lantern::setDimensions(GLfloat width, GLfloat height) {
@@ -45,12 +54,15 @@ void Lantern::setOrientation(bool isPortrait) {
 }
 
 void Lantern::stop() {
-    map<string, View*>::iterator viewItr = views.begin();
-    while (viewItr != views.end()) {
-        delete (*viewItr).second;
-        views.erase(viewItr++);
+    if (isRunning) {
+        map<string, View*>::iterator viewItr = views.begin();
+        while (viewItr != views.end()) {
+            delete (*viewItr).second;
+            views.erase(viewItr++);
+        }
+        view = NULL;
+        isRunning = false;
     }
-    view = NULL;
 }
 
 void Lantern::addView(View* view, string key) {

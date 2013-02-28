@@ -55,6 +55,9 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 	self.context = _context;
 	[_context release];
     
+    // init lantern
+    Lantern::getInstance().init();
+    
     // retina display?
     // scale should be 2.0 for retina displays.
     if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)]) {
@@ -76,18 +79,16 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     if (accelParam && [accelParam intValue] == 1) {
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
     }
-    
-    // init lantern
-    Lantern::getInstance().init();
 }
 
 - (void) dealloc
 {
-    if ([EAGLContext currentContext] == context)
-        [EAGLContext setCurrentContext:nil];
-    [context release];
-    
-    [super dealloc];
+    if (context) {
+        if ([EAGLContext currentContext] == context)
+            [EAGLContext setCurrentContext:nil];
+        [context release];
+        context = nil;
+    }
     
     if (lanternConfig) {
         [lanternConfig release];
@@ -95,6 +96,8 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     }
     
     Lantern::getInstance().stop();
+    
+    [super dealloc];
 }
 
 - (void) viewWillAppear: (BOOL)animated
@@ -109,18 +112,24 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     [super viewWillDisappear:animated];
 }
 
+// TODO this method is deprecated starting in iOS 6.
 - (void) viewDidUnload
-{    
-    [super viewDidUnload];
-    
-    if ([EAGLContext currentContext] == context)
-        [EAGLContext setCurrentContext:nil];
-	self.context = nil;
+{
+    if (context) {
+        if ([EAGLContext currentContext] == context)
+            [EAGLContext setCurrentContext:nil];
+        [context release];
+        context = nil;
+    }
     
     if (lanternConfig) {
         [lanternConfig release];
         lanternConfig = nil;
     }
+    
+    Lantern::getInstance().stop();
+    
+    [super viewDidUnload];
 }
 
 - (NSInteger) animationFrameInterval
