@@ -19,6 +19,8 @@
 		B55D1D0C16DEA37A00968D22 /* ResourceManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */; };
 		B55D1D0D16DEA37A00968D22 /* ViewPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0116DEA37A00968D22 /* ViewPlay.cpp */; };
 		B55D1D1016DEAB6B00968D22 /* rand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0F16DEAB6B00968D22 /* rand.cpp */; };
+		B55D1D1516DED5DF00968D22 /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1416DED5DF00968D22 /* white_bevel.png */; };
+		B55D1D1716DEDD9D00968D22 /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1616DEDD9D00968D22 /* white_bevel.lanternfont */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -60,6 +62,8 @@
 		B55D1D0216DEA37A00968D22 /* ViewPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPlay.h; sourceTree = "<group>"; };
 		B55D1D0E16DEA91600968D22 /* rand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
 		B55D1D0F16DEAB6B00968D22 /* rand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rand.cpp; sourceTree = "<group>"; };
+		B55D1D1416DED5DF00968D22 /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
+		B55D1D1616DEDD9D00968D22 /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +167,16 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		B55D1D1316DED5DE00968D22 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1D1616DEDD9D00968D22 /* white_bevel.lanternfont */,
+				B55D1D1416DED5DF00968D22 /* white_bevel.png */,
+			);
+			name = assets;
+			path = ../../assets;
+			sourceTree = "<group>";
+		};
 		B5AD5260151D3D2800E96979 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +212,7 @@
 			children = (
 				B55D1CE616DEA37A00968D22 /* cpp */,
 				B5AD52A1151D460500E96979 /* iOS */,
+				B55D1D1316DED5DE00968D22 /* assets */,
 				B5AD527A151D3D2800E96979 /* Supporting Files */,
 			);
 			path = lantern;
@@ -280,6 +295,8 @@
 			files = (
 				B5AD527E151D3D2800E96979 /* InfoPlist.strings in Resources */,
 				B5AD528E151D3D2800E96979 /* ViewController.xib in Resources */,
+				B55D1D1516DED5DF00968D22 /* white_bevel.png in Resources */,
+				B55D1D1716DEDD9D00968D22 /* white_bevel.lanternfont in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

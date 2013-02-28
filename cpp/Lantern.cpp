@@ -8,6 +8,7 @@
 #include "lantern.h"
 #include "view.h"
 #include "ParticleManager.h"
+#include "FontManager.h"
 
 
 Lantern& Lantern::getInstance() {
@@ -21,6 +22,8 @@ void Lantern::init() {
 	glEnable (GL_BLEND);
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnableClientState(GL_VERTEX_ARRAY);
+    
+    FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
     
     screenWidth = screenHeight = 0;
     view = new ViewPlay();

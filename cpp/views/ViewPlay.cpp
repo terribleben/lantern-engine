@@ -6,6 +6,7 @@
 #include <iostream>
 #include "draw.h"
 #include "ViewPlay.h"
+#include "FontManager.h"
 
 void ViewPlay::init(ViewParams* p) {
     
@@ -18,9 +19,9 @@ void ViewPlay::step() {
 void ViewPlay::draw() {
     glPushMatrix();
     
-    // test rectangle
-    glColor4f(1, 0, 0, 1);
-    drawRectangle(Point3f(100, 100, 0), Point3f(200, 200, 0), true);
+    // test message
+    glColor4f(1, 1, 1, 1);
+    FontManager::getInstance().getFont("default")->drawStringExt(10, 10, "LANTERN", LANTERN_FONT_ALIGN_LEFT, LANTERN_FONT_ALIGN_BOTTOM, 0.7f, 0.7f);
 }
 
 void ViewPlay::drawForeground() {
