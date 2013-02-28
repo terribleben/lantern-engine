@@ -155,14 +155,25 @@
         
         // touch
         float touchParam[] = { location.x, location.y };
-        Event touchEvent(LANTERN_EVENT_TOUCH_DOWN, touchParam);
+        Event touchEvent(LANTERN_EVENT_TOUCH_DOWN, (unsigned int)touch, touchParam);
         Lantern::getInstance().event(touchEvent);
     }
 }
 
 - (void) touchesMoved: (NSSet*)touches withEvent: (UIEvent*)event
 {
+    CGSize screenSize = [(EAGLView*)self.view frameBufferSize];
     
+    for (UITouch* touch in touches) {
+        CGPoint location = [touch locationInView:self.view];
+        
+        location.y = (screenSize.height / [UIScreen mainScreen].scale) - location.y; // cocoa uses inverted y axis
+        
+        // touch
+        float touchParam[] = { location.x, location.y };
+        Event touchEvent(LANTERN_EVENT_TOUCH_MOVE, (unsigned int)touch, touchParam);
+        Lantern::getInstance().event(touchEvent);
+    }
 }
 
 - (void) touchesEnded: (NSSet*)touches withEvent: (UIEvent*)event
@@ -176,7 +187,7 @@
         
         // touch
         float touchParam[] = { location.x, location.y };
-        Event touchEvent(LANTERN_EVENT_TOUCH_UP, touchParam);
+        Event touchEvent(LANTERN_EVENT_TOUCH_UP, (unsigned int)touch, touchParam);
         Lantern::getInstance().event(touchEvent);
     }
 }

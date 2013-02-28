@@ -89,18 +89,23 @@ void Lantern::transitionView() {
 void Lantern::event(Event& e) {
     if (view) {
         if (isPortrait) {
-            if (e.type == LANTERN_EVENT_TOUCH_DOWN || e.type == LANTERN_EVENT_TOUCH_UP) {
-                float* touchPoint = (float*)e.data;
-                
-                // invert x, then swap y and x
-                touchPoint[0] = (screenWidth / screenScale) - touchPoint[0]; // for relative, just touchPoint[0] = -touchPoint[0]
-                
-                float swap = touchPoint[1];
-                touchPoint[1] = touchPoint[0];
-                touchPoint[0] = swap;
+            switch (e.type) {
+                case LANTERN_EVENT_TOUCH_DOWN: case LANTERN_EVENT_TOUCH_UP: case LANTERN_EVENT_TOUCH_MOVE: {
+                    float* touchPoint = (float*)e.data;
+                    
+                    // invert x, then swap y and x
+                    touchPoint[0] = (screenWidth / screenScale) - touchPoint[0]; // for relative, just touchPoint[0] = -touchPoint[0]
+                    
+                    float swap = touchPoint[1];
+                    touchPoint[1] = touchPoint[0];
+                    touchPoint[0] = swap;
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
         }
-        
         view->event(e);
     }
 }
