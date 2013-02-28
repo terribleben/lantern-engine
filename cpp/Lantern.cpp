@@ -26,9 +26,9 @@ void Lantern::init() {
     FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
     
     screenWidth = screenHeight = 0;
-    view = new ViewPlay();
-    ViewParams p;
-    view->init(&p);
+    
+    addView(new ViewPlay(), "play");
+    transitionView();
 }
 
 void Lantern::setDimensions(GLfloat width, GLfloat height) {
@@ -45,25 +45,44 @@ void Lantern::setOrientation(bool isPortrait) {
 }
 
 void Lantern::stop() {
-    if (view != NULL) {
-        delete view;
-        view = NULL;
+    map<string, View*>::iterator viewItr = views.begin();
+    while (viewItr != views.end()) {
+        delete (*viewItr).second;
+        views.erase(viewItr++);
     }
+    view = NULL;
+}
+
+void Lantern::addView(View* view, string key) {
+    if (views.find(key) != views.end()) {
+        delete views[key];
+    }
+    views[key] = view;
 }
 
 void Lantern::transitionView() {
-    if (view != NULL && view->isFinished()) {
-        ViewParams p;
+    ViewParams p;
+    bool shouldTransition = false;
+    
+    if (view == NULL) {
+        p.nextView = views.begin()->first;
+        shouldTransition = true;
+    }
+    else if (view->isFinished()) {
+        shouldTransition = true;
         view->stop(&p);
-        delete view;
-        
-        switch (p.nextView) {
-            case LANTERN_VIEW_PLAY:
-                view = new ViewPlay();
-                break;
+    }
+    
+    if (shouldTransition) {
+        if (p.nextView.length() && views.find(p.nextView) != views.end()) {
+            view = views[p.nextView];
+            view->init(&p);
+        } else {
+            // some kind of problem assigning next view; crash
+            fprintf(stdout, "Lantern: Invalid next view when transitioning between views.");
+            int* crash = 0;
+            *crash = 0;
         }
-        
-        view->init(&p);
     }
 }
 

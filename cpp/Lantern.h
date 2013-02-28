@@ -28,6 +28,9 @@ public:
     // event
     void event(Event&);
     
+    // views
+    void addView(View* view, string key);
+    
 private:
     Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false) {  }
     Lantern(const Lantern& other);
@@ -38,7 +41,9 @@ private:
 private:
     GLfloat screenWidth, screenHeight, screenScale;
     bool isPortrait;
+    
     View* view;
+    map<string, View*> views;
 };
 
 #endif

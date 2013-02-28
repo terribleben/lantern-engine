@@ -11,17 +11,16 @@
 #ifndef __LANTERN_VIEW_H__
 #define __LANTERN_VIEW_H__
 
-#define LANTERN_VIEW_PLAY 0
-
 #include "Event.h"
 
 #include <map>
+#include <string>
 using std::map;
 using std::string;
 
 typedef struct ViewParams {
-    unsigned int nextView;
     map<string, void*> params;
+    string nextView;
 } ViewParams;
 
 class View {
