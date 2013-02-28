@@ -15,14 +15,13 @@ class FontManager {
 public:
     static FontManager& getInstance();
     
-    void setFont(string name, Font* font);
+    void addFont(Font* font, string name);
+    void addFontFromFile(string filename, string name);
+    void saveFontToFile(Font* font, string filename);
+    
     Font* getFont(string name);
     
 private:
-    float* getCharacterWidths(string fontName);
-    float widths[255];
-    bool hasSetWidths;
-    
 	FontManager();
 	FontManager(const FontManager& other);
 	~FontManager();

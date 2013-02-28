@@ -139,7 +139,7 @@ void Font::setCharacterWidths(float* widths, int idxStart, int length) {
         free(characterWidths);
     }
     if (widths && idxStart >= 0) {
-        characterWidths = (float*) malloc(sizeof(float) * 255);
+        characterWidths = (float*) malloc(sizeof(float) * 256);
         
         for (int ii = 0; ii < 256; ii++) {
             if (ii >= idxStart && ii < idxStart + length)
