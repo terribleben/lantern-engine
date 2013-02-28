@@ -27,6 +27,7 @@ public:
 	~Font();
     
     // Font must have some texture loaded before using any of the draw methods.
+    // Most common way to load a texture is through the FontManager add methods.
     
     // Load a texture. Params: dimensions of the whole texture image, dimensions of one character, and the index
     // (on the image) at which the NULL character (ascii zero) appears.
