@@ -21,6 +21,7 @@
 		B55D1D1016DEAB6B00968D22 /* rand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0F16DEAB6B00968D22 /* rand.cpp */; };
 		B55D1D1516DED5DF00968D22 /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1416DED5DF00968D22 /* white_bevel.png */; };
 		B55D1D1716DEDD9D00968D22 /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1616DEDD9D00968D22 /* white_bevel.lanternfont */; };
+		B55D1D1916E0040700968D22 /* LanternConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1816E0040700968D22 /* LanternConfig.plist */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -64,6 +65,7 @@
 		B55D1D0F16DEAB6B00968D22 /* rand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rand.cpp; sourceTree = "<group>"; };
 		B55D1D1416DED5DF00968D22 /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
 		B55D1D1616DEDD9D00968D22 /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
+		B55D1D1816E0040700968D22 /* LanternConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LanternConfig.plist; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -225,6 +227,7 @@
 				B5AD527C151D3D2800E96979 /* InfoPlist.strings */,
 				B5AD527F151D3D2800E96979 /* main.m */,
 				B5AD5281151D3D2800E96979 /* lantern-Prefix.pch */,
+				B55D1D1816E0040700968D22 /* LanternConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				B5AD528E151D3D2800E96979 /* ViewController.xib in Resources */,
 				B55D1D1516DED5DF00968D22 /* white_bevel.png in Resources */,
 				B55D1D1716DEDD9D00968D22 /* white_bevel.lanternfont in Resources */,
+				B55D1D1916E0040700968D22 /* LanternConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

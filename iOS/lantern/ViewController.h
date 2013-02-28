@@ -5,7 +5,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+FOUNDATION_EXPORT NSString* const kLanternConfigAccelerometerEnabled;
+
+@interface ViewController : UIViewController <UIAccelerometerDelegate>
 
 - (void) startAnimating;
 - (void) stopAnimating;

@@ -10,6 +10,7 @@
 #define LANTERN_EVENT_TOUCH_DOWN 0
 #define LANTERN_EVENT_TOUCH_UP 1
 #define LANTERN_EVENT_TOUCH_MOVE 2
+#define LANTERN_EVENT_ACCEL 3
 
 class Event {
 public:

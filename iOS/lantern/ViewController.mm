@@ -13,12 +13,15 @@
 
 #import "Lantern.h"
 
+NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
+
 
 @interface ViewController ()
 {
     BOOL animating;
     NSInteger animationFrameInterval;
     CADisplayLink* displayLink;
+    NSDictionary* lanternConfig;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
@@ -37,6 +40,11 @@
 
 - (void) viewDidLoad
 {
+    // load config
+    NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"LanternConfig.plist"];
+    lanternConfig = [[NSDictionary alloc] initWithContentsOfFile:path];
+    
+    // set up GL context
 	EAGLContext* _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
     
     if (!_context)
@@ -63,6 +71,13 @@
     animationFrameInterval = 1;
     self.displayLink = nil;
     
+    // enable the accelerometer?
+    NSString* accelParam = [lanternConfig objectForKey:kLanternConfigAccelerometerEnabled];
+    if (accelParam && [accelParam intValue] == 1) {
+        [[UIAccelerometer sharedAccelerometer] setDelegate:self];
+    }
+    
+    // init lantern
     Lantern::getInstance().init();
 }
 
@@ -73,6 +88,11 @@
     [context release];
     
     [super dealloc];
+    
+    if (lanternConfig) {
+        [lanternConfig release];
+        lanternConfig = nil;
+    }
     
     Lantern::getInstance().stop();
 }
@@ -95,7 +115,12 @@
     
     if ([EAGLContext currentContext] == context)
         [EAGLContext setCurrentContext:nil];
-	self.context = nil;	
+	self.context = nil;
+    
+    if (lanternConfig) {
+        [lanternConfig release];
+        lanternConfig = nil;
+    }
 }
 
 - (NSInteger) animationFrameInterval
@@ -195,6 +220,14 @@
 - (void) touchesCancelled: (NSSet*)touches withEvent: (UIEvent*)event
 {
     [self touchesEnded:touches withEvent:event];
+}
+
+- (void) accelerometer: (UIAccelerometer*)accelerometer didAccelerate: (UIAcceleration*)acceleration
+{
+    // accel event
+    float accelParam[] = { acceleration.x, acceleration.y, acceleration.z };
+    Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned int)accelerometer, accelParam);
+    Lantern::getInstance().event(accelEvent);
 }
 
 - (void) didReceiveMemoryWarning
