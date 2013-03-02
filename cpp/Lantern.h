@@ -36,6 +36,9 @@ private:
     Lantern(const Lantern& other);
     ~Lantern() {  }
     
+    void gameWillBegin();
+    void setInitialView(string initialViewKey);
+    
     void transitionView();
     
 private:
@@ -45,6 +48,7 @@ private:
     bool isPortrait;
     
     View* view;
+    string initialViewKey;
     map<string, View*> views;
 };
 

@@ -10,6 +10,19 @@
 #include "ParticleManager.h"
 #include "FontManager.h"
 
+/**
+ * Modify this method to prepare any views, resources, etc. once before the main loop begins.
+ */
+void Lantern::gameWillBegin() {
+    // load the example font
+    FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
+    
+    // load and queue the first view
+    addView(new ViewPlay(), "play");
+    setInitialView("play");
+}
+
+
 
 Lantern& Lantern::getInstance() {
     static Lantern theLantern;
@@ -24,6 +37,7 @@ void Lantern::init() {
         screenWidth = screenHeight = 0;
         screenScale = 1.0f;
         isPortrait = false;
+        initialViewKey = "";
         
         glEnable(GL_TEXTURE_2D);
         glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
@@ -31,11 +45,7 @@ void Lantern::init() {
         glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glEnableClientState(GL_VERTEX_ARRAY);
         
-        // load the example font
-        FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
-        
-        // start the first view
-        addView(new ViewPlay(), "play");
+        gameWillBegin();
         transitionView();
     }
 }
@@ -72,12 +82,19 @@ void Lantern::addView(View* view, string key) {
     views[key] = view;
 }
 
+void Lantern::setInitialView(string initialViewKey) {
+    this->initialViewKey = initialViewKey;
+}
+
 void Lantern::transitionView() {
     ViewParams p;
     bool shouldTransition = false;
     
     if (view == NULL) {
-        p.nextView = views.begin()->first;
+        if (initialViewKey.length())
+            p.nextView = initialViewKey;
+        else
+            p.nextView = views.begin()->first;
         shouldTransition = true;
     }
     else if (view->isFinished()) {
