@@ -118,3 +118,10 @@ bool ResourceManager::bindTexture(const char* key) {
     }
     return false;
 }
+
+void ResourceManager::unloadTexture(const char* key) {
+    if (texMap.find(key) != texMap.end()) {
+        glDeleteTextures(1, &(texMap[key]));
+        texMap.erase(key);
+    }
+}

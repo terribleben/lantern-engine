@@ -28,6 +28,7 @@ public:
     bool loadTexture(const char* name, const char* ext, const char* key);
     
     bool bindTexture(const char* key);
+    void unloadTexture(const char* key);
     
 private:
     ResourceManager();
