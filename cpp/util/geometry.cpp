@@ -5,11 +5,6 @@
 #include "Line3f.h"
 #include "Triangle3f.h"
 
-Point3f crossProduct(Point3f a, Point3f b) {
-	Point3f product(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
-	return product;
-}
-
 bool rectangleContains(Point3f topLeft, Point3f topRight, Point3f bottomLeft, Point3f bottomRight, Point3f p) {
 	return (Triangle3f(topLeft, topRight, bottomLeft).contains(p) || Triangle3f(bottomLeft, topRight, bottomRight).contains(p));
 }

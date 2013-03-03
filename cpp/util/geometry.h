@@ -8,8 +8,6 @@
 
 #include "Point3f.h"
 
-Point3f crossProduct(Point3f a, Point3f b);
-
 // calculate whether the rectangle (topLeft, topRight, bottomLeft, bottomRight) contains the Point3f p.
 bool rectangleContains(Point3f topLeft, Point3f topRight, Point3f bottomLeft, Point3f bottomRight, Point3f p);
 

@@ -30,6 +30,19 @@ public:
     // manipulators
     void normalize();
     
+    // aggregators
+    inline float angleXY() const { return atan2(y, x); }
+    inline float angleYZ() const { return atan2(z, y); }
+    inline float angleXZ() const { return atan2(z, x); }
+    
+    float magnitude() const;
+    float distanceTo(Point3f& other);
+    float angleTo(Point3f& other);
+    static inline Point3f crossProduct(Point3f& a, Point3f& b) { return Point3f(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x); }
+    
+public:
+    static float zero;
+    
     const Point3f& operator =(const Point3f&);
     Point3f operator +(const Point3f&) const;
     Point3f operator -(const Point3f&) const;
@@ -42,18 +55,6 @@ public:
     inline void operator /=(float);
     
     inline float operator *(const Point3f&) const;
-    
-    // aggregators
-    inline float angleXY() const { return atan2(y, x); }
-    inline float angleYZ() const { return atan2(z, y); }
-    inline float angleXZ() const { return atan2(z, x); }
-    
-    float magnitude() const;
-    float distanceTo(Point3f& other);
-    float angleTo(Point3f& other);
-    
-public:
-    static float zero;
 };
 
 #endif
