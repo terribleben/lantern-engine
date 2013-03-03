@@ -2,43 +2,19 @@
 // geometry.cpp
 
 #include "geometry.h"
-
-Point3f nearestPointOnSegmentToPoint(Point3f a, Point3f b, Point3f p) {
-    Point3f position;
-    
-    if (b.x == a.x) {
-        position.x = b.x;
-        position.y = p.y;
-    } else if (b.y == a.y) {
-        position.x = p.x;
-        position.y = b.y;
-    } else {
-        float slope = getSlope(a, b);
-        float slopeInv = 1.0f / slope;
-        position.x = (slope * a.x - a.y + p.y + slopeInv * p.x) / (slope + slopeInv);
-        position.y = slope * (position.x - a.x) + a.y;
-    }
-    return position;
-}
+#include "Line3f.h"
 
 Point3f crossProduct(Point3f a, Point3f b) {
 	Point3f product(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
 	return product;
 }
 
-// are the points p1 and p2 on the same side of the line containing points a and b?
-bool sameSideOfLine(Point3f p1, Point3f p2, Point3f a, Point3f b) {
-	Point3f cross1 = crossProduct(b - a, p1 - a);
-	Point3f cross2 = crossProduct(b - a, p2 - a);
-	return ((cross1.x * cross2.x + cross1.y * cross2.y + cross1.z * cross2.z) >= 0);
-}
-
 bool triangleContains(Point3f a, Point3f b, Point3f c, Point3f p) {
-	return !(
-			   !sameSideOfLine(p, a, b, c)
-			|| !sameSideOfLine(p, b, a, c)
-			|| !sameSideOfLine(p, c, a, b)
-			);
+    return !(
+                !Line3f(p, a).sameSide(b, c)
+             || !Line3f(p, b).sameSide(a, c)
+             || !Line3f(p, c).sameSide(a, b)
+             );
 }
 
 bool rectangleContains(Point3f topLeft, Point3f topRight, Point3f bottomLeft, Point3f bottomRight, Point3f p) {
@@ -69,54 +45,11 @@ bool trianglePlaneContains(Point3f a, Point3f b, Point3f c, Point3f p) {
 	return (det == 0);
 }
 
-float getSlope(Point3f &p1, Point3f &p2) {
-	if (p1.x == p2.x) return INFINITY;
-	return (p1.y - p2.y) / (p1.x - p2.x);
-}
-
 bool between(float n, float a, float b) {
 	if (a < b)
 		return (n >= a && n <= b);
 	else
 		return (n >= b && n <= a);
-}
-
-// decides whether the line segments (p1, p2) and (p3, p4) intersect.
-// note that this is only designed to operate in two dimensions, so the z coordinate
-// of these points is ignored.
-bool segmentsIntersect(Point3f &p1, Point3f &p2, Point3f &p3, Point3f &p4, Point3f* intersectionPosition) {
-	float m1 = getSlope(p1, p2);
-	float m2 = getSlope(p3, p4);
-    
-    if (m1 == m2) return false;
-	
-	float intX, intY;
-	
-	if (m1 == INFINITY) {
-		intX = p1.x;
-		intY = m2 * (intX - p3.x) + p3.y;
-	} else if (m2 == INFINITY) {
-		intX = p3.x;
-		intY = m1 * (intX - p1.x) + p1.y;
-	} else {
-		intX = (-p1.y + (m1 * p1.x) + p3.y - (m2 * p3.x)) / (m1 - m2);
-		intY = m1 * (intX - p1.x) + p1.y;
-	}
-	
-	if (
-			between(intX, p1.x, p2.x)
-			&& between(intX, p3.x, p4.x)
-			&& between(intY, p1.y, p2.y)
-			&& between(intY, p3.y, p4.y)
-		) {
-		
-		if (intersectionPosition != NULL) {
-			intersectionPosition->x = intX;
-			intersectionPosition->y = intY;
-		}
-		return true;
-	}
-	return false;
 }
 
 float angleTo(Point3f &p1, Point3f &p2) {
