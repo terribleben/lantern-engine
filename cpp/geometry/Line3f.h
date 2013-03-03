@@ -44,7 +44,7 @@ public:
     }
     
     inline float anglePQ() {
-        return (q - p).angleXY();
+        return p.angleTo(q);
     }
     
 public:

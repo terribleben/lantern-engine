@@ -50,6 +50,7 @@ public:
     
     float magnitude() const;
     float distanceTo(Point3f& other);
+    float angleTo(Point3f& other);
     
 public:
     static float zero;

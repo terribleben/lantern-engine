@@ -51,24 +51,3 @@ bool between(float n, float a, float b) {
 	else
 		return (n >= b && n <= a);
 }
-
-float angleTo(Point3f &p1, Point3f &p2) {
-	return atan2(p2.y - p1.y, p2.x - p1.x);
-}
-
-float diffAngle(float angle1, float angle2) {
-	while (angle1 > M_2_PI) angle1 -= M_2_PI;
-	while (angle2 > M_2_PI) angle2 -= M_2_PI;
-	while (angle1 < 0) angle1 += M_2_PI;
-	while (angle2 < 0) angle2 += M_2_PI;
-	
-	float diff = angle1 - angle2;
-	if (fabs(diff) <= M_PI) return diff;
-	
-	while (angle1 > M_PI) angle1 -= M_2_PI;
-	while (angle2 > M_PI) angle2 -= M_2_PI;
-	while (angle1 < -M_PI) angle1 += M_2_PI;
-	while (angle2 < -M_PI) angle2 += M_2_PI;
-
-	return angle1 - angle2;
-}

@@ -25,10 +25,4 @@ bool trianglePlaneContains(Point3f a, Point3f b, Point3f c, Point3f p);
 // decide whether n is between a and b, inclusive.
 bool between(float n, float a, float b);
 
-// angle between two points
-float angleTo(Point3f &p1, Point3f &p2);
-
-// difference between two angles
-float diffAngle(float angle1, float angle2);
-
 #endif

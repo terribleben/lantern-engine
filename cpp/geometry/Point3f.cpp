@@ -104,3 +104,7 @@ void Point3f::normalize() {
 float Point3f::distanceTo(Point3f &other) {
     return sqrt(pow((x - other.x), 2.0) + pow((y - other.y), 2.0));
 }
+
+float Point3f::angleTo(Point3f& other) {
+    return atan2(other.y - y, other.x - x);
+}

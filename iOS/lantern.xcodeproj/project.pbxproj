@@ -23,6 +23,7 @@
 		B55D1D1916E0040700968D22 /* LanternConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1816E0040700968D22 /* LanternConfig.plist */; };
 		B55D1D1D16E2CBCE00968D22 /* Point3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D1B16E2CBCD00968D22 /* Point3f.cpp */; };
 		B55D1D2016E2D35100968D22 /* Line3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D1F16E2D35100968D22 /* Line3f.cpp */; };
+		B55D1D2316E2E2BC00968D22 /* Angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2216E2E2BC00968D22 /* Angle.cpp */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -69,6 +70,8 @@
 		B55D1D1C16E2CBCE00968D22 /* Point3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point3f.h; sourceTree = "<group>"; };
 		B55D1D1E16E2CE2800968D22 /* Line3f.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Line3f.h; sourceTree = "<group>"; };
 		B55D1D1F16E2D35100968D22 /* Line3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line3f.cpp; sourceTree = "<group>"; };
+		B55D1D2116E2E18300968D22 /* Angle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Angle.h; sourceTree = "<group>"; };
+		B55D1D2216E2E2BC00968D22 /* Angle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Angle.cpp; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +191,8 @@
 				B55D1D1B16E2CBCD00968D22 /* Point3f.cpp */,
 				B55D1D1E16E2CE2800968D22 /* Line3f.h */,
 				B55D1D1F16E2D35100968D22 /* Line3f.cpp */,
+				B55D1D2116E2E18300968D22 /* Angle.h */,
+				B55D1D2216E2E2BC00968D22 /* Angle.cpp */,
 			);
 			path = geometry;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				B55D1D1016DEAB6B00968D22 /* rand.cpp in Sources */,
 				B55D1D1D16E2CBCE00968D22 /* Point3f.cpp in Sources */,
 				B55D1D2016E2D35100968D22 /* Line3f.cpp in Sources */,
+				B55D1D2316E2E2BC00968D22 /* Angle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
