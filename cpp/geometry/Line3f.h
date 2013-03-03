@@ -48,6 +48,9 @@ public:
     }
     
 public:
+    Point3f& operator [] (unsigned int index);
+    const Point3f& operator [] (unsigned int index) const;
+    
     const Line3f& operator =(const Line3f&);
 };
 

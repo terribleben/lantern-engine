@@ -23,6 +23,9 @@ public:
     bool planeContains(Point3f& p);
 
 public:
+    Point3f& operator [] (unsigned int index);
+    const Point3f& operator [] (unsigned int index) const;
+
     const Triangle3f& operator =(const Triangle3f&);
 };
 

@@ -6,6 +6,14 @@
 #include "Triangle3f.h"
 #include "Line3f.h"
 
+Point3f& Triangle3f::operator [] (unsigned int index) {
+    return *(Point3f*)(&a + sizeof(Point3f) * index);
+}
+
+const Point3f& Triangle3f::operator [] (unsigned int index) const {
+    return *(Point3f*)(&a + sizeof(Point3f) * index);
+}
+
 const Triangle3f& Triangle3f::operator =(const Triangle3f& other) {
     a = other.a;
     b = other.b;

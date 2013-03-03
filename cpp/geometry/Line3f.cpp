@@ -6,6 +6,14 @@
 #include "Line3f.h"
 #include "geometry.h"
 
+Point3f& Line3f::operator [] (unsigned int index) {
+    return *(Point3f*)(&p + sizeof(Point3f) * index);
+}
+
+const Point3f& Line3f::operator [] (unsigned int index) const {
+    return *(Point3f*)(&p + sizeof(Point3f) * index);
+}
+
 const Line3f& Line3f::operator =(const Line3f& other) {
     p = other.p;
     q = other.q;
