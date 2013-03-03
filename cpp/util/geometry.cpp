@@ -119,10 +119,6 @@ bool segmentsIntersect(Point3f &p1, Point3f &p2, Point3f &p3, Point3f &p4, Point
 	return false;
 }
 
-float distanceTo(Point3f &p1, Point3f &p2) {
-	return sqrt(pow((p1.x - p2.x), 2.0) + pow((p1.y - p2.y), 2.0));
-}
-
 float angleTo(Point3f &p1, Point3f &p2) {
 	return atan2(p2.y - p1.y, p2.x - p1.x);
 }

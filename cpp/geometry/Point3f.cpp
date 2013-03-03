@@ -100,3 +100,7 @@ void Point3f::normalize() {
     if (m != 0)
         *this *= 1.0f / m;
 }
+
+float Point3f::distanceTo(Point3f &other) {
+    return sqrt(pow((x - other.x), 2.0) + pow((y - other.y), 2.0));
+}

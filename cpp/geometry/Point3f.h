@@ -49,6 +49,7 @@ public:
     inline float angleXZ() const { return atan2(z, x); }
     
     float magnitude() const;
+    float distanceTo(Point3f& other);
     
 public:
     static float zero;

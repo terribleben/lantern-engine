@@ -15,13 +15,13 @@
 		B55D1D0816DEA37A00968D22 /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF516DEA37A00968D22 /* Font.cpp */; };
 		B55D1D0916DEA37A00968D22 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF716DEA37A00968D22 /* FontManager.cpp */; };
 		B55D1D0A16DEA37A00968D22 /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF916DEA37A00968D22 /* geometry.cpp */; };
-		B55D1D0B16DEA37A00968D22 /* Point3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CFB16DEA37A00968D22 /* Point3f.cpp */; };
 		B55D1D0C16DEA37A00968D22 /* ResourceManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */; };
 		B55D1D0D16DEA37A00968D22 /* ViewPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0116DEA37A00968D22 /* ViewPlay.cpp */; };
 		B55D1D1016DEAB6B00968D22 /* rand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0F16DEAB6B00968D22 /* rand.cpp */; };
 		B55D1D1516DED5DF00968D22 /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1416DED5DF00968D22 /* white_bevel.png */; };
 		B55D1D1716DEDD9D00968D22 /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1616DEDD9D00968D22 /* white_bevel.lanternfont */; };
 		B55D1D1916E0040700968D22 /* LanternConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55D1D1816E0040700968D22 /* LanternConfig.plist */; };
+		B55D1D1D16E2CBCE00968D22 /* Point3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D1B16E2CBCD00968D22 /* Point3f.cpp */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -54,8 +54,6 @@
 		B55D1CF816DEA37A00968D22 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
 		B55D1CF916DEA37A00968D22 /* geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geometry.cpp; sourceTree = "<group>"; };
 		B55D1CFA16DEA37A00968D22 /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
-		B55D1CFB16DEA37A00968D22 /* Point3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point3f.cpp; sourceTree = "<group>"; };
-		B55D1CFC16DEA37A00968D22 /* Point3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point3f.h; sourceTree = "<group>"; };
 		B55D1CFD16DEA37A00968D22 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourceManager.mm; sourceTree = "<group>"; };
 		B55D1CFF16DEA37A00968D22 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
@@ -66,6 +64,8 @@
 		B55D1D1416DED5DF00968D22 /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
 		B55D1D1616DEDD9D00968D22 /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
 		B55D1D1816E0040700968D22 /* LanternConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LanternConfig.plist; sourceTree = "<group>"; };
+		B55D1D1B16E2CBCD00968D22 /* Point3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point3f.cpp; sourceTree = "<group>"; };
+		B55D1D1C16E2CBCE00968D22 /* Point3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point3f.h; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +112,7 @@
 				B55D1CE716DEA37A00968D22 /* Event.h */,
 				B55D1CEA16DEA37A00968D22 /* objects */,
 				B55D1CED16DEA37A00968D22 /* particles */,
+				B55D1D1A16E2CB7000968D22 /* geometry */,
 				B55D1CF216DEA37A00968D22 /* util */,
 				B55D1D0016DEA37A00968D22 /* views */,
 			);
@@ -148,8 +149,6 @@
 				B55D1CF316DEA37A00968D22 /* draw.cpp */,
 				B55D1CFA16DEA37A00968D22 /* geometry.h */,
 				B55D1CF916DEA37A00968D22 /* geometry.cpp */,
-				B55D1CFC16DEA37A00968D22 /* Point3f.h */,
-				B55D1CFB16DEA37A00968D22 /* Point3f.cpp */,
 				B55D1CF616DEA37A00968D22 /* Font.h */,
 				B55D1CF516DEA37A00968D22 /* Font.cpp */,
 				B55D1CF816DEA37A00968D22 /* FontManager.h */,
@@ -177,6 +176,15 @@
 			);
 			name = assets;
 			path = ../../assets;
+			sourceTree = "<group>";
+		};
+		B55D1D1A16E2CB7000968D22 /* geometry */ = {
+			isa = PBXGroup;
+			children = (
+				B55D1D1C16E2CBCE00968D22 /* Point3f.h */,
+				B55D1D1B16E2CBCD00968D22 /* Point3f.cpp */,
+			);
+			path = geometry;
 			sourceTree = "<group>";
 		};
 		B5AD5260151D3D2800E96979 = {
@@ -323,10 +331,10 @@
 				B55D1D0816DEA37A00968D22 /* Font.cpp in Sources */,
 				B55D1D0916DEA37A00968D22 /* FontManager.cpp in Sources */,
 				B55D1D0A16DEA37A00968D22 /* geometry.cpp in Sources */,
-				B55D1D0B16DEA37A00968D22 /* Point3f.cpp in Sources */,
 				B55D1D0C16DEA37A00968D22 /* ResourceManager.mm in Sources */,
 				B55D1D0D16DEA37A00968D22 /* ViewPlay.cpp in Sources */,
 				B55D1D1016DEAB6B00968D22 /* rand.cpp in Sources */,
+				B55D1D1D16E2CBCE00968D22 /* Point3f.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

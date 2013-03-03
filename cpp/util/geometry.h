@@ -39,9 +39,6 @@ bool between(float n, float a, float b);
 // if true, optionally populate intersectionPosition with the coordinates of the intersection.
 bool segmentsIntersect(Point3f &p1, Point3f &p2, Point3f &p3, Point3f &p4, Point3f* intersectionPosition);
 
-// distance between two points
-float distanceTo(Point3f &p1, Point3f &p2);
-
 // angle between two points
 float angleTo(Point3f &p1, Point3f &p2);
 
