@@ -5,7 +5,7 @@
 #include <sstream>
 
 #include "Font.h"
-#include "geometry.h"
+#include "Rectangle3f.h"
 #include "ResourceManager.h"
 
 #define LANTERN_FONT_VERSION 1.0f
@@ -335,7 +335,7 @@ bool Font::stringContainsExt(Point3f p, float margin, float x, float y, string s
 	if (hAlign == LANTERN_FONT_ALIGN_RIGHT) xAlign -= stringWidth;
 	if (vAlign == LANTERN_FONT_ALIGN_MIDDLE) yAlign += stringHeight / 2.0f;
 	if (vAlign == LANTERN_FONT_ALIGN_BOTTOM) yAlign += stringHeight;
-	
-	return simpleRectangleContains(Point3f(xAlign - margin, yAlign + margin, 0), Point3f(xAlign + stringWidth + margin, yAlign - stringHeight - margin, 0), p);
+    
+    return Rectangle3f(Point3f(xAlign - margin, yAlign - stringHeight - margin, 0), Point3f(xAlign + stringWidth + margin, yAlign + margin, 0)).contains(p);
 }
 
