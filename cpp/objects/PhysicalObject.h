@@ -6,7 +6,7 @@
 #ifndef __LANTERN_WORLD_OBJECT_H__
 #define __LANTERN_WORLD_OBJECT_H__
 
-#include "geometry.h"
+#include "Point3f.h"
 
 #define PHYSICAL_OBJECT_MOTION_POSITION 0
 #define PHYSICAL_OBJECT_MOTION_VELOCITY 1

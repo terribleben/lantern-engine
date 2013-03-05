@@ -5,7 +5,7 @@
 #define __LANTERN_DRAW_H__
 
 #include <OpenGLES/ES1/gl.h>
-#include "geometry.h"
+#include "Point3f.h"
 
 void lookAt(double eye_x, double eye_y, double eye_z, double at_x, double at_y, double at_z, double up_x, double up_y, double up_z);
 

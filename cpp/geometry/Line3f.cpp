@@ -4,7 +4,7 @@
 //
 
 #include "Line3f.h"
-#include "geometry.h"
+#include "util_math.h"
 
 Point3f& Line3f::operator [] (unsigned int index) {
     return *(Point3f*)(&p + sizeof(Point3f) * index);

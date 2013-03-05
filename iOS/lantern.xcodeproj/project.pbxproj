@@ -14,7 +14,6 @@
 		B55D1D0716DEA37A00968D22 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF316DEA37A00968D22 /* draw.cpp */; };
 		B55D1D0816DEA37A00968D22 /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF516DEA37A00968D22 /* Font.cpp */; };
 		B55D1D0916DEA37A00968D22 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF716DEA37A00968D22 /* FontManager.cpp */; };
-		B55D1D0A16DEA37A00968D22 /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CF916DEA37A00968D22 /* geometry.cpp */; };
 		B55D1D0C16DEA37A00968D22 /* ResourceManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */; };
 		B55D1D0D16DEA37A00968D22 /* ViewPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0116DEA37A00968D22 /* ViewPlay.cpp */; };
 		B55D1D1016DEAB6B00968D22 /* rand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D0F16DEAB6B00968D22 /* rand.cpp */; };
@@ -26,6 +25,7 @@
 		B55D1D2316E2E2BC00968D22 /* Angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2216E2E2BC00968D22 /* Angle.cpp */; };
 		B55D1D2616E3EE8B00968D22 /* Triangle3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2516E3EE8A00968D22 /* Triangle3f.cpp */; };
 		B55D1D2916E5C11700968D22 /* Rectangle3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2816E5C11700968D22 /* Rectangle3f.cpp */; };
+		B55D1D2C16E5CA1000968D22 /* util_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2A16E5CA1000968D22 /* util_math.cpp */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -56,8 +56,6 @@
 		B55D1CF616DEA37A00968D22 /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Font.h; sourceTree = "<group>"; };
 		B55D1CF716DEA37A00968D22 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
 		B55D1CF816DEA37A00968D22 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
-		B55D1CF916DEA37A00968D22 /* geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geometry.cpp; sourceTree = "<group>"; };
-		B55D1CFA16DEA37A00968D22 /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
 		B55D1CFD16DEA37A00968D22 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		B55D1CFE16DEA37A00968D22 /* ResourceManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourceManager.mm; sourceTree = "<group>"; };
 		B55D1CFF16DEA37A00968D22 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
@@ -78,6 +76,8 @@
 		B55D1D2516E3EE8A00968D22 /* Triangle3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle3f.cpp; sourceTree = "<group>"; };
 		B55D1D2716E5BEF100968D22 /* Rectangle3f.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rectangle3f.h; sourceTree = "<group>"; };
 		B55D1D2816E5C11700968D22 /* Rectangle3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle3f.cpp; sourceTree = "<group>"; };
+		B55D1D2A16E5CA1000968D22 /* util_math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util_math.cpp; sourceTree = "<group>"; };
+		B55D1D2B16E5CA1000968D22 /* util_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util_math.h; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,12 +155,12 @@
 		B55D1CF216DEA37A00968D22 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				B55D1D2B16E5CA1000968D22 /* util_math.h */,
+				B55D1D2A16E5CA1000968D22 /* util_math.cpp */,
 				B55D1D0E16DEA91600968D22 /* rand.h */,
 				B55D1D0F16DEAB6B00968D22 /* rand.cpp */,
 				B55D1CF416DEA37A00968D22 /* draw.h */,
 				B55D1CF316DEA37A00968D22 /* draw.cpp */,
-				B55D1CFA16DEA37A00968D22 /* geometry.h */,
-				B55D1CF916DEA37A00968D22 /* geometry.cpp */,
 				B55D1CF616DEA37A00968D22 /* Font.h */,
 				B55D1CF516DEA37A00968D22 /* Font.cpp */,
 				B55D1CF816DEA37A00968D22 /* FontManager.h */,
@@ -350,7 +350,6 @@
 				B55D1D0716DEA37A00968D22 /* draw.cpp in Sources */,
 				B55D1D0816DEA37A00968D22 /* Font.cpp in Sources */,
 				B55D1D0916DEA37A00968D22 /* FontManager.cpp in Sources */,
-				B55D1D0A16DEA37A00968D22 /* geometry.cpp in Sources */,
 				B55D1D0C16DEA37A00968D22 /* ResourceManager.mm in Sources */,
 				B55D1D0D16DEA37A00968D22 /* ViewPlay.cpp in Sources */,
 				B55D1D1016DEAB6B00968D22 /* rand.cpp in Sources */,
@@ -359,6 +358,7 @@
 				B55D1D2316E2E2BC00968D22 /* Angle.cpp in Sources */,
 				B55D1D2616E3EE8B00968D22 /* Triangle3f.cpp in Sources */,
 				B55D1D2916E5C11700968D22 /* Rectangle3f.cpp in Sources */,
+				B55D1D2C16E5CA1000968D22 /* util_math.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

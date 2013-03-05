@@ -4,7 +4,7 @@
 //
 
 #include "Angle.h"
-#include "geometry.h"
+#include "util_math.h"
 
 float Angle::diff(float a, float b) {
     while (a > M_2_PI) a -= M_2_PI;

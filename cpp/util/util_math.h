@@ -1,12 +1,11 @@
 
-// geometry.h
+// util_math.h
 
-#ifndef __LANTERN_GEOMETRY_H__
-#define __LANTERN_GEOMETRY_H__
+#ifndef __LANTERN_UTIL_MATH_H__
+#define __LANTERN_UTIL_MATH_H__
 
 #include <cstdlib>
-
-#include "Point3f.h"
+#include <math.h>
 
 // decide whether n is between a and b, inclusive.
 bool between(float n, float a, float b);

@@ -1,7 +1,7 @@
 
-// geometry.cpp
+// util_math.cpp
 
-#include "geometry.h"
+#include "util_math.h"
 
 bool between(float n, float a, float b) {
 	if (a < b)
