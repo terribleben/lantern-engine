@@ -6,10 +6,10 @@
 #ifndef lantern_rand_h
 #define lantern_rand_h
 
-int rand(int seed);
-float randf(int seed);
+unsigned int rand(unsigned int seed);
+float randf(unsigned int seed);
 
-int rand();
+unsigned int rand();
 float randf();
 
 #endif

@@ -9,10 +9,10 @@
 #define LANTERN_RAND_A 1664525
 #define LANTERN_RAND_C 1013904223
 
-int _lantern_rand_seed = LANTERN_RAND_A;
+unsigned int _lantern_rand_seed = LANTERN_RAND_A;
 
-int rand() {
-    int result = ((LANTERN_RAND_A * _lantern_rand_seed) + LANTERN_RAND_C) % LANTERN_RAND_MAX;
+unsigned int rand() {
+    unsigned int result = ((LANTERN_RAND_A * _lantern_rand_seed) + LANTERN_RAND_C) % LANTERN_RAND_MAX;
     _lantern_rand_seed = result;
     return result;
 }
@@ -21,12 +21,12 @@ float randf() {
     return ((float)rand() / (float)LANTERN_RAND_MAX);
 }
 
-int rand(int seed) {
+unsigned int rand(unsigned int seed) {
     _lantern_rand_seed = seed;
     return rand();
 }
 
-float randf(int seed) {
+float randf(unsigned int seed) {
     _lantern_rand_seed = seed;
     return randf();
 }
