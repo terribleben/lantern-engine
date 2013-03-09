@@ -9,4 +9,7 @@
 int rand(int seed);
 float randf(int seed);
 
+int rand();
+float randf();
+
 #endif
