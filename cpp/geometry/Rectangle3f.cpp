@@ -5,6 +5,7 @@
 
 #include "Rectangle3f.h"
 #include "Triangle3f.h"
+#include "util_math.h"
 
 #include <cstdlib>
 
@@ -32,10 +33,10 @@ void Rectangle3f::setOrientation(float orientation) {
         corners = (Point3f*) malloc(sizeof(Point3f) * 4);
     }
     
-    while (orientation > M_2_PI)
-        orientation -= M_2_PI;
+    while (orientation > M_2PI)
+        orientation -= M_2PI;
     while (orientation < 0)
-        orientation += M_2_PI;
+        orientation += M_2PI;
     
     // corners in a z shape, top to bottom.
     corners[0].set(origin.x + (-size.x * 0.5f * cos(orientation)), origin.y + (size.y * 0.5f * sin(orientation)), 0);
