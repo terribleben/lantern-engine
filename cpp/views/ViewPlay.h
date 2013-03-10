@@ -6,7 +6,7 @@
 #ifndef __LANTERN_VIEW_PLAY_H__
 #define __LANTERN_VIEW_PLAY_H__
 
-#include "view.h"
+#include "View.h"
 
 class ViewPlay : public View {
 public:
