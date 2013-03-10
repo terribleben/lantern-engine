@@ -11,22 +11,22 @@
 
 unsigned int _lantern_rand_seed = LANTERN_RAND_A;
 
-unsigned int rand() {
+unsigned int lantern_rand() {
     unsigned int result = ((LANTERN_RAND_A * _lantern_rand_seed) + LANTERN_RAND_C) % LANTERN_RAND_MAX;
     _lantern_rand_seed = result;
     return result;
 }
 
-float randf() {
-    return ((float)rand() / (float)LANTERN_RAND_MAX);
+float lantern_randf() {
+    return ((float)lantern_rand() / (float)LANTERN_RAND_MAX);
 }
 
-unsigned int rand(unsigned int seed) {
+unsigned int lantern_rand(unsigned int seed) {
     _lantern_rand_seed = seed;
-    return rand();
+    return lantern_rand();
 }
 
-float randf(unsigned int seed) {
+float lantern_randf(unsigned int seed) {
     _lantern_rand_seed = seed;
-    return randf();
+    return lantern_randf();
 }
