@@ -7,6 +7,7 @@
 #define __LANTERN_RECTANGLE_H__
 
 #include "Point3f.h"
+#include <cstdlib>
 
 class Rectangle3f {
 public:
@@ -18,7 +19,7 @@ public:
     float getOrientation();
     
 public:
-    Rectangle3f() : orientation(0), corners(0x0) {  }
+    Rectangle3f() : orientation(0), corners(NULL) {  }
     Rectangle3f(Point3f origin, Point3f size, float orientation);
     Rectangle3f(Point3f bottomLeft, Point3f topRight); // no validity check here!
     
@@ -26,6 +27,7 @@ public:
     ~Rectangle3f();
     
     bool contains(Point3f& p);
+    Point3f* getCorners();
     
 public:
     const Rectangle3f& operator =(const Rectangle3f&);

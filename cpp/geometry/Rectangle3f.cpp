@@ -11,10 +11,12 @@
 
 Rectangle3f::Rectangle3f(Point3f origin, Point3f size, float orientation) {
     Rectangle3f();
+    corners = NULL;
     
     this->origin = origin;
     this->size = size;
-    this->setOrientation(orientation);
+    if (orientation != 0)
+        this->setOrientation(orientation);
 }
 
 Rectangle3f::Rectangle3f(Point3f bottomLeft, Point3f topRight) {
@@ -28,6 +30,12 @@ Rectangle3f::~Rectangle3f() {
     }
 }
 
+Point3f* Rectangle3f::getCorners() {
+    if (!corners)
+        setOrientation(this->orientation);
+    return corners;
+}
+
 void Rectangle3f::setOrientation(float orientation) {
     if (!corners) {
         corners = (Point3f*) malloc(sizeof(Point3f) * 4);
@@ -38,11 +46,14 @@ void Rectangle3f::setOrientation(float orientation) {
     while (orientation < 0)
         orientation += M_2PI;
     
+    float diagAngle = size.angleXY();
+    float diagLength = size.magnitude() * 0.5f;
+    
     // corners in a z shape, top to bottom.
-    corners[0].set(origin.x + (-size.x * 0.5f * cos(orientation)), origin.y + (size.y * 0.5f * sin(orientation)), 0);
-    corners[1].set(origin.x + (size.x * 0.5f * cos(orientation)), origin.y + (size.y * 0.5f * sin(orientation)), 0);
-    corners[2].set(origin.x + (-size.x * 0.5f * cos(orientation)), origin.y + (-size.y * 0.5f * sin(orientation)), 0);
-    corners[3].set(origin.x + (size.x * 0.5f * cos(orientation)), origin.y + (-size.y * 0.5f * sin(orientation)), 0);
+    corners[0].set(origin.x + diagLength * cos(M_PI - diagAngle + orientation), origin.y + diagLength * sin(M_PI - diagAngle + orientation), 0);
+    corners[1].set(origin.x + diagLength * cos(diagAngle + orientation), origin.y + diagLength * sin(diagAngle + orientation), 0);
+    corners[2].set(origin.x + diagLength * cos(M_PI + diagAngle + orientation), origin.y + diagLength * sin(M_PI + diagAngle + orientation), 0);
+    corners[3].set(origin.x + diagLength * cos(-diagAngle + orientation), origin.y + diagLength * sin(-diagAngle + orientation), 0);
     
     this->orientation = orientation;
 }
