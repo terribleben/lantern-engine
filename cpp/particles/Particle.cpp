@@ -6,6 +6,7 @@
 #include "Particle.h"
 #include "draw.h"
 #include "ResourceManager.h"
+#include "Angle.h"
 
 Particle::Particle() : PhysicalObject() {
     setLifespan(0);
@@ -39,7 +40,7 @@ void Particle::draw() {
         ResourceManager::getInstance().bindTexture(textureKey.c_str());
         glPushMatrix();
         glTranslatef(position.x, position.y, position.z);
-        glRotatef(orientation, 0, 0, 1);
+        glRotatef(Angle::toDegrees(orientation), 0, 0, 1);
         drawTexture(Point3f(), width * scale * internalScale, height * scale * internalScale);
         glPopMatrix();
     } else {
