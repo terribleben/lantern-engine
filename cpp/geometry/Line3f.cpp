@@ -83,11 +83,12 @@ Point3f Line3f::nearestPointTo(Point3f& a) {
     return result;
 }
 
+// for line PQ and points A and B, same side if (PA X PQ) dot (PB X PQ) >= 0.
 bool Line3f::sameSide(Point3f &a, Point3f &b) {
-    Point3f AB = b - a, AP = p - a, AQ = q - a;
+    Point3f PA = a - p, PB = b - p, PQ = q - p;
     
-    Point3f cross1 = Point3f::crossProduct(AB, AP);
-    Point3f cross2 = Point3f::crossProduct(AB, AQ);
+    Point3f cross1 = Point3f::crossProduct(PA, PQ);
+    Point3f cross2 = Point3f::crossProduct(PB, PQ);
     
-	return ((cross1.x * cross2.x + cross1.y * cross2.y + cross1.z * cross2.z) >= 0);
+    return ((cross1.x * cross2.x + cross1.y * cross2.y + cross1.z * cross2.z) >= 0);
 }
