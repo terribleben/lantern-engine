@@ -10,7 +10,7 @@
 #include <cstdlib>
 
 Rectangle3f::Rectangle3f(Point3f origin, Point3f size, float orientation) {
-    Rectangle3f();
+    orientation = 0;
     corners = NULL;
     
     this->origin = origin;
@@ -20,7 +20,10 @@ Rectangle3f::Rectangle3f(Point3f origin, Point3f size, float orientation) {
 }
 
 Rectangle3f::Rectangle3f(Point3f bottomLeft, Point3f topRight) {
-    Rectangle3f(bottomLeft + topRight * 0.5f, topRight - bottomLeft, 0);
+    orientation = 0;
+    corners = NULL;
+    origin = (bottomLeft + topRight) * 0.5f;
+    size = topRight - bottomLeft;
 }
 
 Rectangle3f::~Rectangle3f() {
