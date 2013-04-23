@@ -18,6 +18,9 @@
 using std::map;
 using std::string;
 
+#define LANTERN_VIEW_PARAM_WIDTH "width"
+#define LANTERN_VIEW_PARAM_HEIGHT "height"
+
 typedef struct ViewParams {
     map<string, void*> params;
     string nextView;
@@ -27,7 +30,7 @@ class View {
 public:
     virtual ~View() {  }
     
-    virtual void init(ViewParams*) = 0;
+    virtual void init(ViewParams*);
     
     virtual void step() = 0;
     virtual void draw() = 0;
@@ -36,6 +39,11 @@ public:
     
     virtual bool isFinished() = 0;
     virtual void stop(ViewParams*) = 0;
+    
+    virtual void setSize(float width, float height);
+    
+protected:
+    float viewWidth, viewHeight;
 };
 
 #include "ViewPlay.h"

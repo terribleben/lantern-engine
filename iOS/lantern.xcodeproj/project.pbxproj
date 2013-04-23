@@ -29,6 +29,7 @@
 		B56FCFF217264D1F00834DCB /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFEC17264D1F00834DCB /* Generator.cpp */; };
 		B56FCFF317264D1F00834DCB /* GeneratorSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFEE17264D1F00834DCB /* GeneratorSaw.cpp */; };
 		B56FCFF417264D1F00834DCB /* Track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF017264D1F00834DCB /* Track.cpp */; };
+		B56FCFF61726527B00834DCB /* View.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF51726527B00834DCB /* View.cpp */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -88,6 +89,7 @@
 		B56FCFEF17264D1F00834DCB /* GeneratorSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSaw.h; sourceTree = "<group>"; };
 		B56FCFF017264D1F00834DCB /* Track.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Track.cpp; sourceTree = "<group>"; };
 		B56FCFF117264D1F00834DCB /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		B56FCFF51726527B00834DCB /* View.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = View.cpp; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +133,7 @@
 				B55D1CE916DEA37A00968D22 /* Lantern.h */,
 				B55D1CE816DEA37A00968D22 /* Lantern.cpp */,
 				B55D1CFF16DEA37A00968D22 /* View.h */,
+				B56FCFF51726527B00834DCB /* View.cpp */,
 				B55D1CE716DEA37A00968D22 /* Event.h */,
 				B55D1CEA16DEA37A00968D22 /* objects */,
 				B55D1CED16DEA37A00968D22 /* particles */,
@@ -387,6 +390,7 @@
 				B56FCFF217264D1F00834DCB /* Generator.cpp in Sources */,
 				B56FCFF317264D1F00834DCB /* GeneratorSaw.cpp in Sources */,
 				B56FCFF417264D1F00834DCB /* Track.cpp in Sources */,
+				B56FCFF61726527B00834DCB /* View.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

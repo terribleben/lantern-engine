@@ -53,10 +53,15 @@ void Lantern::init() {
 void Lantern::setDimensions(GLfloat width, GLfloat height) {
     screenWidth = width;
     screenHeight = height;
+    
+    if (view)
+        view->setSize(screenWidth / screenScale, screenHeight / screenScale);
 }
 
 void Lantern::setScale(GLfloat scale) {
     screenScale = scale;
+    if (screenScale == 0)
+        screenScale = 1.0f;
 }
 
 void Lantern::setOrientation(bool isPortrait) {
@@ -104,6 +109,11 @@ void Lantern::transitionView() {
     
     if (shouldTransition) {
         if (p.nextView.length() && views.find(p.nextView) != views.end()) {
+            float viewWidth = screenWidth / screenScale;
+            float viewHeight = screenHeight / screenScale;
+            p.params[LANTERN_VIEW_PARAM_WIDTH] = &viewWidth;
+            p.params[LANTERN_VIEW_PARAM_HEIGHT] = &viewHeight;
+            
             view = views[p.nextView];
             view->init(&p);
         } else {

@@ -9,7 +9,7 @@
 #include "FontManager.h"
 
 void ViewPlay::init(ViewParams* p) {
-    
+    View::init(p);
 }
 
 void ViewPlay::step() {
