@@ -30,6 +30,7 @@
 		B56FCFF317264D1F00834DCB /* GeneratorSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFEE17264D1F00834DCB /* GeneratorSaw.cpp */; };
 		B56FCFF417264D1F00834DCB /* Track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF017264D1F00834DCB /* Track.cpp */; };
 		B56FCFF61726527B00834DCB /* View.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF51726527B00834DCB /* View.cpp */; };
+		B56FCFF9172658F800834DCB /* GeneratorSin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF7172658F700834DCB /* GeneratorSin.cpp */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -90,6 +91,8 @@
 		B56FCFF017264D1F00834DCB /* Track.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Track.cpp; sourceTree = "<group>"; };
 		B56FCFF117264D1F00834DCB /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		B56FCFF51726527B00834DCB /* View.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = View.cpp; sourceTree = "<group>"; };
+		B56FCFF7172658F700834DCB /* GeneratorSin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSin.cpp; sourceTree = "<group>"; };
+		B56FCFF8172658F700834DCB /* GeneratorSin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSin.h; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -229,6 +232,8 @@
 				B56FCFF017264D1F00834DCB /* Track.cpp */,
 				B56FCFED17264D1F00834DCB /* Generator.h */,
 				B56FCFEC17264D1F00834DCB /* Generator.cpp */,
+				B56FCFF8172658F700834DCB /* GeneratorSin.h */,
+				B56FCFF7172658F700834DCB /* GeneratorSin.cpp */,
 				B56FCFEF17264D1F00834DCB /* GeneratorSaw.h */,
 				B56FCFEE17264D1F00834DCB /* GeneratorSaw.cpp */,
 			);
@@ -391,6 +396,7 @@
 				B56FCFF317264D1F00834DCB /* GeneratorSaw.cpp in Sources */,
 				B56FCFF417264D1F00834DCB /* Track.cpp in Sources */,
 				B56FCFF61726527B00834DCB /* View.cpp in Sources */,
+				B56FCFF9172658F800834DCB /* GeneratorSin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
