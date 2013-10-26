@@ -2,7 +2,6 @@
 //  GeneratorSin.h
 //  Sine wave generator.
 //  Internally uses a fixed-length sin cache and linear interpolation.
-//  TODO I'm sure there's a better way, but this is functional for now.
 //  lantern
 //
 
