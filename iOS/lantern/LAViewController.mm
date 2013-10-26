@@ -4,6 +4,7 @@
 //
 
 #import "LAViewController.h"
+#import "LAAppDelegate.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGL.h>
@@ -20,6 +21,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 {
     NSInteger animationFrameInterval;
     NSDictionary* lanternConfig;
+    BOOL isLanternInitialized;
 }
 
 @property (nonatomic, readonly, getter=isAnimating) BOOL animating;
@@ -29,13 +31,24 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 @property (nonatomic, assign) CADisplayLink* displayLink;
 
 - (void) draw;
+- (void) initializeLantern;
 
 @end
 
 @implementation LAViewController
 
-- (void) viewDidLoad
+- (id) init
 {
+    if (self = [super init]) {
+        isLanternInitialized = NO;
+    }
+    return self;
+}
+
+- (void) initializeLantern
+{
+    isLanternInitialized = YES;
+    
     // load config
     NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"LanternConfig.plist"];
     lanternConfig = [[NSDictionary alloc] initWithContentsOfFile:path];
@@ -57,13 +70,11 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         [(EAGLView*)self.view setScaleFactor:[UIScreen mainScreen].scale];
         Lantern::getInstance().setScale([UIScreen mainScreen].scale);
     }
-    
-    [self.view setMultipleTouchEnabled:YES];
 	
     [(EAGLView*)self.view setContext:_context];
     [(EAGLView*)self.view setFramebuffer];
     
-    _animating = FALSE;
+    _animating = NO;
     animationFrameInterval = 1;
     self.displayLink = nil;
     
@@ -71,6 +82,20 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     NSString* accelParam = [lanternConfig objectForKey:kLanternConfigAccelerometerEnabled];
     if (accelParam && [accelParam intValue] == 1) {
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
+    }
+}
+
+- (void) loadView
+{
+    self.view = [[EAGLView alloc] init];
+    self.view.frame = [((LAAppDelegate*)[UIApplication sharedApplication].delegate) window].bounds;
+    [self.view setMultipleTouchEnabled:YES];
+}
+
+- (void) viewDidLoad
+{
+    if (!isLanternInitialized) {
+        [self initializeLantern];
     }
 }
 
@@ -93,6 +118,10 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 - (void) viewWillAppear: (BOOL)animated
 {
+    if (!isLanternInitialized) {
+        [self initializeLantern];
+    }
+    
     // gain focus event
     Event e(LANTERN_EVENT_GAIN_FOCUS, 0, NULL);
     Lantern::getInstance().event(e);

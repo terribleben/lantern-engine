@@ -10,14 +10,14 @@
 @implementation LAAppDelegate
 
 @synthesize window = _window;
-@synthesize LAViewController = _LAViewController;
+@synthesize viewController = _LAViewController;
 
 - (BOOL) application: (UIApplication*)application didFinishLaunchingWithOptions: (NSDictionary*)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.LAViewController = [[LAViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.LAViewController;
-    [self.window addSubview:self.LAViewController.view];
+    self.viewController = [[LAViewController alloc] init];
+    self.window.rootViewController = self.viewController;
+    [self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }

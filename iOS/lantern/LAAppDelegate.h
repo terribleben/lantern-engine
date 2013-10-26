@@ -11,6 +11,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) LAViewController *LAViewController;
+@property (strong, nonatomic) LAViewController *viewController;
 
 @end

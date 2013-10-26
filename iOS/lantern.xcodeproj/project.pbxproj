@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B52C1C59181C4E9100DF3BAA /* LAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C56181C4E9100DF3BAA /* LAAppDelegate.m */; };
 		B52C1C5D181C506500DF3BAA /* LAViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C5C181C506400DF3BAA /* LAViewController.mm */; };
-		B52C1C60181C506D00DF3BAA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52C1C5E181C506D00DF3BAA /* ViewController.xib */; };
 		B52C1C77181C54CB00DF3BAA /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C71181C54CB00DF3BAA /* Generator.cpp */; };
 		B52C1C78181C54CB00DF3BAA /* GeneratorSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C73181C54CB00DF3BAA /* GeneratorSaw.cpp */; };
 		B52C1C79181C54CB00DF3BAA /* GeneratorSin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C75181C54CB00DF3BAA /* GeneratorSin.cpp */; };
@@ -59,7 +58,6 @@
 		B52C1C56181C4E9100DF3BAA /* LAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAppDelegate.m; sourceTree = "<group>"; };
 		B52C1C5B181C506400DF3BAA /* LAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAViewController.h; sourceTree = "<group>"; };
 		B52C1C5C181C506400DF3BAA /* LAViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAViewController.mm; sourceTree = "<group>"; };
-		B52C1C5F181C506D00DF3BAA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		B52C1C71181C54CB00DF3BAA /* Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
 		B52C1C72181C54CB00DF3BAA /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
 		B52C1C73181C54CB00DF3BAA /* GeneratorSaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSaw.cpp; sourceTree = "<group>"; };
@@ -385,7 +383,6 @@
 				B5AD529D151D41BC00E96979 /* EAGLView.mm */,
 				B52C1C93181C585600DF3BAA /* LAAudio.h */,
 				B52C1C94181C585600DF3BAA /* LAAudio.mm */,
-				B52C1C5E181C506D00DF3BAA /* ViewController.xib */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -445,7 +442,6 @@
 				B55D1D1516DED5DF00968D22 /* white_bevel.png in Resources */,
 				B55D1D1716DEDD9D00968D22 /* white_bevel.lanternfont in Resources */,
 				B55D1D1916E0040700968D22 /* LanternConfig.plist in Resources */,
-				B52C1C60181C506D00DF3BAA /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,14 +490,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B52C1C5E181C506D00DF3BAA /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B52C1C5F181C506D00DF3BAA /* en */,
-			);
-			name = ViewController.xib;
-			sourceTree = "<group>";
-		};
 		B5AD527C151D3D2800E96979 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
