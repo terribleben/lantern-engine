@@ -19,6 +19,9 @@
 		B52C1C89181C556000DF3BAA /* TrackSampleDisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C82181C556000DF3BAA /* TrackSampleDisk.cpp */; };
 		B52C1C8A181C556000DF3BAA /* TrackSamplePooled.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C84181C556000DF3BAA /* TrackSamplePooled.cpp */; };
 		B52C1C92181C570300DF3BAA /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C8F181C570300DF3BAA /* CAStreamBasicDescription.cpp */; };
+		B52C1C95181C585600DF3BAA /* LAAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C94181C585600DF3BAA /* LAAudio.mm */; };
+		B52C1C97181C595200DF3BAA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1C96181C595200DF3BAA /* AudioToolbox.framework */; };
+		B52C1C99181C596900DF3BAA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1C98181C596900DF3BAA /* AVFoundation.framework */; };
 		B55D1D0316DEA37A00968D22 /* Lantern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CE816DEA37A00968D22 /* Lantern.cpp */; };
 		B55D1D0416DEA37A00968D22 /* PhysicalObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEB16DEA37A00968D22 /* PhysicalObject.cpp */; };
 		B55D1D0516DEA37A00968D22 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEE16DEA37A00968D22 /* Particle.cpp */; };
@@ -79,6 +82,10 @@
 		B52C1C8F181C570300DF3BAA /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
 		B52C1C90181C570300DF3BAA /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
 		B52C1C91181C570300DF3BAA /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		B52C1C93181C585600DF3BAA /* LAAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAudio.h; sourceTree = "<group>"; };
+		B52C1C94181C585600DF3BAA /* LAAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAAudio.mm; sourceTree = "<group>"; };
+		B52C1C96181C595200DF3BAA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B52C1C98181C596900DF3BAA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B55D1CE716DEA37A00968D22 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		B55D1CE816DEA37A00968D22 /* Lantern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lantern.cpp; sourceTree = "<group>"; };
 		B55D1CE916DEA37A00968D22 /* Lantern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lantern.h; sourceTree = "<group>"; };
@@ -140,6 +147,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52C1C99181C596900DF3BAA /* AVFoundation.framework in Frameworks */,
+				B52C1C97181C595200DF3BAA /* AudioToolbox.framework in Frameworks */,
 				B5AD52A0151D441A00E96979 /* QuartzCore.framework in Frameworks */,
 				B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */,
 				B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */,
@@ -329,6 +338,8 @@
 		B5AD526E151D3D2800E96979 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B52C1C98181C596900DF3BAA /* AVFoundation.framework */,
+				B52C1C96181C595200DF3BAA /* AudioToolbox.framework */,
 				B5AD529F151D441A00E96979 /* QuartzCore.framework */,
 				B5AD526F151D3D2800E96979 /* UIKit.framework */,
 				B5AD5271151D3D2800E96979 /* Foundation.framework */,
@@ -372,6 +383,8 @@
 				B52C1C5C181C506400DF3BAA /* LAViewController.mm */,
 				B5AD529C151D41BC00E96979 /* EAGLView.h */,
 				B5AD529D151D41BC00E96979 /* EAGLView.mm */,
+				B52C1C93181C585600DF3BAA /* LAAudio.h */,
+				B52C1C94181C585600DF3BAA /* LAAudio.mm */,
 				B52C1C5E181C506D00DF3BAA /* ViewController.xib */,
 			);
 			name = iOS;
@@ -474,6 +487,7 @@
 				B52C1C89181C556000DF3BAA /* TrackSampleDisk.cpp in Sources */,
 				B52C1C8A181C556000DF3BAA /* TrackSamplePooled.cpp in Sources */,
 				B52C1C92181C570300DF3BAA /* CAStreamBasicDescription.cpp in Sources */,
+				B52C1C95181C585600DF3BAA /* LAAudio.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
