@@ -57,7 +57,7 @@ bool ResourceManager::loadTexture(const char* name, const char* ext) {
     
     // attempt to use apple's cache and take advantage of a retina version
     if (strncmp(ext, "png", 3) == 0) {
-        image = [[UIImage imageNamed:[NSString stringWithUTF8String:name]] retain];
+        image = [UIImage imageNamed:[NSString stringWithUTF8String:name]];
     }
     
     // otherwise load it directly out of the bundle
@@ -88,7 +88,6 @@ bool ResourceManager::loadTexture(const char* name, const char* ext) {
     
     CGContextRelease(context);
     free(imageData);
-    [image release];
     return true;
 }
 

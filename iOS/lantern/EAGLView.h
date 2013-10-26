@@ -13,8 +13,6 @@
 @interface EAGLView : UIView
 {
 @private
-    EAGLContext *context;
-    
     // The pixel dimensions of the CAEAGLLayer.
     GLint framebufferWidth;
     GLint framebufferHeight;
@@ -22,7 +20,7 @@
     GLuint defaultFramebuffer, colorRenderbuffer;
 }
 
-@property (nonatomic, retain) EAGLContext* context;
+@property (nonatomic, strong) EAGLContext* context;
 @property (nonatomic, readonly) CGSize frameBufferSize;
 
 - (void) setScaleFactor: (CGFloat)scale;

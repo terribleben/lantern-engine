@@ -18,16 +18,14 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 @interface ViewController ()
 {
-    BOOL animating;
     NSInteger animationFrameInterval;
-    CADisplayLink* displayLink;
     NSDictionary* lanternConfig;
 }
 
-@property (readonly, nonatomic, getter=isAnimating) BOOL animating;
+@property (nonatomic, readonly, getter=isAnimating) BOOL animating;
 @property (nonatomic) NSInteger animationFrameInterval;
 
-@property (nonatomic, retain) EAGLContext* context;
+@property (nonatomic, strong) EAGLContext* context;
 @property (nonatomic, assign) CADisplayLink* displayLink;
 
 - (void) draw;
@@ -36,8 +34,6 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 @implementation ViewController
 
-@synthesize animating, context, displayLink;
-
 - (void) viewDidLoad
 {
     // load config
@@ -45,15 +41,12 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     lanternConfig = [[NSDictionary alloc] initWithContentsOfFile:path];
     
     // set up GL context
-	EAGLContext* _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+	_context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
     
     if (!_context)
         NSLog(@"Failed to create ES context");
     else if (![EAGLContext setCurrentContext:_context])
         NSLog(@"Failed to set ES context current");
-    
-	self.context = _context;
-	[_context release];
     
     // init lantern
     Lantern::getInstance().init();
@@ -67,10 +60,10 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     
     [self.view setMultipleTouchEnabled:YES];
 	
-    [(EAGLView*)self.view setContext:context];
+    [(EAGLView*)self.view setContext:_context];
     [(EAGLView*)self.view setFramebuffer];
     
-    animating = FALSE;
+    _animating = FALSE;
     animationFrameInterval = 1;
     self.displayLink = nil;
     
@@ -83,21 +76,19 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 - (void) dealloc
 {
-    if (context) {
-        if ([EAGLContext currentContext] == context)
+    if (_context) {
+        if ([EAGLContext currentContext] == _context)
             [EAGLContext setCurrentContext:nil];
-        [context release];
-        context = nil;
+        _context = nil;
     }
     
     if (lanternConfig) {
-        [lanternConfig release];
         lanternConfig = nil;
     }
     
     Lantern::getInstance().stop();
     
-    [super dealloc];
+    // [super dealloc];
 }
 
 - (void) viewWillAppear: (BOOL)animated
@@ -122,18 +113,15 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     [super viewWillDisappear:animated];
 }
 
-// TODO this method is deprecated starting in iOS 6.
 - (void) viewDidUnload
 {
-    if (context) {
-        if ([EAGLContext currentContext] == context)
+    if (_context) {
+        if ([EAGLContext currentContext] == _context)
             [EAGLContext setCurrentContext:nil];
-        [context release];
-        context = nil;
+        _context = nil;
     }
     
     if (lanternConfig) {
-        [lanternConfig release];
         lanternConfig = nil;
     }
     
@@ -152,7 +140,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     if (frameInterval >= 1) {
         animationFrameInterval = frameInterval;
         
-        if (animating) {
+        if (_animating) {
             [self stopAnimating];
             [self startAnimating];
         }
@@ -161,22 +149,21 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 - (void) startAnimating
 {
-    if (!animating) {
-        CADisplayLink* _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(draw)];
+    if (!_animating) {
+        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(draw)];
         [_displayLink setFrameInterval:animationFrameInterval];
         [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        self.displayLink = _displayLink;
         
-        animating = YES;
+        _animating = YES;
     }
 }
 
 - (void) stopAnimating
 {
-    if (animating) {
+    if (_animating) {
         [self.displayLink invalidate];
         self.displayLink = nil;
-        animating = NO;
+        _animating = NO;
     }
 }
 
@@ -247,12 +234,6 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     float accelParam[] = { acceleration.x, acceleration.y, acceleration.z };
     Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned int)accelerometer, accelParam);
     Lantern::getInstance().event(accelEvent);
-}
-
-- (void) didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc. that aren't in use.
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation
