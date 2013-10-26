@@ -4,7 +4,6 @@
 //
 
 #import "LAViewController.h"
-#import "LAAppDelegate.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGL.h>
@@ -88,7 +87,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 - (void) loadView
 {
     self.view = [[EAGLView alloc] init];
-    self.view.frame = [((LAAppDelegate*)[UIApplication sharedApplication].delegate) window].bounds;
+    self.view.frame = [[UIScreen mainScreen] applicationFrame];
     [self.view setMultipleTouchEnabled:YES];
 }
 
