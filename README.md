@@ -8,6 +8,7 @@ Stuff it does:
 - It makes it easy to load and unload textures.
 - It contains utilities for drawing primitives and textures.
 - It can draw text using fixed-width texture fonts.
+- It can synthesize real-time audio, either generative or from samples.
 - It has some basic geometry utilities.
 - It understands basic kinematics.
 - It allows you to design different views which can take control of the graphics loop and hand it off to one another.
@@ -19,3 +20,4 @@ It's written in C++ and OpenGL ES. Right now it is packaged inside an XCode proj
 A few parts of it are platform-specific:
 - It can handle the "scale" property of a graphics context (in order to support retina display). It works fine if you ignore this.
 - The filesystem stuff (e.g. loading textures) is platform dependent.
+- The lowest level audio layer is platform dependent (just the component that links your sample callback to the hardware).
