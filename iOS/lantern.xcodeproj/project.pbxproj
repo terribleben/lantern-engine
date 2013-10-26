@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52C1C59181C4E9100DF3BAA /* LAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C56181C4E9100DF3BAA /* LAAppDelegate.m */; };
+		B52C1C5D181C506500DF3BAA /* LAViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C5C181C506400DF3BAA /* LAViewController.mm */; };
+		B52C1C60181C506D00DF3BAA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52C1C5E181C506D00DF3BAA /* ViewController.xib */; };
 		B55D1D0316DEA37A00968D22 /* Lantern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CE816DEA37A00968D22 /* Lantern.cpp */; };
 		B55D1D0416DEA37A00968D22 /* PhysicalObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEB16DEA37A00968D22 /* PhysicalObject.cpp */; };
 		B55D1D0516DEA37A00968D22 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEE16DEA37A00968D22 /* Particle.cpp */; };
@@ -38,14 +41,16 @@
 		B5AD5278151D3D2800E96979 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5277151D3D2800E96979 /* OpenGLES.framework */; };
 		B5AD527E151D3D2800E96979 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5AD527C151D3D2800E96979 /* InfoPlist.strings */; };
 		B5AD5280151D3D2800E96979 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AD527F151D3D2800E96979 /* main.m */; };
-		B5AD5284151D3D2800E96979 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AD5283151D3D2800E96979 /* AppDelegate.m */; };
-		B5AD528B151D3D2800E96979 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5AD528A151D3D2800E96979 /* ViewController.mm */; };
-		B5AD528E151D3D2800E96979 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5AD528C151D3D2800E96979 /* ViewController.xib */; };
 		B5AD529E151D41BC00E96979 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5AD529D151D41BC00E96979 /* EAGLView.mm */; };
 		B5AD52A0151D441A00E96979 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD529F151D441A00E96979 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B52C1C55181C4E9100DF3BAA /* LAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAppDelegate.h; sourceTree = "<group>"; };
+		B52C1C56181C4E9100DF3BAA /* LAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAppDelegate.m; sourceTree = "<group>"; };
+		B52C1C5B181C506400DF3BAA /* LAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAViewController.h; sourceTree = "<group>"; };
+		B52C1C5C181C506400DF3BAA /* LAViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAViewController.mm; sourceTree = "<group>"; };
+		B52C1C5F181C506D00DF3BAA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		B55D1CE716DEA37A00968D22 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		B55D1CE816DEA37A00968D22 /* Lantern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lantern.cpp; sourceTree = "<group>"; };
 		B55D1CE916DEA37A00968D22 /* Lantern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lantern.h; sourceTree = "<group>"; };
@@ -103,11 +108,6 @@
 		B5AD527D151D3D2800E96979 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5AD527F151D3D2800E96979 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B5AD5281151D3D2800E96979 /* lantern-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lantern-Prefix.pch"; sourceTree = "<group>"; };
-		B5AD5282151D3D2800E96979 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B5AD5283151D3D2800E96979 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B5AD5289151D3D2800E96979 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B5AD528A151D3D2800E96979 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		B5AD528D151D3D2800E96979 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		B5AD529C151D41BC00E96979 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		B5AD529D151D41BC00E96979 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		B5AD529F151D441A00E96979 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -296,13 +296,13 @@
 		B5AD52A1151D460500E96979 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B52C1C55181C4E9100DF3BAA /* LAAppDelegate.h */,
+				B52C1C56181C4E9100DF3BAA /* LAAppDelegate.m */,
+				B52C1C5B181C506400DF3BAA /* LAViewController.h */,
+				B52C1C5C181C506400DF3BAA /* LAViewController.mm */,
 				B5AD529C151D41BC00E96979 /* EAGLView.h */,
 				B5AD529D151D41BC00E96979 /* EAGLView.mm */,
-				B5AD5282151D3D2800E96979 /* AppDelegate.h */,
-				B5AD5283151D3D2800E96979 /* AppDelegate.m */,
-				B5AD5289151D3D2800E96979 /* ViewController.h */,
-				B5AD528A151D3D2800E96979 /* ViewController.mm */,
-				B5AD528C151D3D2800E96979 /* ViewController.xib */,
+				B52C1C5E181C506D00DF3BAA /* ViewController.xib */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -333,6 +333,7 @@
 		B5AD5262151D3D2800E96979 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LA;
 				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = B5AD5265151D3D2800E96979 /* Build configuration list for PBXProject "lantern" */;
@@ -358,10 +359,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5AD527E151D3D2800E96979 /* InfoPlist.strings in Resources */,
-				B5AD528E151D3D2800E96979 /* ViewController.xib in Resources */,
 				B55D1D1516DED5DF00968D22 /* white_bevel.png in Resources */,
 				B55D1D1716DEDD9D00968D22 /* white_bevel.lanternfont in Resources */,
 				B55D1D1916E0040700968D22 /* LanternConfig.plist in Resources */,
+				B52C1C60181C506D00DF3BAA /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,8 +374,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5AD5280151D3D2800E96979 /* main.m in Sources */,
-				B5AD5284151D3D2800E96979 /* AppDelegate.m in Sources */,
-				B5AD528B151D3D2800E96979 /* ViewController.mm in Sources */,
 				B5AD529E151D41BC00E96979 /* EAGLView.mm in Sources */,
 				B55D1D0316DEA37A00968D22 /* Lantern.cpp in Sources */,
 				B55D1D0416DEA37A00968D22 /* PhysicalObject.cpp in Sources */,
@@ -397,26 +396,28 @@
 				B56FCFF417264D1F00834DCB /* Track.cpp in Sources */,
 				B56FCFF61726527B00834DCB /* View.cpp in Sources */,
 				B56FCFF9172658F800834DCB /* GeneratorSin.cpp in Sources */,
+				B52C1C59181C4E9100DF3BAA /* LAAppDelegate.m in Sources */,
+				B52C1C5D181C506500DF3BAA /* LAViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B52C1C5E181C506D00DF3BAA /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B52C1C5F181C506D00DF3BAA /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
 		B5AD527C151D3D2800E96979 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B5AD527D151D3D2800E96979 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B5AD528C151D3D2800E96979 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5AD528D151D3D2800E96979 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LAViewController.h
 //  lantern
 //
 
@@ -7,7 +7,7 @@
 
 FOUNDATION_EXPORT NSString* const kLanternConfigAccelerometerEnabled;
 
-@interface ViewController : UIViewController <UIAccelerometerDelegate>
+@interface LAViewController : UIViewController <UIAccelerometerDelegate>
 
 - (void) startAnimating;
 - (void) stopAnimating;

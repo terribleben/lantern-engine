@@ -1,9 +1,9 @@
 //
-//  ViewController.m
+//  LAViewController.m
 //  lantern
 //
 
-#import "ViewController.h"
+#import "LAViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGL.h>
@@ -16,7 +16,7 @@
 NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 
-@interface ViewController ()
+@interface LAViewController ()
 {
     NSInteger animationFrameInterval;
     NSDictionary* lanternConfig;
@@ -32,7 +32,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 @end
 
-@implementation ViewController
+@implementation LAViewController
 
 - (void) viewDidLoad
 {

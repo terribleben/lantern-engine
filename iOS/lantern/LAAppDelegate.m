@@ -1,23 +1,23 @@
 //
-//  AppDelegate.m
+//  LAAppDelegate.m
 //  lantern
 //
 
-#import "AppDelegate.h"
+#import "LAAppDelegate.h"
 
-#import "ViewController.h"
+#import "LAViewController.h"
 
-@implementation AppDelegate
+@implementation LAAppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
+@synthesize LAViewController = _LAViewController;
 
 - (BOOL) application: (UIApplication*)application didFinishLaunchingWithOptions: (NSDictionary*)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window addSubview:self.viewController.view];
+    self.LAViewController = [[LAViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    self.window.rootViewController = self.LAViewController;
+    [self.window addSubview:self.LAViewController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -28,7 +28,7 @@
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
-    [_viewController stopAnimating];
+    [_LAViewController stopAnimating];
 }
 
 - (void) applicationDidEnterBackground: (UIApplication*)application
@@ -51,7 +51,7 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-    [_viewController startAnimating];
+    [_LAViewController startAnimating];
 }
 
 - (void) applicationWillTerminate: (UIApplication*)application
