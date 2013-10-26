@@ -10,6 +10,15 @@
 		B52C1C59181C4E9100DF3BAA /* LAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C56181C4E9100DF3BAA /* LAAppDelegate.m */; };
 		B52C1C5D181C506500DF3BAA /* LAViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C5C181C506400DF3BAA /* LAViewController.mm */; };
 		B52C1C60181C506D00DF3BAA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52C1C5E181C506D00DF3BAA /* ViewController.xib */; };
+		B52C1C77181C54CB00DF3BAA /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C71181C54CB00DF3BAA /* Generator.cpp */; };
+		B52C1C78181C54CB00DF3BAA /* GeneratorSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C73181C54CB00DF3BAA /* GeneratorSaw.cpp */; };
+		B52C1C79181C54CB00DF3BAA /* GeneratorSin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C75181C54CB00DF3BAA /* GeneratorSin.cpp */; };
+		B52C1C86181C556000DF3BAA /* AudioFilePool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C7B181C556000DF3BAA /* AudioFilePool.cpp */; };
+		B52C1C87181C556000DF3BAA /* AudioFileStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C7E181C556000DF3BAA /* AudioFileStream.mm */; };
+		B52C1C88181C556000DF3BAA /* TrackSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C80181C556000DF3BAA /* TrackSample.cpp */; };
+		B52C1C89181C556000DF3BAA /* TrackSampleDisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C82181C556000DF3BAA /* TrackSampleDisk.cpp */; };
+		B52C1C8A181C556000DF3BAA /* TrackSamplePooled.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C84181C556000DF3BAA /* TrackSamplePooled.cpp */; };
+		B52C1C92181C570300DF3BAA /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1C8F181C570300DF3BAA /* CAStreamBasicDescription.cpp */; };
 		B55D1D0316DEA37A00968D22 /* Lantern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CE816DEA37A00968D22 /* Lantern.cpp */; };
 		B55D1D0416DEA37A00968D22 /* PhysicalObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEB16DEA37A00968D22 /* PhysicalObject.cpp */; };
 		B55D1D0516DEA37A00968D22 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1CEE16DEA37A00968D22 /* Particle.cpp */; };
@@ -29,11 +38,8 @@
 		B55D1D2616E3EE8B00968D22 /* Triangle3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2516E3EE8A00968D22 /* Triangle3f.cpp */; };
 		B55D1D2916E5C11700968D22 /* Rectangle3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2816E5C11700968D22 /* Rectangle3f.cpp */; };
 		B55D1D2C16E5CA1000968D22 /* util_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55D1D2A16E5CA1000968D22 /* util_math.cpp */; };
-		B56FCFF217264D1F00834DCB /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFEC17264D1F00834DCB /* Generator.cpp */; };
-		B56FCFF317264D1F00834DCB /* GeneratorSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFEE17264D1F00834DCB /* GeneratorSaw.cpp */; };
 		B56FCFF417264D1F00834DCB /* Track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF017264D1F00834DCB /* Track.cpp */; };
 		B56FCFF61726527B00834DCB /* View.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF51726527B00834DCB /* View.cpp */; };
-		B56FCFF9172658F800834DCB /* GeneratorSin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56FCFF7172658F700834DCB /* GeneratorSin.cpp */; };
 		B5AD5270151D3D2800E96979 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD526F151D3D2800E96979 /* UIKit.framework */; };
 		B5AD5272151D3D2800E96979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5271151D3D2800E96979 /* Foundation.framework */; };
 		B5AD5274151D3D2800E96979 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AD5273151D3D2800E96979 /* CoreGraphics.framework */; };
@@ -51,6 +57,28 @@
 		B52C1C5B181C506400DF3BAA /* LAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAViewController.h; sourceTree = "<group>"; };
 		B52C1C5C181C506400DF3BAA /* LAViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAViewController.mm; sourceTree = "<group>"; };
 		B52C1C5F181C506D00DF3BAA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		B52C1C71181C54CB00DF3BAA /* Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
+		B52C1C72181C54CB00DF3BAA /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
+		B52C1C73181C54CB00DF3BAA /* GeneratorSaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSaw.cpp; sourceTree = "<group>"; };
+		B52C1C74181C54CB00DF3BAA /* GeneratorSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSaw.h; sourceTree = "<group>"; };
+		B52C1C75181C54CB00DF3BAA /* GeneratorSin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSin.cpp; sourceTree = "<group>"; };
+		B52C1C76181C54CB00DF3BAA /* GeneratorSin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSin.h; sourceTree = "<group>"; };
+		B52C1C7B181C556000DF3BAA /* AudioFilePool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFilePool.cpp; sourceTree = "<group>"; };
+		B52C1C7C181C556000DF3BAA /* AudioFilePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFilePool.h; sourceTree = "<group>"; };
+		B52C1C7D181C556000DF3BAA /* AudioFileStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileStream.h; sourceTree = "<group>"; };
+		B52C1C7E181C556000DF3BAA /* AudioFileStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileStream.mm; sourceTree = "<group>"; };
+		B52C1C80181C556000DF3BAA /* TrackSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackSample.cpp; sourceTree = "<group>"; };
+		B52C1C81181C556000DF3BAA /* TrackSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSample.h; sourceTree = "<group>"; };
+		B52C1C82181C556000DF3BAA /* TrackSampleDisk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackSampleDisk.cpp; sourceTree = "<group>"; };
+		B52C1C83181C556000DF3BAA /* TrackSampleDisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSampleDisk.h; sourceTree = "<group>"; };
+		B52C1C84181C556000DF3BAA /* TrackSamplePooled.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackSamplePooled.cpp; sourceTree = "<group>"; };
+		B52C1C85181C556000DF3BAA /* TrackSamplePooled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSamplePooled.h; sourceTree = "<group>"; };
+		B52C1C8C181C570300DF3BAA /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		B52C1C8D181C570300DF3BAA /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		B52C1C8E181C570300DF3BAA /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		B52C1C8F181C570300DF3BAA /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		B52C1C90181C570300DF3BAA /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		B52C1C91181C570300DF3BAA /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
 		B55D1CE716DEA37A00968D22 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		B55D1CE816DEA37A00968D22 /* Lantern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lantern.cpp; sourceTree = "<group>"; };
 		B55D1CE916DEA37A00968D22 /* Lantern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lantern.h; sourceTree = "<group>"; };
@@ -89,15 +117,9 @@
 		B55D1D2A16E5CA1000968D22 /* util_math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util_math.cpp; sourceTree = "<group>"; };
 		B55D1D2B16E5CA1000968D22 /* util_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util_math.h; sourceTree = "<group>"; };
 		B56FCFEB17264D1F00834DCB /* AudioDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDef.h; sourceTree = "<group>"; };
-		B56FCFEC17264D1F00834DCB /* Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
-		B56FCFED17264D1F00834DCB /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
-		B56FCFEE17264D1F00834DCB /* GeneratorSaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSaw.cpp; sourceTree = "<group>"; };
-		B56FCFEF17264D1F00834DCB /* GeneratorSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSaw.h; sourceTree = "<group>"; };
 		B56FCFF017264D1F00834DCB /* Track.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Track.cpp; sourceTree = "<group>"; };
 		B56FCFF117264D1F00834DCB /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		B56FCFF51726527B00834DCB /* View.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = View.cpp; sourceTree = "<group>"; };
-		B56FCFF7172658F700834DCB /* GeneratorSin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSin.cpp; sourceTree = "<group>"; };
-		B56FCFF8172658F700834DCB /* GeneratorSin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSin.h; sourceTree = "<group>"; };
 		B5AD526B151D3D2800E96979 /* lantern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lantern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD526F151D3D2800E96979 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5AD5271151D3D2800E96979 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,6 +152,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B52C1C70181C54CB00DF3BAA /* generator */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1C72181C54CB00DF3BAA /* Generator.h */,
+				B52C1C71181C54CB00DF3BAA /* Generator.cpp */,
+				B52C1C76181C54CB00DF3BAA /* GeneratorSin.h */,
+				B52C1C75181C54CB00DF3BAA /* GeneratorSin.cpp */,
+				B52C1C74181C54CB00DF3BAA /* GeneratorSaw.h */,
+				B52C1C73181C54CB00DF3BAA /* GeneratorSaw.cpp */,
+			);
+			path = generator;
+			sourceTree = "<group>";
+		};
+		B52C1C7A181C555F00DF3BAA /* io */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1C7C181C556000DF3BAA /* AudioFilePool.h */,
+				B52C1C7B181C556000DF3BAA /* AudioFilePool.cpp */,
+				B52C1C7D181C556000DF3BAA /* AudioFileStream.h */,
+				B52C1C7E181C556000DF3BAA /* AudioFileStream.mm */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		B52C1C7F181C556000DF3BAA /* sample */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1C81181C556000DF3BAA /* TrackSample.h */,
+				B52C1C80181C556000DF3BAA /* TrackSample.cpp */,
+				B52C1C83181C556000DF3BAA /* TrackSampleDisk.h */,
+				B52C1C82181C556000DF3BAA /* TrackSampleDisk.cpp */,
+				B52C1C85181C556000DF3BAA /* TrackSamplePooled.h */,
+				B52C1C84181C556000DF3BAA /* TrackSamplePooled.cpp */,
+			);
+			path = sample;
+			sourceTree = "<group>";
+		};
+		B52C1C8B181C570300DF3BAA /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1C8C181C570300DF3BAA /* CADebugMacros.h */,
+				B52C1C8D181C570300DF3BAA /* CADebugPrintf.h */,
+				B52C1C8E181C570300DF3BAA /* CAMath.h */,
+				B52C1C8F181C570300DF3BAA /* CAStreamBasicDescription.cpp */,
+				B52C1C90181C570300DF3BAA /* CAStreamBasicDescription.h */,
+				B52C1C91181C570300DF3BAA /* CAXException.h */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
 		B55D1CE616DEA37A00968D22 /* cpp */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,12 +302,9 @@
 				B56FCFEB17264D1F00834DCB /* AudioDef.h */,
 				B56FCFF117264D1F00834DCB /* Track.h */,
 				B56FCFF017264D1F00834DCB /* Track.cpp */,
-				B56FCFED17264D1F00834DCB /* Generator.h */,
-				B56FCFEC17264D1F00834DCB /* Generator.cpp */,
-				B56FCFF8172658F700834DCB /* GeneratorSin.h */,
-				B56FCFF7172658F700834DCB /* GeneratorSin.cpp */,
-				B56FCFEF17264D1F00834DCB /* GeneratorSaw.h */,
-				B56FCFEE17264D1F00834DCB /* GeneratorSaw.cpp */,
+				B52C1C7A181C555F00DF3BAA /* io */,
+				B52C1C7F181C556000DF3BAA /* sample */,
+				B52C1C70181C54CB00DF3BAA /* generator */,
 			);
 			path = audio;
 			sourceTree = "<group>";
@@ -284,6 +353,7 @@
 		B5AD527A151D3D2800E96979 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B52C1C8B181C570300DF3BAA /* Apple */,
 				B5AD527B151D3D2800E96979 /* lantern-Info.plist */,
 				B5AD527C151D3D2800E96979 /* InfoPlist.strings */,
 				B5AD527F151D3D2800E96979 /* main.m */,
@@ -391,13 +461,19 @@
 				B55D1D2616E3EE8B00968D22 /* Triangle3f.cpp in Sources */,
 				B55D1D2916E5C11700968D22 /* Rectangle3f.cpp in Sources */,
 				B55D1D2C16E5CA1000968D22 /* util_math.cpp in Sources */,
-				B56FCFF217264D1F00834DCB /* Generator.cpp in Sources */,
-				B56FCFF317264D1F00834DCB /* GeneratorSaw.cpp in Sources */,
 				B56FCFF417264D1F00834DCB /* Track.cpp in Sources */,
 				B56FCFF61726527B00834DCB /* View.cpp in Sources */,
-				B56FCFF9172658F800834DCB /* GeneratorSin.cpp in Sources */,
 				B52C1C59181C4E9100DF3BAA /* LAAppDelegate.m in Sources */,
 				B52C1C5D181C506500DF3BAA /* LAViewController.mm in Sources */,
+				B52C1C77181C54CB00DF3BAA /* Generator.cpp in Sources */,
+				B52C1C78181C54CB00DF3BAA /* GeneratorSaw.cpp in Sources */,
+				B52C1C79181C54CB00DF3BAA /* GeneratorSin.cpp in Sources */,
+				B52C1C86181C556000DF3BAA /* AudioFilePool.cpp in Sources */,
+				B52C1C87181C556000DF3BAA /* AudioFileStream.mm in Sources */,
+				B52C1C88181C556000DF3BAA /* TrackSample.cpp in Sources */,
+				B52C1C89181C556000DF3BAA /* TrackSampleDisk.cpp in Sources */,
+				B52C1C8A181C556000DF3BAA /* TrackSamplePooled.cpp in Sources */,
+				B52C1C92181C570300DF3BAA /* CAStreamBasicDescription.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
