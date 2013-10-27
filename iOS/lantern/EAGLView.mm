@@ -80,7 +80,8 @@
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &framebufferWidth);
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &framebufferHeight);
         
-        Lantern::getInstance().setDimensions(framebufferWidth, framebufferHeight);
+        if (_lantern)
+            _lantern->setDimensions(framebufferWidth, framebufferHeight);
 		
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);
         

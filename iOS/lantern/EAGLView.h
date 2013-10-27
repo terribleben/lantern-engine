@@ -10,6 +10,8 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#include "Lantern.h"
+
 @interface EAGLView : UIView
 {
 @private
@@ -22,6 +24,7 @@
 
 @property (nonatomic, strong) EAGLContext* context;
 @property (nonatomic, readonly) CGSize frameBufferSize;
+@property (nonatomic, assign) Lantern *lantern;
 
 - (void) setScaleFactor: (CGFloat)scale;
 - (void) setFramebuffer;

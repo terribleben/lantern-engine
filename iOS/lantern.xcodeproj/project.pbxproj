@@ -37,10 +37,10 @@
 		B52C1D1F181C8DEB00DF3BAA /* ResourceManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D01181C8DEB00DF3BAA /* ResourceManager.mm */; };
 		B52C1D20181C8DEB00DF3BAA /* util_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D02181C8DEB00DF3BAA /* util_math.cpp */; };
 		B52C1D21181C8DEB00DF3BAA /* View.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D04181C8DEB00DF3BAA /* View.cpp */; };
-		B52C1D22181C8DEB00DF3BAA /* ViewPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D07181C8DEB00DF3BAA /* ViewPlay.cpp */; };
 		B52C1D24181C8F9800DF3BAA /* LAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1CC0181C8D4400DF3BAA /* LAViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B52C1D25181C8F9800DF3BAA /* EAGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1CBC181C8D4400DF3BAA /* EAGLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B52C1D26181C8F9800DF3BAA /* LAAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1CBE181C8D4400DF3BAA /* LAAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B52C1D77181DA3DA00DF3BAA /* Lantern.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1CEE181C8DEB00DF3BAA /* Lantern.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,8 +124,6 @@
 		B52C1D03181C8DEB00DF3BAA /* util_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util_math.h; sourceTree = "<group>"; };
 		B52C1D04181C8DEB00DF3BAA /* View.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = View.cpp; sourceTree = "<group>"; };
 		B52C1D05181C8DEB00DF3BAA /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
-		B52C1D07181C8DEB00DF3BAA /* ViewPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ViewPlay.cpp; sourceTree = "<group>"; };
-		B52C1D08181C8DEB00DF3BAA /* ViewPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPlay.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +222,6 @@
 				B52C1CEF181C8DEB00DF3BAA /* objects */,
 				B52C1CF2181C8DEB00DF3BAA /* particles */,
 				B52C1CF7181C8DEB00DF3BAA /* util */,
-				B52C1D06181C8DEB00DF3BAA /* views */,
 			);
 			name = cpp;
 			path = ../../cpp;
@@ -336,15 +333,6 @@
 			path = util;
 			sourceTree = "<group>";
 		};
-		B52C1D06181C8DEB00DF3BAA /* views */ = {
-			isa = PBXGroup;
-			children = (
-				B52C1D08181C8DEB00DF3BAA /* ViewPlay.h */,
-				B52C1D07181C8DEB00DF3BAA /* ViewPlay.cpp */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -355,6 +343,7 @@
 				B52C1D24181C8F9800DF3BAA /* LAViewController.h in Headers */,
 				B52C1D25181C8F9800DF3BAA /* EAGLView.h in Headers */,
 				B52C1D26181C8F9800DF3BAA /* LAAudio.h in Headers */,
+				B52C1D77181DA3DA00DF3BAA /* Lantern.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +429,6 @@
 				B52C1D1F181C8DEB00DF3BAA /* ResourceManager.mm in Sources */,
 				B52C1D20181C8DEB00DF3BAA /* util_math.cpp in Sources */,
 				B52C1D21181C8DEB00DF3BAA /* View.cpp in Sources */,
-				B52C1D22181C8DEB00DF3BAA /* ViewPlay.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

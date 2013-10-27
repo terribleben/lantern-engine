@@ -12,4 +12,9 @@ FOUNDATION_EXPORT NSString* const kLanternConfigAccelerometerEnabled;
 - (void) startAnimating;
 - (void) stopAnimating;
 
+/**
+ *  The Lantern instance that this view controller will manage.
+ */
+@property (nonatomic, assign) void* lantern;
+
 @end

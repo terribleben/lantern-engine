@@ -46,6 +46,4 @@ protected:
     float viewWidth, viewHeight;
 };
 
-#include "ViewPlay.h"
-
 #endif

@@ -11,22 +11,10 @@
 #include "FontManager.h"
 
 /**
- * Modify this method to prepare any views, resources, etc. once before the main loop begins.
+ * Override this method to prepare any views, resources, etc. once before the main loop begins.
  */
 void Lantern::gameWillBegin() {
-    // load the example font
-    FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
-    
-    // load and queue the first view
-    addView(new ViewPlay(), "play");
-    setInitialView("play");
-}
 
-
-
-Lantern& Lantern::getInstance() {
-    static Lantern theLantern;
-    return theLantern;
 }
 
 void Lantern::init() {

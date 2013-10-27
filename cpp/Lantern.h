@@ -13,8 +13,9 @@
 
 class Lantern {
 public:
-    static Lantern& getInstance();
-    
+    Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false) {  }
+    ~Lantern() {  }
+
     // main graphics loop
     void init();
     void draw();
@@ -31,17 +32,15 @@ public:
     // views
     void addView(View* view, string key);
     
-private:
-    Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false) {  }
+protected:
     Lantern(const Lantern& other);
-    ~Lantern() {  }
     
     void gameWillBegin();
     void setInitialView(string initialViewKey);
     
     void transitionView();
     
-private:
+protected:
     bool isRunning;
     
     GLfloat screenWidth, screenHeight, screenScale;

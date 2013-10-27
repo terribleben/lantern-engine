@@ -21,6 +21,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     NSInteger animationFrameInterval;
     NSDictionary* lanternConfig;
     BOOL isLanternInitialized;
+    Lantern *_lantern;
 }
 
 @property (nonatomic, readonly, getter=isAnimating) BOOL animating;
@@ -44,8 +45,22 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     return self;
 }
 
+- (void) setLantern:(void*)lantern
+{
+    _lantern = (Lantern*) lantern;
+}
+
+- (void*) lantern
+{
+    return _lantern;
+}
+
 - (void) initializeLantern
 {
+    if (!_lantern) {
+        self.lantern = new Lantern();
+    }
+    
     isLanternInitialized = YES;
     
     // load config
@@ -61,13 +76,13 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         NSLog(@"Failed to set ES context current");
     
     // init lantern
-    Lantern::getInstance().init();
+    _lantern->init();
     
     // retina display?
     // scale should be 2.0 for retina displays.
     if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)]) {
         [(EAGLView*)self.view setScaleFactor:[UIScreen mainScreen].scale];
-        Lantern::getInstance().setScale([UIScreen mainScreen].scale);
+        _lantern->setScale([UIScreen mainScreen].scale);
     }
 	
     [(EAGLView*)self.view setContext:_context];
@@ -110,7 +125,12 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         lanternConfig = nil;
     }
     
-    Lantern::getInstance().stop();
+    if (self.lantern) {
+        _lantern->stop();
+        delete _lantern;
+        _lantern = NULL;
+        isLanternInitialized = NO;
+    }
     
     // [super dealloc];
 }
@@ -123,7 +143,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     
     // gain focus event
     Event e(LANTERN_EVENT_GAIN_FOCUS, 0, NULL);
-    Lantern::getInstance().event(e);
+    _lantern->event(e);
     
     // restart the graphics loop
     [self startAnimating];
@@ -134,7 +154,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 {
     // lose focus event
     Event e(LANTERN_EVENT_LOSE_FOCUS, 0, NULL);
-    Lantern::getInstance().event(e);
+    _lantern->event(e);
     
     // stop the graphics loop
     [self stopAnimating];
@@ -153,7 +173,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         lanternConfig = nil;
     }
     
-    Lantern::getInstance().stop();
+    _lantern->stop();
     
     [super viewDidUnload];
 }
@@ -198,7 +218,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 - (void) draw {
     [(EAGLView*)self.view setFramebuffer];
     
-    Lantern::getInstance().draw();
+    _lantern->draw();
 	
 	[(EAGLView*)self.view presentFramebuffer];
 }
@@ -215,7 +235,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         // touch
         float touchParam[] = { location.x, location.y };
         Event touchEvent(LANTERN_EVENT_TOUCH_DOWN, (unsigned int)touch, touchParam);
-        Lantern::getInstance().event(touchEvent);
+        _lantern->event(touchEvent);
     }
 }
 
@@ -231,7 +251,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         // touch
         float touchParam[] = { location.x, location.y };
         Event touchEvent(LANTERN_EVENT_TOUCH_MOVE, (unsigned int)touch, touchParam);
-        Lantern::getInstance().event(touchEvent);
+        _lantern->event(touchEvent);
     }
 }
 
@@ -247,7 +267,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         // touch
         float touchParam[] = { location.x, location.y };
         Event touchEvent(LANTERN_EVENT_TOUCH_UP, (unsigned int)touch, touchParam);
-        Lantern::getInstance().event(touchEvent);
+        _lantern->event(touchEvent);
     }
 }
 
@@ -261,7 +281,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     // accel event
     float accelParam[] = { (float)acceleration.x, (float)acceleration.y, (float)acceleration.z };
     Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned int)accelerometer, accelParam);
-    Lantern::getInstance().event(accelEvent);
+    _lantern->event(accelEvent);
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation
