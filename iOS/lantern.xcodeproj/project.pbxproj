@@ -234,11 +234,11 @@
 			isa = PBXGroup;
 			children = (
 				B52C1CCB181C8DEB00DF3BAA /* AudioDef.h */,
+				B52C1CE0181C8DEB00DF3BAA /* Track.h */,
+				B52C1CDF181C8DEB00DF3BAA /* Track.cpp */,
 				B52C1CCC181C8DEB00DF3BAA /* generator */,
 				B52C1CD3181C8DEB00DF3BAA /* io */,
 				B52C1CD8181C8DEB00DF3BAA /* sample */,
-				B52C1CDF181C8DEB00DF3BAA /* Track.cpp */,
-				B52C1CE0181C8DEB00DF3BAA /* Track.h */,
 			);
 			path = audio;
 			sourceTree = "<group>";
@@ -246,12 +246,12 @@
 		B52C1CCC181C8DEB00DF3BAA /* generator */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1CCD181C8DEB00DF3BAA /* Generator.cpp */,
 				B52C1CCE181C8DEB00DF3BAA /* Generator.h */,
-				B52C1CCF181C8DEB00DF3BAA /* GeneratorSaw.cpp */,
+				B52C1CCD181C8DEB00DF3BAA /* Generator.cpp */,
 				B52C1CD0181C8DEB00DF3BAA /* GeneratorSaw.h */,
-				B52C1CD1181C8DEB00DF3BAA /* GeneratorSin.cpp */,
+				B52C1CCF181C8DEB00DF3BAA /* GeneratorSaw.cpp */,
 				B52C1CD2181C8DEB00DF3BAA /* GeneratorSin.h */,
+				B52C1CD1181C8DEB00DF3BAA /* GeneratorSin.cpp */,
 			);
 			path = generator;
 			sourceTree = "<group>";
@@ -259,8 +259,8 @@
 		B52C1CD3181C8DEB00DF3BAA /* io */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1CD4181C8DEB00DF3BAA /* AudioFilePool.cpp */,
 				B52C1CD5181C8DEB00DF3BAA /* AudioFilePool.h */,
+				B52C1CD4181C8DEB00DF3BAA /* AudioFilePool.cpp */,
 				B52C1CD6181C8DEB00DF3BAA /* AudioFileStream.h */,
 				B52C1CD7181C8DEB00DF3BAA /* AudioFileStream.mm */,
 			);
@@ -270,12 +270,12 @@
 		B52C1CD8181C8DEB00DF3BAA /* sample */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1CD9181C8DEB00DF3BAA /* TrackSample.cpp */,
 				B52C1CDA181C8DEB00DF3BAA /* TrackSample.h */,
-				B52C1CDB181C8DEB00DF3BAA /* TrackSampleDisk.cpp */,
+				B52C1CD9181C8DEB00DF3BAA /* TrackSample.cpp */,
 				B52C1CDC181C8DEB00DF3BAA /* TrackSampleDisk.h */,
-				B52C1CDD181C8DEB00DF3BAA /* TrackSamplePooled.cpp */,
+				B52C1CDB181C8DEB00DF3BAA /* TrackSampleDisk.cpp */,
 				B52C1CDE181C8DEB00DF3BAA /* TrackSamplePooled.h */,
+				B52C1CDD181C8DEB00DF3BAA /* TrackSamplePooled.cpp */,
 			);
 			path = sample;
 			sourceTree = "<group>";
@@ -283,16 +283,16 @@
 		B52C1CE2181C8DEB00DF3BAA /* geometry */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1CE3181C8DEB00DF3BAA /* Angle.cpp */,
 				B52C1CE4181C8DEB00DF3BAA /* Angle.h */,
-				B52C1CE5181C8DEB00DF3BAA /* Line3f.cpp */,
-				B52C1CE6181C8DEB00DF3BAA /* Line3f.h */,
-				B52C1CE7181C8DEB00DF3BAA /* Point3f.cpp */,
+				B52C1CE3181C8DEB00DF3BAA /* Angle.cpp */,
 				B52C1CE8181C8DEB00DF3BAA /* Point3f.h */,
-				B52C1CE9181C8DEB00DF3BAA /* Rectangle3f.cpp */,
-				B52C1CEA181C8DEB00DF3BAA /* Rectangle3f.h */,
-				B52C1CEB181C8DEB00DF3BAA /* Triangle3f.cpp */,
+				B52C1CE7181C8DEB00DF3BAA /* Point3f.cpp */,
+				B52C1CE6181C8DEB00DF3BAA /* Line3f.h */,
+				B52C1CE5181C8DEB00DF3BAA /* Line3f.cpp */,
 				B52C1CEC181C8DEB00DF3BAA /* Triangle3f.h */,
+				B52C1CEB181C8DEB00DF3BAA /* Triangle3f.cpp */,
+				B52C1CEA181C8DEB00DF3BAA /* Rectangle3f.h */,
+				B52C1CE9181C8DEB00DF3BAA /* Rectangle3f.cpp */,
 			);
 			path = geometry;
 			sourceTree = "<group>";
@@ -300,8 +300,8 @@
 		B52C1CEF181C8DEB00DF3BAA /* objects */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1CF0181C8DEB00DF3BAA /* PhysicalObject.cpp */,
 				B52C1CF1181C8DEB00DF3BAA /* PhysicalObject.h */,
+				B52C1CF0181C8DEB00DF3BAA /* PhysicalObject.cpp */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -309,10 +309,10 @@
 		B52C1CF2181C8DEB00DF3BAA /* particles */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1CF3181C8DEB00DF3BAA /* Particle.cpp */,
-				B52C1CF4181C8DEB00DF3BAA /* Particle.h */,
-				B52C1CF5181C8DEB00DF3BAA /* ParticleManager.cpp */,
 				B52C1CF6181C8DEB00DF3BAA /* ParticleManager.h */,
+				B52C1CF5181C8DEB00DF3BAA /* ParticleManager.cpp */,
+				B52C1CF4181C8DEB00DF3BAA /* Particle.h */,
+				B52C1CF3181C8DEB00DF3BAA /* Particle.cpp */,
 			);
 			path = particles;
 			sourceTree = "<group>";
@@ -320,18 +320,18 @@
 		B52C1CF7181C8DEB00DF3BAA /* util */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1CF8181C8DEB00DF3BAA /* draw.cpp */,
-				B52C1CF9181C8DEB00DF3BAA /* draw.h */,
-				B52C1CFA181C8DEB00DF3BAA /* Font.cpp */,
-				B52C1CFB181C8DEB00DF3BAA /* Font.h */,
-				B52C1CFC181C8DEB00DF3BAA /* FontManager.cpp */,
-				B52C1CFD181C8DEB00DF3BAA /* FontManager.h */,
-				B52C1CFE181C8DEB00DF3BAA /* rand.cpp */,
+				B52C1D03181C8DEB00DF3BAA /* util_math.h */,
+				B52C1D02181C8DEB00DF3BAA /* util_math.cpp */,
 				B52C1CFF181C8DEB00DF3BAA /* rand.h */,
+				B52C1CFE181C8DEB00DF3BAA /* rand.cpp */,
+				B52C1CF9181C8DEB00DF3BAA /* draw.h */,
+				B52C1CF8181C8DEB00DF3BAA /* draw.cpp */,
+				B52C1CFB181C8DEB00DF3BAA /* Font.h */,
+				B52C1CFA181C8DEB00DF3BAA /* Font.cpp */,
+				B52C1CFD181C8DEB00DF3BAA /* FontManager.h */,
+				B52C1CFC181C8DEB00DF3BAA /* FontManager.cpp */,
 				B52C1D00181C8DEB00DF3BAA /* ResourceManager.h */,
 				B52C1D01181C8DEB00DF3BAA /* ResourceManager.mm */,
-				B52C1D02181C8DEB00DF3BAA /* util_math.cpp */,
-				B52C1D03181C8DEB00DF3BAA /* util_math.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -339,8 +339,8 @@
 		B52C1D06181C8DEB00DF3BAA /* views */ = {
 			isa = PBXGroup;
 			children = (
-				B52C1D07181C8DEB00DF3BAA /* ViewPlay.cpp */,
 				B52C1D08181C8DEB00DF3BAA /* ViewPlay.h */,
+				B52C1D07181C8DEB00DF3BAA /* ViewPlay.cpp */,
 			);
 			path = views;
 			sourceTree = "<group>";
