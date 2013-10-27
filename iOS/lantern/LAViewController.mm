@@ -47,7 +47,14 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 - (void) setLantern:(void*)lantern
 {
+    if (_lantern) {
+        delete _lantern;
+        _lantern = NULL;
+    }
+    
     _lantern = (Lantern*) lantern;
+    if (self.view)
+        ((EAGLView*)self.view).lantern = _lantern;
 }
 
 - (void*) lantern
@@ -104,6 +111,8 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     self.view = [[EAGLView alloc] init];
     self.view.frame = [[UIScreen mainScreen] applicationFrame];
     [self.view setMultipleTouchEnabled:YES];
+    if (_lantern)
+        ((EAGLView*)self.view).lantern = _lantern;
 }
 
 - (void) viewDidLoad

@@ -14,31 +14,31 @@
 class Lantern {
 public:
     Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false) {  }
-    ~Lantern() {  }
+    virtual ~Lantern() {  }
 
     // main graphics loop
-    void init();
-    void draw();
-    void stop();
+    virtual void init();
+    virtual void draw();
+    virtual void stop();
     
     // display properties
-    void setDimensions(GLfloat width, GLfloat height);
-    void setScale(GLfloat scale);
-    void setOrientation(bool isPortrait);
+    virtual void setDimensions(GLfloat width, GLfloat height);
+    virtual void setScale(GLfloat scale);
+    virtual void setOrientation(bool isPortrait);
     
     // event
-    void event(Event&);
+    virtual void event(Event&);
     
     // views
-    void addView(View* view, string key);
+    virtual void addView(View* view, string key);
     
 protected:
     Lantern(const Lantern& other);
     
-    void gameWillBegin();
-    void setInitialView(string initialViewKey);
+    virtual void gameWillBegin();
+    virtual void setInitialView(string initialViewKey);
     
-    void transitionView();
+    virtual void transitionView();
     
 protected:
     bool isRunning;

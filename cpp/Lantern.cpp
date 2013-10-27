@@ -86,7 +86,7 @@ void Lantern::transitionView() {
     if (view == NULL) {
         if (initialViewKey.length())
             p.nextView = initialViewKey;
-        else
+        else if (views.size())
             p.nextView = views.begin()->first;
         shouldTransition = true;
     }
