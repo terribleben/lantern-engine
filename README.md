@@ -1,7 +1,7 @@
-Lantern
-=======
+Lantern v0.1
+============
 
-Lantern is a piece of boilerplate code that serves as a decent starting point for making 2D games. It is designed to be fairly portable, although at the moment this project builds for iOS.
+Lantern is a library that serves as a decent starting point for making 2D games. It is designed to be fairly portable, although at the moment the only included example project builds for iOS.
 
 Stuff it does:
 - It takes care of setting up OpenGL ES.
