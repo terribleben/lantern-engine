@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B52C1D34181C952E00DF3BAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D33181C952E00DF3BAA /* UIKit.framework */; };
+		B52C1D36181C952E00DF3BAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D35181C952E00DF3BAA /* Foundation.framework */; };
+		B52C1D38181C952E00DF3BAA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D37181C952E00DF3BAA /* CoreGraphics.framework */; };
+		B52C1D3E181C952E00DF3BAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D3C181C952E00DF3BAA /* InfoPlist.strings */; };
+		B52C1D40181C952F00DF3BAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D3F181C952F00DF3BAA /* main.m */; };
+		B52C1D44181C952F00DF3BAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D43181C952F00DF3BAA /* AppDelegate.m */; };
+		B52C1D57181C966000DF3BAA /* liblantern.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D56181C966000DF3BAA /* liblantern.a */; };
+		B52C1D5D181C98CD00DF3BAA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D5C181C98CD00DF3BAA /* QuartzCore.framework */; };
+		B52C1D5F181C98D200DF3BAA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D5E181C98D200DF3BAA /* OpenGLES.framework */; };
+		B52C1D61181C996E00DF3BAA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D60181C996E00DF3BAA /* GLKit.framework */; };
+		B52C1D63181C997800DF3BAA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D62181C997800DF3BAA /* AVFoundation.framework */; };
+		B52C1D65181C997C00DF3BAA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D64181C997C00DF3BAA /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B52C1D30181C952E00DF3BAA /* lantern-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lantern-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B52C1D33181C952E00DF3BAA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B52C1D35181C952E00DF3BAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B52C1D37181C952E00DF3BAA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B52C1D3B181C952E00DF3BAA /* lantern-example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "lantern-example-Info.plist"; sourceTree = "<group>"; };
+		B52C1D3D181C952E00DF3BAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B52C1D3F181C952F00DF3BAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B52C1D41181C952F00DF3BAA /* lantern-example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lantern-example-Prefix.pch"; sourceTree = "<group>"; };
+		B52C1D42181C952F00DF3BAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B52C1D43181C952F00DF3BAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B52C1D56181C966000DF3BAA /* liblantern.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblantern.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/lantern-example-eqqljnyygsvicjhblrgchhpwigyn/Build/Products/Debug-iphoneos/liblantern.a"; sourceTree = "<group>"; };
+		B52C1D5C181C98CD00DF3BAA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B52C1D5E181C98D200DF3BAA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B52C1D60181C996E00DF3BAA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		B52C1D62181C997800DF3BAA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B52C1D64181C997C00DF3BAA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B52C1D2D181C952E00DF3BAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B52C1D57181C966000DF3BAA /* liblantern.a in Frameworks */,
+				B52C1D65181C997C00DF3BAA /* AudioToolbox.framework in Frameworks */,
+				B52C1D63181C997800DF3BAA /* AVFoundation.framework in Frameworks */,
+				B52C1D61181C996E00DF3BAA /* GLKit.framework in Frameworks */,
+				B52C1D5F181C98D200DF3BAA /* OpenGLES.framework in Frameworks */,
+				B52C1D5D181C98CD00DF3BAA /* QuartzCore.framework in Frameworks */,
+				B52C1D34181C952E00DF3BAA /* UIKit.framework in Frameworks */,
+				B52C1D36181C952E00DF3BAA /* Foundation.framework in Frameworks */,
+				B52C1D38181C952E00DF3BAA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B52C1D27181C952E00DF3BAA = {
+			isa = PBXGroup;
+			children = (
+				B52C1D39181C952E00DF3BAA /* lantern-example */,
+				B52C1D32181C952E00DF3BAA /* Frameworks */,
+				B52C1D31181C952E00DF3BAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B52C1D31181C952E00DF3BAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1D30181C952E00DF3BAA /* lantern-example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B52C1D32181C952E00DF3BAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1D56181C966000DF3BAA /* liblantern.a */,
+				B52C1D5C181C98CD00DF3BAA /* QuartzCore.framework */,
+				B52C1D33181C952E00DF3BAA /* UIKit.framework */,
+				B52C1D35181C952E00DF3BAA /* Foundation.framework */,
+				B52C1D37181C952E00DF3BAA /* CoreGraphics.framework */,
+				B52C1D5E181C98D200DF3BAA /* OpenGLES.framework */,
+				B52C1D64181C997C00DF3BAA /* AudioToolbox.framework */,
+				B52C1D62181C997800DF3BAA /* AVFoundation.framework */,
+				B52C1D60181C996E00DF3BAA /* GLKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B52C1D39181C952E00DF3BAA /* lantern-example */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1D42181C952F00DF3BAA /* AppDelegate.h */,
+				B52C1D43181C952F00DF3BAA /* AppDelegate.m */,
+				B52C1D3A181C952E00DF3BAA /* Supporting Files */,
+			);
+			path = "lantern-example";
+			sourceTree = "<group>";
+		};
+		B52C1D3A181C952E00DF3BAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1D3B181C952E00DF3BAA /* lantern-example-Info.plist */,
+				B52C1D3C181C952E00DF3BAA /* InfoPlist.strings */,
+				B52C1D3F181C952F00DF3BAA /* main.m */,
+				B52C1D41181C952F00DF3BAA /* lantern-example-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B52C1D2F181C952E00DF3BAA /* lantern-example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B52C1D4D181C952F00DF3BAA /* Build configuration list for PBXNativeTarget "lantern-example" */;
+			buildPhases = (
+				B52C1D2C181C952E00DF3BAA /* Sources */,
+				B52C1D2D181C952E00DF3BAA /* Frameworks */,
+				B52C1D2E181C952E00DF3BAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lantern-example";
+			productName = "lantern-example";
+			productReference = B52C1D30181C952E00DF3BAA /* lantern-example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B52C1D28181C952E00DF3BAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Ben Roth";
+			};
+			buildConfigurationList = B52C1D2B181C952E00DF3BAA /* Build configuration list for PBXProject "lantern-example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B52C1D27181C952E00DF3BAA;
+			productRefGroup = B52C1D31181C952E00DF3BAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B52C1D2F181C952E00DF3BAA /* lantern-example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B52C1D2E181C952E00DF3BAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B52C1D3E181C952E00DF3BAA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B52C1D2C181C952E00DF3BAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B52C1D40181C952F00DF3BAA /* main.m in Sources */,
+				B52C1D44181C952F00DF3BAA /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B52C1D3C181C952E00DF3BAA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B52C1D3D181C952E00DF3BAA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B52C1D4B181C952F00DF3BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../lantern/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B52C1D4C181C952F00DF3BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../lantern/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B52C1D4E181C952F00DF3BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lantern-example/lantern-example-Prefix.pch";
+				INFOPLIST_FILE = "lantern-example/lantern-example-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/lantern-example-eqqljnyygsvicjhblrgchhpwigyn/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B52C1D4F181C952F00DF3BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lantern-example/lantern-example-Prefix.pch";
+				INFOPLIST_FILE = "lantern-example/lantern-example-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/lantern-example-eqqljnyygsvicjhblrgchhpwigyn/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B52C1D2B181C952E00DF3BAA /* Build configuration list for PBXProject "lantern-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B52C1D4B181C952F00DF3BAA /* Debug */,
+				B52C1D4C181C952F00DF3BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B52C1D4D181C952F00DF3BAA /* Build configuration list for PBXNativeTarget "lantern-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B52C1D4E181C952F00DF3BAA /* Debug */,
+				B52C1D4F181C952F00DF3BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B52C1D28181C952E00DF3BAA /* Project object */;
+}
