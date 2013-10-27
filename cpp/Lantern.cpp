@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "lantern.h"
+#include "Lantern.h"
 #include "View.h"
 #include "ParticleManager.h"
 #include "FontManager.h"

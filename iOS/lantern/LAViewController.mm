@@ -259,7 +259,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 - (void) accelerometer: (UIAccelerometer*)accelerometer didAccelerate: (UIAcceleration*)acceleration
 {
     // accel event
-    float accelParam[] = { acceleration.x, acceleration.y, acceleration.z };
+    float accelParam[] = { (float)acceleration.x, (float)acceleration.y, (float)acceleration.z };
     Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned int)accelerometer, accelParam);
     Lantern::getInstance().event(accelEvent);
 }
