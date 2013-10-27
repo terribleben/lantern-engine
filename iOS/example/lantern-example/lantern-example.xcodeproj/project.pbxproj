@@ -19,6 +19,8 @@
 		B52C1D61181C996E00DF3BAA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D60181C996E00DF3BAA /* GLKit.framework */; };
 		B52C1D63181C997800DF3BAA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D62181C997800DF3BAA /* AVFoundation.framework */; };
 		B52C1D65181C997C00DF3BAA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D64181C997C00DF3BAA /* AudioToolbox.framework */; };
+		B52C1D6D181CA5AF00DF3BAA /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D6B181CA5AF00DF3BAA /* white_bevel.lanternfont */; };
+		B52C1D6E181CA5AF00DF3BAA /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D6C181CA5AF00DF3BAA /* white_bevel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		B52C1D60181C996E00DF3BAA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B52C1D62181C997800DF3BAA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B52C1D64181C997C00DF3BAA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B52C1D6B181CA5AF00DF3BAA /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
+		B52C1D6C181CA5AF00DF3BAA /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			children = (
 				B52C1D42181C952F00DF3BAA /* AppDelegate.h */,
 				B52C1D43181C952F00DF3BAA /* AppDelegate.m */,
+				B52C1D6A181CA5AF00DF3BAA /* assets */,
 				B52C1D3A181C952E00DF3BAA /* Supporting Files */,
 			);
 			path = "lantern-example";
@@ -112,6 +117,16 @@
 				B52C1D41181C952F00DF3BAA /* lantern-example-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B52C1D6A181CA5AF00DF3BAA /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1D6B181CA5AF00DF3BAA /* white_bevel.lanternfont */,
+				B52C1D6C181CA5AF00DF3BAA /* white_bevel.png */,
+			);
+			name = assets;
+			path = ../../../../assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B52C1D3E181C952E00DF3BAA /* InfoPlist.strings in Resources */,
+				B52C1D6D181CA5AF00DF3BAA /* white_bevel.lanternfont in Resources */,
+				B52C1D6E181CA5AF00DF3BAA /* white_bevel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
