@@ -22,7 +22,7 @@ public:
     static FontManager& getInstance();
     
     void addFont(Font* font, string key);
-    void addFontFromFile(string filename, string key);
+    bool addFontFromFile(string filename, string key);
     void saveFontToFile(Font* font, string filename);
     
     Font* getFont(string key);

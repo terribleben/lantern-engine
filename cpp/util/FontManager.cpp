@@ -19,15 +19,18 @@ void FontManager::addFont(Font* font, string name) {
     fonts[name] = font;
 }
 
-void FontManager::addFontFromFile(string filename, string name) {
+bool FontManager::addFontFromFile(string filename, string name) {
     const char* path = ResourceManager::getInstance().prependResourcePath(filename.c_str());
     string serializedFont = ResourceManager::getInstance().fileContentsAsString(path);
     
     if (serializedFont.length()) {
         Font* f = new Font();
-        f->loadFromString(serializedFont);
-        this->addFont(f, name);
+        if (f->loadFromString(serializedFont)) {
+            this->addFont(f, name);
+            return true;
+        }
     }
+    return false;
 }
 
 void FontManager::saveFontToFile(Font* font, string filename) {

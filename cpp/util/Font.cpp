@@ -64,18 +64,18 @@ string Font::serialize() {
     return stream.str();
 }
 
-void Font::loadFromString(string serializedFont) {
+bool Font::loadFromString(string serializedFont) {
     if (loaded)
-        return;
+        return false;
     
     std::istringstream stream(serializedFont, std::istringstream::in);
     if (!stream.good())
-        return;
+        return false;
     
     float fontVersion;
     stream >> fontVersion;
     if (fontVersion > LANTERN_FONT_VERSION) // assume future versions suck
-        return;
+        return false;
     
     stream >> textureFilename;
     stream >> texWidth >> texHeight >> charWidth >> charHeight;
@@ -92,12 +92,12 @@ void Font::loadFromString(string serializedFont) {
         setCharacterWidths(widths, 0, 256);
     }
     
-    loadTexture();
+    return loadTexture();
 }
 
-void Font::loadTexture(string texName, unsigned int texWidth, unsigned int texHeight, unsigned int charWidth, unsigned int charHeight, unsigned int charsPerRow, int idxZero) {
+bool Font::loadTexture(string texName, unsigned int texWidth, unsigned int texHeight, unsigned int charWidth, unsigned int charHeight, unsigned int charsPerRow, int idxZero) {
     if (loaded)
-        return;
+        return false;
     
     characterWidths = NULL;
     this->textureFilename = texName;
@@ -112,12 +112,12 @@ void Font::loadTexture(string texName, unsigned int texWidth, unsigned int texHe
     else
         this->charsPerRow = charsPerRow;
 
-    loadTexture();
+    return loadTexture();
 }
 
-void Font::loadTexture() {
+bool Font::loadTexture() {
     if (loaded)
-        return;
+        return false;
     
     glGenTextures(1, &tex);
 	
@@ -130,8 +130,11 @@ void Font::loadTexture() {
 	if (tex == 0) {
         fprintf(stdout, "Font: Error loading font %s\n", textureFilename.c_str());
 		loaded = false;
-	} else
-		loaded = true;
+        return false;
+	}
+    
+    loaded = true;
+    return true;
 }
 
 void Font::setCharacterWidths(float* widths, int idxStart, int length) {

@@ -11,7 +11,9 @@ void LanternExample::gameWillBegin() {
     Lantern::gameWillBegin();
     
     // load the example font
-    FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default");
+    if (!FontManager::getInstance().addFontFromFile("white_bevel.lanternfont", "default")) {
+        fprintf(stdout, "Warning: Failed to load example font from file");
+    }
     
     // load and queue the first view
     addView(new ViewPlay(), "play");
