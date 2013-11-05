@@ -42,6 +42,7 @@
 		B52C1D26181C8F9800DF3BAA /* LAAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1CBE181C8D4400DF3BAA /* LAAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B52C1D77181DA3DA00DF3BAA /* Lantern.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1CEE181C8DEB00DF3BAA /* Lantern.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B52C1D7F1828BD1000DF3BAA /* GeneratorSinSHM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D7E1828BD0F00DF3BAA /* GeneratorSinSHM.cpp */; };
+		B52C1D821828C99900DF3BAA /* GeneratorSquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D811828C99800DF3BAA /* GeneratorSquare.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -127,6 +128,8 @@
 		B52C1D05181C8DEB00DF3BAA /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
 		B52C1D7D1828BC7000DF3BAA /* GeneratorSinSHM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratorSinSHM.h; sourceTree = "<group>"; };
 		B52C1D7E1828BD0F00DF3BAA /* GeneratorSinSHM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSinSHM.cpp; sourceTree = "<group>"; };
+		B52C1D801828C88600DF3BAA /* GeneratorSquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratorSquare.h; sourceTree = "<group>"; };
+		B52C1D811828C99800DF3BAA /* GeneratorSquare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSquare.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +257,8 @@
 				B52C1CD1181C8DEB00DF3BAA /* GeneratorSin.cpp */,
 				B52C1D7D1828BC7000DF3BAA /* GeneratorSinSHM.h */,
 				B52C1D7E1828BD0F00DF3BAA /* GeneratorSinSHM.cpp */,
+				B52C1D801828C88600DF3BAA /* GeneratorSquare.h */,
+				B52C1D811828C99800DF3BAA /* GeneratorSquare.cpp */,
 			);
 			path = generator;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				B52C1D20181C8DEB00DF3BAA /* util_math.cpp in Sources */,
 				B52C1D21181C8DEB00DF3BAA /* View.cpp in Sources */,
 				B52C1D7F1828BD1000DF3BAA /* GeneratorSinSHM.cpp in Sources */,
+				B52C1D821828C99900DF3BAA /* GeneratorSquare.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
