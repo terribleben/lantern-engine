@@ -64,6 +64,12 @@ void Lantern::stop() {
             views.erase(viewItr++);
         }
         view = NULL;
+        
+        for (list<Track*>::iterator tItr = audioTracks.begin(); tItr != audioTracks.end(); tItr++) {
+            delete *tItr;
+        }
+        audioTracks.clear();
+        
         isRunning = false;
     }
 }
@@ -114,26 +120,53 @@ void Lantern::transitionView() {
 }
 
 void Lantern::event(Event& e) {
-    if (view) {
-        if (isPortrait) {
-            switch (e.type) {
-                case LANTERN_EVENT_TOUCH_DOWN: case LANTERN_EVENT_TOUCH_UP: case LANTERN_EVENT_TOUCH_MOVE: {
-                    float* touchPoint = (float*)e.data;
-                    
-                    // invert x, then swap y and x
-                    touchPoint[0] = (screenWidth / screenScale) - touchPoint[0]; // for relative, just touchPoint[0] = -touchPoint[0]
-                    
-                    float swap = touchPoint[1];
-                    touchPoint[1] = touchPoint[0];
-                    touchPoint[0] = swap;
-                    break;
-                }
-                default: {
-                    break;
+    if (e.type == LANTERN_EVENT_AUDIO_TRACK) {
+        Track* t = (Track*) e.data;
+        audioTracks.push_back(t);
+    } else {
+        if (view) {
+            if (isPortrait) {
+                switch (e.type) {
+                    case LANTERN_EVENT_TOUCH_DOWN: case LANTERN_EVENT_TOUCH_UP: case LANTERN_EVENT_TOUCH_MOVE: {
+                        float* touchPoint = (float*)e.data;
+                        
+                        // invert x, then swap y and x
+                        touchPoint[0] = (screenWidth / screenScale) - touchPoint[0]; // for relative, just touchPoint[0] = -touchPoint[0]
+                        
+                        float swap = touchPoint[1];
+                        touchPoint[1] = touchPoint[0];
+                        touchPoint[0] = swap;
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
                 }
             }
+            view->event(e);
         }
-        view->event(e);
+    }
+}
+
+void Lantern::getAudioFrame(Sample* samples) {
+    Sample singleTrack[LANTERN_AUDIO_NUM_CHANNELS];
+    memset(singleTrack, 0, LANTERN_AUDIO_NUM_CHANNELS * sizeof(Sample));
+    
+    list<Track*>::iterator it = audioTracks.begin(), end_it = audioTracks.end();
+    int cc = 0;
+    
+    while (it != end_it) {
+        (*it)->getFrame(singleTrack);
+        
+        for (cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
+            samples[cc] += singleTrack[cc];
+        }
+        
+        if ((*it)->isFinished()) {
+            delete *it;
+            audioTracks.erase(it++);
+        } else
+            it++;
     }
 }
 

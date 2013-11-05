@@ -13,6 +13,7 @@
 #define LANTERN_EVENT_ACCEL 3
 #define LANTERN_EVENT_LOSE_FOCUS 4
 #define LANTERN_EVENT_GAIN_FOCUS 5
+#define LANTERN_EVENT_AUDIO_TRACK 6
 
 class Event {
 public:

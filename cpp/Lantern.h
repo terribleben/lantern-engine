@@ -10,6 +10,11 @@
 
 #include "Event.h"
 #include "View.h"
+#include "AudioDef.h"
+#include "Track.h"
+
+#include <list>
+using std::list;
 
 class Lantern {
 public:
@@ -32,6 +37,9 @@ public:
     // views
     virtual void addView(View* view, string key);
     
+    // audio
+    void getAudioFrame(Sample* samples);
+    
 protected:
     Lantern(const Lantern& other);
     
@@ -49,6 +57,8 @@ protected:
     View* view;
     string initialViewKey;
     map<string, View*> views;
+    
+    list<Track*> audioTracks;
 };
 
 #endif
