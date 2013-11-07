@@ -9,8 +9,8 @@ FOUNDATION_EXPORT NSString* const kLanternConfigAccelerometerEnabled;
 
 @interface LAViewController : UIViewController <UIAccelerometerDelegate>
 
-- (void) startAnimating;
-- (void) stopAnimating;
+- (void) resume;
+- (void) suspend;
 
 /**
  *  The Lantern instance that this view controller will manage.

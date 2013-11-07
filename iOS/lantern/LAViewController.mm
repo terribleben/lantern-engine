@@ -10,11 +10,14 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #import "EAGLView.h"
+#import "LAAudio.h"
 
 #import "Lantern.h"
 
 NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
+NSString* const kLanternConfigAudioEnabled = @"audio_enabled";
 
+void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
 
 @interface LAViewController ()
 {
@@ -22,7 +25,11 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     NSDictionary* lanternConfig;
     BOOL isLanternInitialized;
     Lantern *_lantern;
+    LAAudio *theAudio;
 }
+
+- (void) startAnimation;
+- (void) stopAnimation;
 
 @property (nonatomic, readonly, getter=isAnimating) BOOL animating;
 @property (nonatomic) NSInteger animationFrameInterval;
@@ -104,6 +111,15 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     if (accelParam && [accelParam intValue] == 1) {
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
     }
+    
+    // enable audio?
+    NSString * audioParam = [lanternConfig objectForKey:kLanternConfigAudioEnabled];
+    if (audioParam && [audioParam intValue] == 1) {
+        theAudio = [[LAAudio alloc] initWithSampleRate:LANTERN_AUDIO_SAMPLE_RATE bufferSize:LANTERN_AUDIO_BUFFER_SIZE callback:audioCallback userData:_lantern];
+        if (![theAudio startSession]) {
+            NSLog(@"* Failed to enable audio");
+        }
+    }
 }
 
 - (void) loadView
@@ -124,6 +140,10 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 
 - (void) dealloc
 {
+    if (theAudio) {
+        theAudio = nil;
+    }
+    
     if (_context) {
         if ([EAGLContext currentContext] == _context)
             [EAGLContext setCurrentContext:nil];
@@ -154,8 +174,8 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     Event e(LANTERN_EVENT_GAIN_FOCUS, 0, NULL);
     _lantern->event(e);
     
-    // restart the graphics loop
-    [self startAnimating];
+    // resume graphics and audio
+    [self resume];
     [super viewWillAppear:animated];
 }
 
@@ -165,8 +185,8 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     Event e(LANTERN_EVENT_LOSE_FOCUS, 0, NULL);
     _lantern->event(e);
     
-    // stop the graphics loop
-    [self stopAnimating];
+    // suspend graphics and audio
+    [self suspend];
     [super viewWillDisappear:animated];
 }
 
@@ -187,6 +207,20 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     [super viewDidUnload];
 }
 
+- (void) suspend
+{
+    if (theAudio)
+        [theAudio suspendSession];
+    [self stopAnimation];
+}
+
+- (void) resume
+{
+    if (theAudio)
+        [theAudio resumeSession];
+    [self startAnimation];
+}
+
 - (NSInteger) animationFrameInterval
 {
     return animationFrameInterval;
@@ -198,13 +232,13 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
         animationFrameInterval = frameInterval;
         
         if (_animating) {
-            [self stopAnimating];
-            [self startAnimating];
+            [self stopAnimation];
+            [self startAnimation];
         }
     }
 }
 
-- (void) startAnimating
+- (void) startAnimation
 {
     if (!_animating) {
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(draw)];
@@ -215,7 +249,7 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
     }
 }
 
-- (void) stopAnimating
+- (void) stopAnimation
 {
     if (_animating) {
         [self.displayLink invalidate];
@@ -304,3 +338,13 @@ NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 }
 
 @end
+
+void audioCallback(Sample* buffer, unsigned int nFrames, void* userData) {
+    memset(buffer, 0, LANTERN_AUDIO_NUM_CHANNELS * nFrames * sizeof(Sample));
+    
+    for (unsigned int i = 0; i < nFrames; i++) {
+        ((Lantern*)userData)->getAudioFrame(buffer);
+        buffer += LANTERN_AUDIO_NUM_CHANNELS;
+    }
+    return;
+}

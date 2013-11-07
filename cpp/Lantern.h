@@ -18,8 +18,13 @@ using std::list;
 
 class Lantern {
 public:
-    Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false) {  }
+    Lantern();
     virtual ~Lantern() {  }
+    
+    // Will return the most recent Lantern instance constructed (globally).
+    // If you're using this library correctly, that's all you care about.
+    static Lantern* getPrimaryInstance();
+    
 
     // main graphics loop
     virtual void init();
@@ -42,6 +47,7 @@ public:
     
 protected:
     Lantern(const Lantern& other);
+    static void setPrimaryInstance(Lantern* lantern);
     
     virtual void gameWillBegin();
     virtual void setInitialView(string initialViewKey);

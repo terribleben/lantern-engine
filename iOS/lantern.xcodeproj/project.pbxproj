@@ -73,7 +73,6 @@
 		B52C1CC0181C8D4400DF3BAA /* LAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAViewController.h; sourceTree = "<group>"; };
 		B52C1CC1181C8D4400DF3BAA /* LAViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAViewController.mm; sourceTree = "<group>"; };
 		B52C1CC7181C8D6000DF3BAA /* lantern-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "lantern-Prefix.pch"; sourceTree = "<group>"; };
-		B52C1CC8181C8D6000DF3BAA /* LanternConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LanternConfig.plist; sourceTree = "<group>"; };
 		B52C1CCB181C8DEB00DF3BAA /* AudioDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDef.h; sourceTree = "<group>"; };
 		B52C1CCD181C8DEB00DF3BAA /* Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
 		B52C1CCE181C8DEB00DF3BAA /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		B52C1D7E1828BD0F00DF3BAA /* GeneratorSinSHM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSinSHM.cpp; sourceTree = "<group>"; };
 		B52C1D801828C88600DF3BAA /* GeneratorSquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratorSquare.h; sourceTree = "<group>"; };
 		B52C1D811828C99800DF3BAA /* GeneratorSquare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSquare.cpp; sourceTree = "<group>"; };
+		B52C1D85182C4BF100DF3BAA /* LanternConfigExample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LanternConfigExample.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +182,8 @@
 		B52C1CA9181C8C6400DF3BAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B52C1D85182C4BF100DF3BAA /* LanternConfigExample.plist */,
 				B52C1CC7181C8D6000DF3BAA /* lantern-Prefix.pch */,
-				B52C1CC8181C8D6000DF3BAA /* LanternConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

@@ -24,6 +24,7 @@
 		B52C1D73181D9FA600DF3BAA /* ViewPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D71181D9FA600DF3BAA /* ViewPlay.cpp */; };
 		B52C1D76181DA39100DF3BAA /* LanternExample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D75181DA39100DF3BAA /* LanternExample.cpp */; };
 		B52C1D7C181DA80A00DF3BAA /* LanternExampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D7B181DA80A00DF3BAA /* LanternExampleViewController.mm */; };
+		B52C1D84182C4B6300DF3BAA /* LanternConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D83182C4B6300DF3BAA /* LanternConfig.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		B52C1D75181DA39100DF3BAA /* LanternExample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanternExample.cpp; sourceTree = "<group>"; };
 		B52C1D78181DA79500DF3BAA /* LanternExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanternExampleViewController.h; sourceTree = "<group>"; };
 		B52C1D7B181DA80A00DF3BAA /* LanternExampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LanternExampleViewController.mm; sourceTree = "<group>"; };
+		B52C1D83182C4B6300DF3BAA /* LanternConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LanternConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				B52C1D3C181C952E00DF3BAA /* InfoPlist.strings */,
 				B52C1D3F181C952F00DF3BAA /* main.m */,
 				B52C1D41181C952F00DF3BAA /* lantern-example-Prefix.pch */,
+				B52C1D83182C4B6300DF3BAA /* LanternConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				B52C1D3E181C952E00DF3BAA /* InfoPlist.strings in Resources */,
 				B52C1D6D181CA5AF00DF3BAA /* white_bevel.lanternfont in Resources */,
 				B52C1D6E181CA5AF00DF3BAA /* white_bevel.png in Resources */,
+				B52C1D84182C4B6300DF3BAA /* LanternConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

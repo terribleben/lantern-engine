@@ -10,11 +10,25 @@
 #include "ParticleManager.h"
 #include "FontManager.h"
 
+static Lantern* theLantern = NULL;
+
 /**
  * Override this method to prepare any views, resources, etc. once before the main loop begins.
  */
 void Lantern::gameWillBegin() {
 
+}
+
+Lantern::Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false) {
+    Lantern::setPrimaryInstance(this);
+}
+
+Lantern* Lantern::getPrimaryInstance() {
+    return theLantern;
+}
+
+void Lantern::setPrimaryInstance(Lantern *lantern) {
+    theLantern = lantern;
 }
 
 void Lantern::init() {
