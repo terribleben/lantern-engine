@@ -23,7 +23,7 @@ protected:
     void recompute();
     
     float displacement, velocity, acceleration;
-    float springConstant;
+    float accelCoefficient;
 };
 
 #endif
