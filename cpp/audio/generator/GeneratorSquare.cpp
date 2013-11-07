@@ -11,6 +11,8 @@ GeneratorSquare::GeneratorSquare() : Generator() {
     halfPeriod = 0;
 }
 
+GeneratorSquare::~GeneratorSquare() { }
+
 void GeneratorSquare::recompute() {
     float oldPhaseFloat = (period) ? (float)phase / (float)period : 0.0f;
     
