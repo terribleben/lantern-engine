@@ -18,8 +18,8 @@ public:
     virtual void getFrame(Sample* samples);
     virtual bool isFinished();
     
-    void setGain(float);
-    void setFreq(float); // bounded between 0.1 Hz and 20 kHz.
+    virtual void setGain(float);
+    virtual void setFreq(float); // bounded between 0.1 Hz and 20 kHz.
     void stop();
     
     float getFreq();
