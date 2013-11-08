@@ -1,5 +1,8 @@
 //
 //  GeneratorSquare.h
+//  Perfect square wave generator.
+//  For something closer to an analogue circuit, see GeneratorSquareSeries.
+//
 //  lantern
 //
 
