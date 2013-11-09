@@ -19,12 +19,12 @@
 		B52C1D61181C996E00DF3BAA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D60181C996E00DF3BAA /* GLKit.framework */; };
 		B52C1D63181C997800DF3BAA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D62181C997800DF3BAA /* AVFoundation.framework */; };
 		B52C1D65181C997C00DF3BAA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C1D64181C997C00DF3BAA /* AudioToolbox.framework */; };
-		B52C1D6D181CA5AF00DF3BAA /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D6B181CA5AF00DF3BAA /* white_bevel.lanternfont */; };
-		B52C1D6E181CA5AF00DF3BAA /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D6C181CA5AF00DF3BAA /* white_bevel.png */; };
 		B52C1D73181D9FA600DF3BAA /* ViewPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D71181D9FA600DF3BAA /* ViewPlay.cpp */; };
 		B52C1D76181DA39100DF3BAA /* LanternExample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D75181DA39100DF3BAA /* LanternExample.cpp */; };
 		B52C1D7C181DA80A00DF3BAA /* LanternExampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D7B181DA80A00DF3BAA /* LanternExampleViewController.mm */; };
 		B52C1D84182C4B6300DF3BAA /* LanternConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D83182C4B6300DF3BAA /* LanternConfig.plist */; };
+		B52C1D97182ED1CF00DF3BAA /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */; };
+		B52C1D98182ED1CF00DF3BAA /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D96182ED1CF00DF3BAA /* white_bevel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,6 @@
 		B52C1D60181C996E00DF3BAA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B52C1D62181C997800DF3BAA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B52C1D64181C997C00DF3BAA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		B52C1D6B181CA5AF00DF3BAA /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
-		B52C1D6C181CA5AF00DF3BAA /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
 		B52C1D71181D9FA600DF3BAA /* ViewPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ViewPlay.cpp; sourceTree = "<group>"; };
 		B52C1D72181D9FA600DF3BAA /* ViewPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPlay.h; sourceTree = "<group>"; };
 		B52C1D74181DA33F00DF3BAA /* LanternExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanternExample.h; sourceTree = "<group>"; };
@@ -53,6 +51,8 @@
 		B52C1D78181DA79500DF3BAA /* LanternExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanternExampleViewController.h; sourceTree = "<group>"; };
 		B52C1D7B181DA80A00DF3BAA /* LanternExampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LanternExampleViewController.mm; sourceTree = "<group>"; };
 		B52C1D83182C4B6300DF3BAA /* LanternConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LanternConfig.plist; sourceTree = "<group>"; };
+		B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
+		B52C1D96182ED1CF00DF3BAA /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				B52C1D6F181D9F1000DF3BAA /* cpp */,
-				B52C1D6A181CA5AF00DF3BAA /* assets */,
 				B52C1D39181C952E00DF3BAA /* lantern-example */,
+				B52C1D94182ED1CF00DF3BAA /* assets */,
 				B52C1D32181C952E00DF3BAA /* Frameworks */,
 				B52C1D31181C952E00DF3BAA /* Products */,
 			);
@@ -134,16 +134,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B52C1D6A181CA5AF00DF3BAA /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				B52C1D6B181CA5AF00DF3BAA /* white_bevel.lanternfont */,
-				B52C1D6C181CA5AF00DF3BAA /* white_bevel.png */,
-			);
-			name = assets;
-			path = ../../../assets;
-			sourceTree = "<group>";
-		};
 		B52C1D6F181D9F1000DF3BAA /* cpp */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +151,15 @@
 				B52C1D71181D9FA600DF3BAA /* ViewPlay.cpp */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		B52C1D94182ED1CF00DF3BAA /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */,
+				B52C1D96182ED1CF00DF3BAA /* white_bevel.png */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B52C1D3E181C952E00DF3BAA /* InfoPlist.strings in Resources */,
-				B52C1D6D181CA5AF00DF3BAA /* white_bevel.lanternfont in Resources */,
-				B52C1D6E181CA5AF00DF3BAA /* white_bevel.png in Resources */,
 				B52C1D84182C4B6300DF3BAA /* LanternConfig.plist in Resources */,
+				B52C1D97182ED1CF00DF3BAA /* white_bevel.lanternfont in Resources */,
+				B52C1D98182ED1CF00DF3BAA /* white_bevel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
