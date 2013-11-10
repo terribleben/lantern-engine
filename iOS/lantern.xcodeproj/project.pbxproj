@@ -47,6 +47,7 @@
 		B52C1D8C182CBC0100DF3BAA /* GeneratorSquareSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1D8A182CBBFF00DF3BAA /* GeneratorSquareSeries.h */; };
 		B52C1D90182CBFDE00DF3BAA /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D8F182CBFDE00DF3BAA /* Processor.cpp */; };
 		B52C1D93182CC2C800DF3BAA /* ProcessorGainPan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D92182CC2C700DF3BAA /* ProcessorGainPan.cpp */; };
+		B52C1D9B182ED69200DF3BAA /* ProcessorGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -140,6 +141,8 @@
 		B52C1D8F182CBFDE00DF3BAA /* Processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Processor.cpp; sourceTree = "<group>"; };
 		B52C1D91182CC22700DF3BAA /* ProcessorGainPan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorGainPan.h; sourceTree = "<group>"; };
 		B52C1D92182CC2C700DF3BAA /* ProcessorGainPan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorGainPan.cpp; sourceTree = "<group>"; };
+		B52C1D99182ED47500DF3BAA /* ProcessorGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorGroup.h; sourceTree = "<group>"; };
+		B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorGroup.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +364,8 @@
 			children = (
 				B52C1D8E182CBF0C00DF3BAA /* Processor.h */,
 				B52C1D8F182CBFDE00DF3BAA /* Processor.cpp */,
+				B52C1D99182ED47500DF3BAA /* ProcessorGroup.h */,
+				B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */,
 				B52C1D91182CC22700DF3BAA /* ProcessorGainPan.h */,
 				B52C1D92182CC2C700DF3BAA /* ProcessorGainPan.cpp */,
 			);
@@ -469,6 +474,7 @@
 				B52C1D8B182CBC0100DF3BAA /* GeneratorSquareSeries.cpp in Sources */,
 				B52C1D90182CBFDE00DF3BAA /* Processor.cpp in Sources */,
 				B52C1D93182CC2C800DF3BAA /* ProcessorGainPan.cpp in Sources */,
+				B52C1D9B182ED69200DF3BAA /* ProcessorGroup.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

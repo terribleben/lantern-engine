@@ -27,7 +27,11 @@ bool Processor::isFinished() {
 }
 
 void Processor::getFrame(Sample* samples) {
+    // input
+    this->input->getFrame(samples);
+    
     for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
+        // output
         *samples = process(*samples);
         samples++;
     }

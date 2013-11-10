@@ -5,7 +5,7 @@
 //
 
 #ifndef __LANTERN_PROCESSOR_H__
-#define __LANTERN_PROCESOR_H__
+#define __LANTERN_PROCESSOR_H__
 
 #include "Track.h"
 
