@@ -49,6 +49,7 @@
 		B52C1D9B182ED69200DF3BAA /* ProcessorGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */; };
 		B52C1D9E182F163400DF3BAA /* ProcessorPan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D9C182F163300DF3BAA /* ProcessorPan.cpp */; };
 		B52C1D9F182F163400DF3BAA /* ProcessorPan.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1D9D182F163300DF3BAA /* ProcessorPan.h */; };
+		B52C1DA21830360700DF3BAA /* ProcessorDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DA11830360600DF3BAA /* ProcessorDelay.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -144,6 +145,8 @@
 		B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorGroup.cpp; sourceTree = "<group>"; };
 		B52C1D9C182F163300DF3BAA /* ProcessorPan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorPan.cpp; sourceTree = "<group>"; };
 		B52C1D9D182F163300DF3BAA /* ProcessorPan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessorPan.h; sourceTree = "<group>"; };
+		B52C1DA01830354900DF3BAA /* ProcessorDelay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorDelay.h; sourceTree = "<group>"; };
+		B52C1DA11830360600DF3BAA /* ProcessorDelay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorDelay.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +372,8 @@
 				B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */,
 				B52C1D9D182F163300DF3BAA /* ProcessorPan.h */,
 				B52C1D9C182F163300DF3BAA /* ProcessorPan.cpp */,
+				B52C1DA01830354900DF3BAA /* ProcessorDelay.h */,
+				B52C1DA11830360600DF3BAA /* ProcessorDelay.cpp */,
 			);
 			path = processor;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				B52C1D90182CBFDE00DF3BAA /* Processor.cpp in Sources */,
 				B52C1D9B182ED69200DF3BAA /* ProcessorGroup.cpp in Sources */,
 				B52C1D9E182F163400DF3BAA /* ProcessorPan.cpp in Sources */,
+				B52C1DA21830360700DF3BAA /* ProcessorDelay.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
