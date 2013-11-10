@@ -46,8 +46,9 @@
 		B52C1D8B182CBC0100DF3BAA /* GeneratorSquareSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D89182CBBFE00DF3BAA /* GeneratorSquareSeries.cpp */; };
 		B52C1D8C182CBC0100DF3BAA /* GeneratorSquareSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1D8A182CBBFF00DF3BAA /* GeneratorSquareSeries.h */; };
 		B52C1D90182CBFDE00DF3BAA /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D8F182CBFDE00DF3BAA /* Processor.cpp */; };
-		B52C1D93182CC2C800DF3BAA /* ProcessorGainPan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D92182CC2C700DF3BAA /* ProcessorGainPan.cpp */; };
 		B52C1D9B182ED69200DF3BAA /* ProcessorGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */; };
+		B52C1D9E182F163400DF3BAA /* ProcessorPan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1D9C182F163300DF3BAA /* ProcessorPan.cpp */; };
+		B52C1D9F182F163400DF3BAA /* ProcessorPan.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1D9D182F163300DF3BAA /* ProcessorPan.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -139,10 +140,10 @@
 		B52C1D8A182CBBFF00DF3BAA /* GeneratorSquareSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSquareSeries.h; sourceTree = "<group>"; };
 		B52C1D8E182CBF0C00DF3BAA /* Processor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
 		B52C1D8F182CBFDE00DF3BAA /* Processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Processor.cpp; sourceTree = "<group>"; };
-		B52C1D91182CC22700DF3BAA /* ProcessorGainPan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorGainPan.h; sourceTree = "<group>"; };
-		B52C1D92182CC2C700DF3BAA /* ProcessorGainPan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorGainPan.cpp; sourceTree = "<group>"; };
 		B52C1D99182ED47500DF3BAA /* ProcessorGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorGroup.h; sourceTree = "<group>"; };
 		B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorGroup.cpp; sourceTree = "<group>"; };
+		B52C1D9C182F163300DF3BAA /* ProcessorPan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorPan.cpp; sourceTree = "<group>"; };
+		B52C1D9D182F163300DF3BAA /* ProcessorPan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessorPan.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,8 +367,8 @@
 				B52C1D8F182CBFDE00DF3BAA /* Processor.cpp */,
 				B52C1D99182ED47500DF3BAA /* ProcessorGroup.h */,
 				B52C1D9A182ED69200DF3BAA /* ProcessorGroup.cpp */,
-				B52C1D91182CC22700DF3BAA /* ProcessorGainPan.h */,
-				B52C1D92182CC2C700DF3BAA /* ProcessorGainPan.cpp */,
+				B52C1D9D182F163300DF3BAA /* ProcessorPan.h */,
+				B52C1D9C182F163300DF3BAA /* ProcessorPan.cpp */,
 			);
 			path = processor;
 			sourceTree = "<group>";
@@ -384,6 +385,7 @@
 				B52C1D26181C8F9800DF3BAA /* LAAudio.h in Headers */,
 				B52C1D77181DA3DA00DF3BAA /* Lantern.h in Headers */,
 				B52C1D8C182CBC0100DF3BAA /* GeneratorSquareSeries.h in Headers */,
+				B52C1D9F182F163400DF3BAA /* ProcessorPan.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,8 +475,8 @@
 				B52C1D821828C99900DF3BAA /* GeneratorSquare.cpp in Sources */,
 				B52C1D8B182CBC0100DF3BAA /* GeneratorSquareSeries.cpp in Sources */,
 				B52C1D90182CBFDE00DF3BAA /* Processor.cpp in Sources */,
-				B52C1D93182CC2C800DF3BAA /* ProcessorGainPan.cpp in Sources */,
 				B52C1D9B182ED69200DF3BAA /* ProcessorGroup.cpp in Sources */,
+				B52C1D9E182F163400DF3BAA /* ProcessorPan.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

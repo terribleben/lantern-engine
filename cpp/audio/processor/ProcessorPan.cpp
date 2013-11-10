@@ -1,25 +1,25 @@
 //
-//  ProcessorGainPan.cpp
+//  ProcessorPan.cpp
 //  lantern
 //
 
-#include "ProcessorGainPan.h"
+#include "ProcessorPan.h"
 #include <algorithm>
 
 // TODO use rounder pan model. This one is totally linear.
 
-ProcessorGainPan::ProcessorGainPan() : Processor() {
+ProcessorPan::ProcessorPan() : Processor() {
     setWidth(1.0f);
     setPan(0.5f);
 }
 
-ProcessorGainPan::~ProcessorGainPan() { }
+ProcessorPan::~ProcessorPan() { }
 
-void ProcessorGainPan::recompute() {
+void ProcessorPan::recompute() {
     
 }
 
-void ProcessorGainPan::setWidth(float width) {
+void ProcessorPan::setWidth(float width) {
     if (width < 0.0f) width = 0.0f;
     if (width > 1.0f) width = 1.0f;
     
@@ -29,7 +29,7 @@ void ProcessorGainPan::setWidth(float width) {
     widthEmptyWeight = 0.5f - (0.5f * width);
 }
 
-void ProcessorGainPan::setPan(float panVal) {
+void ProcessorPan::setPan(float panVal) {
     if (panVal < 0.0f) panVal = 0.0f;
     if (panVal > 1.0f) panVal = 1.0f;
     
@@ -37,7 +37,7 @@ void ProcessorGainPan::setPan(float panVal) {
     leftChannelWeight = std::min(1.0f, (1.0f - panVal) * 2.0f);
 }
 
-void ProcessorGainPan::getFrame(Sample* samples) {
+void ProcessorPan::getFrame(Sample* samples) {
     if (this->input)
         this->input->getFrame(samples);
     
@@ -49,12 +49,12 @@ void ProcessorGainPan::getFrame(Sample* samples) {
     }
 }
 
-Sample ProcessorGainPan::process(Sample input) {
+Sample ProcessorPan::process(Sample input) {
     // do nothing, override getFrame()
     return 0;
 }
 
-void ProcessorGainPan::process(Sample left, Sample right, Sample* outLeft, Sample* outRight) {
+void ProcessorPan::process(Sample left, Sample right, Sample* outLeft, Sample* outRight) {
     // center general case:
     //    width = 0...1
     //    full = 0.5 + (0.5 * width), empty = 0.5 - (0.5 * width)

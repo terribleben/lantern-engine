@@ -1,6 +1,6 @@
 //
-//  ProcessorGainPan.h
-//  Utility processor to change the gain or pan of an input.
+//  ProcessorPan.h
+//  Utility processor to change the pan of an input.
 //  Assumes stereo. Beyond 2 channels, it interleaves.
 //  lantern
 //
@@ -10,10 +10,10 @@
 
 #include "Processor.h"
 
-class ProcessorGainPan : public Processor {
+class ProcessorPan : public Processor {
 public:
-    ProcessorGainPan();
-    ~ProcessorGainPan();
+    ProcessorPan();
+    ~ProcessorPan();
     
     void getFrame(Sample* samples);
     
