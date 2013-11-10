@@ -24,6 +24,7 @@ public:
     // length, in frames, of the delay line
     unsigned int getLength();
     void setLength(unsigned int);
+    void setLength(float seconds);
     
     // 0 no feedback, 1 complete feedback
     float feedback;

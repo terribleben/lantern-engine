@@ -39,12 +39,17 @@ void ProcessorDelay::recompute() {
     
 }
 
+void ProcessorDelay::setLength(float seconds) {
+    unsigned int lengthFrames = (seconds * (float)LANTERN_AUDIO_SAMPLE_RATE);
+    this->setLength(lengthFrames);
+}
+
 void ProcessorDelay::setLength(unsigned int length) {
-    unsigned int lengthFrames = length * LANTERN_AUDIO_NUM_CHANNELS;
+    unsigned int lengthSamples = length * LANTERN_AUDIO_NUM_CHANNELS;
     
     // compute the necessary buffer size to accomodate this length
     unsigned int actualBufferAllocLength = (LANTERN_AUDIO_SAMPLE_RATE * LANTERN_AUDIO_NUM_CHANNELS) / 10;
-    while (actualBufferAllocLength < lengthFrames) {
+    while (actualBufferAllocLength < lengthSamples) {
         actualBufferAllocLength *= 2;
     }
     
