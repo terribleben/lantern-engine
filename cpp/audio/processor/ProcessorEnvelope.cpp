@@ -75,12 +75,18 @@ void ProcessorEnvelope::setRelease(float seconds) {
 
 void ProcessorEnvelope::recompute() {
     unsigned int framesAttack = attack * LANTERN_AUDIO_SAMPLE_RATE;
+    if (framesAttack < 1)
+        framesAttack = 1;
     attackInc = 1.0f / (float)framesAttack;
     
     unsigned int framesDecay = decay * LANTERN_AUDIO_SAMPLE_RATE;
+    if (framesDecay < 1)
+        framesDecay = 1;
     decayInc = (sustain - 1.0f) / (float)framesDecay;
     
     unsigned int framesRelease = release * LANTERN_AUDIO_SAMPLE_RATE;
+    if (framesRelease < 1)
+        framesRelease = 1;
     releaseInc = -sustain / (float)framesRelease;
 }
 

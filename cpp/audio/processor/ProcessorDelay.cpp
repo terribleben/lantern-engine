@@ -85,7 +85,7 @@ Sample ProcessorDelay::process(Sample input) {
     
     *bufferPointer = output;
     bufferPointer++;
-    if (bufferPointer > buffer + (length * LANTERN_AUDIO_NUM_CHANNELS))
+    if (bufferPointer >= buffer + (length * LANTERN_AUDIO_NUM_CHANNELS))
         bufferPointer = buffer;
     
     return output * gain;
