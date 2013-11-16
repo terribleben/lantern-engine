@@ -120,6 +120,9 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
             NSLog(@"* Failed to enable audio");
         }
     }
+    
+    // begin the graphics loop
+    _lantern->start();
 }
 
 - (void) loadView

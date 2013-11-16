@@ -28,6 +28,7 @@ public:
 
     // main graphics loop
     virtual void init();
+    virtual void start();
     virtual void draw();
     virtual void stop();
     

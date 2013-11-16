@@ -32,20 +32,22 @@ void Lantern::setPrimaryInstance(Lantern *lantern) {
 }
 
 void Lantern::init() {
+    // reset graphics properties
+    screenWidth = screenHeight = 0;
+    screenScale = 1.0f;
+    isPortrait = false;
+    initialViewKey = "";
+    
+    glEnable(GL_TEXTURE_2D);
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnableClientState(GL_VERTEX_ARRAY);
+}
+
+void Lantern::start() {
     if (!isRunning) {
         isRunning = true;
-        
-        // reset graphics properties
-        screenWidth = screenHeight = 0;
-        screenScale = 1.0f;
-        isPortrait = false;
-        initialViewKey = "";
-        
-        glEnable(GL_TEXTURE_2D);
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-        glEnable (GL_BLEND);
-        glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glEnableClientState(GL_VERTEX_ARRAY);
         
         gameWillBegin();
         transitionView();
@@ -119,6 +121,13 @@ void Lantern::transitionView() {
         if (p.nextView.length() && views.find(p.nextView) != views.end()) {
             float viewWidth = screenWidth / screenScale;
             float viewHeight = screenHeight / screenScale;
+            
+            if (!isPortrait) {
+                float temp = viewWidth;
+                viewWidth = viewHeight;
+                viewHeight = temp;
+            }
+            
             p.params[LANTERN_VIEW_PARAM_WIDTH] = &viewWidth;
             p.params[LANTERN_VIEW_PARAM_HEIGHT] = &viewHeight;
             
