@@ -54,7 +54,7 @@ bool AudioFilePool::remove(const char* key) {
     return false;
 }
 
-bool AudioFilePool::getData(const char* key, AudioFileSharedBuffer* sharedBuffer) {
+bool AudioFilePool::getData(const char* key, AudioSharedBuffer* sharedBuffer) {
     if (pool.count(key)) {
         AudioFileStream* handle = pool[key];
         sharedBuffer->buffer = handle->buffer;

@@ -16,6 +16,7 @@
 
 NSString* const kLanternConfigAccelerometerEnabled = @"accelerometer_enabled";
 NSString* const kLanternConfigAudioEnabled = @"audio_enabled";
+NSString* const kLanternConfigMicrophoneEnabled = @"microphone_enabled";
 
 void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
 
@@ -113,11 +114,16 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
     }
     
     // enable audio?
-    NSString * audioParam = [lanternConfig objectForKey:kLanternConfigAudioEnabled];
+    NSString* audioParam = [lanternConfig objectForKey:kLanternConfigAudioEnabled];
     if (audioParam && [audioParam intValue] == 1) {
         theAudio = [[LAAudio alloc] initWithSampleRate:LANTERN_AUDIO_SAMPLE_RATE bufferSize:LANTERN_AUDIO_BUFFER_SIZE callback:audioCallback userData:_lantern];
         if (![theAudio startSession]) {
             NSLog(@"* Failed to enable audio");
+        }
+        NSString* microphoneParam = [lanternConfig objectForKey:kLanternConfigMicrophoneEnabled];
+        if (microphoneParam && [microphoneParam intValue] == 1) {
+            theAudio.enableMic = YES;
+            _lantern->setIsMicrophoneEnabled(true);
         }
     }
     
@@ -343,6 +349,13 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
 @end
 
 void audioCallback(Sample* buffer, unsigned int nFrames, void* userData) {
+    if (((Lantern*)userData)->getIsMicrophoneEnabled()) {
+        AudioSharedBuffer sharedBuffer;
+        sharedBuffer.length = LANTERN_AUDIO_NUM_CHANNELS * nFrames * sizeof(Sample);
+        sharedBuffer.buffer = buffer;
+        ((Lantern*)userData)->setAudioInputBuffer(LANTERN_INPUT_BUFFER_MICROPHONE, &sharedBuffer);
+    }
+    
     memset(buffer, 0, LANTERN_AUDIO_NUM_CHANNELS * nFrames * sizeof(Sample));
     
     for (unsigned int i = 0; i < nFrames; i++) {

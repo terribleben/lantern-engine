@@ -23,7 +23,7 @@ public:
     void arm();
     
 protected:
-    AudioFileSharedBuffer sharedBuffer;
+    AudioSharedBuffer sharedBuffer;
     bool bufferIsValid;
     unsigned int crossfadeDurationSamples;
     

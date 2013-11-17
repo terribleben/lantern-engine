@@ -19,7 +19,7 @@ void Lantern::gameWillBegin() {
 
 }
 
-Lantern::Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false) {
+Lantern::Lantern() : screenWidth(0), screenHeight(0), screenScale(1), view(NULL), isPortrait(false), isRunning(false), isMicrophoneEnabled(false) {
     Lantern::setPrimaryInstance(this);
 }
 
@@ -37,6 +37,8 @@ void Lantern::init() {
     screenScale = 1.0f;
     isPortrait = false;
     initialViewKey = "";
+    isRunning = false;
+    isMicrophoneEnabled = false;
     
     glEnable(GL_TEXTURE_2D);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
@@ -85,6 +87,14 @@ void Lantern::stop() {
             delete *tItr;
         }
         audioTracks.clear();
+        
+        for (map<unsigned int, AudioSharedBuffer*>::iterator bufItr = inputBuffers.begin(); bufItr != inputBuffers.end(); bufItr++) {
+            AudioSharedBuffer* buf = bufItr->second;
+            if (buf->buffer)
+                free(buf->buffer);
+            free(buf);
+        }
+        inputBuffers.clear();
         
         isRunning = false;
     }
@@ -169,6 +179,55 @@ void Lantern::event(Event& e) {
             view->event(e);
         }
     }
+}
+
+void Lantern::setIsMicrophoneEnabled(bool isEnabled) {
+    this->isMicrophoneEnabled = isEnabled;
+}
+
+bool Lantern::getIsMicrophoneEnabled() {
+    return isMicrophoneEnabled;
+}
+
+void Lantern::setAudioInputBuffer(unsigned int key, AudioSharedBuffer *buffer) {
+    if (buffer == NULL) {
+        if (inputBuffers.find(key) != inputBuffers.end()) {
+            AudioSharedBuffer* existingBuffer = inputBuffers[key];
+            free(existingBuffer->buffer);
+            free(existingBuffer);
+            inputBuffers.erase(key);
+        }
+    } else {
+        if (inputBuffers.find(key) != inputBuffers.end()) {
+            AudioSharedBuffer* existingBuffer = inputBuffers[key];
+            if (existingBuffer->length != buffer->length) {
+                free(existingBuffer->buffer);
+                if (buffer->length)
+                    existingBuffer->buffer = (Sample*) malloc(buffer->length);
+                else
+                    existingBuffer->buffer = NULL;
+                existingBuffer->length = buffer->length;
+            }
+            if (existingBuffer->length)
+                memcpy(existingBuffer->buffer, buffer->buffer, existingBuffer->length);
+        } else {
+            AudioSharedBuffer* newBuffer = (AudioSharedBuffer *) malloc(sizeof(AudioSharedBuffer*));
+            newBuffer->length = buffer->length;
+            if (newBuffer->length) {
+                newBuffer->buffer = (Sample *) malloc(newBuffer->length);
+                memcpy(newBuffer->buffer, buffer->buffer, newBuffer->length);
+            } else
+                newBuffer->buffer = NULL;
+            inputBuffers[key] = newBuffer;
+        }
+    }
+}
+
+AudioSharedBuffer* Lantern::getAudioInputBuffer(unsigned int key) {
+    if (inputBuffers.find(key) != inputBuffers.end())
+        return inputBuffers[key];
+    else
+        return NULL;
 }
 
 void Lantern::getAudioFrame(Sample* samples) {

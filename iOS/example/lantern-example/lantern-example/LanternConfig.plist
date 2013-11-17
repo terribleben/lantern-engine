@@ -6,5 +6,7 @@
 	<false/>
 	<key>audio_enabled</key>
 	<true/>
+	<key>microphone_enabled</key>
+	<false/>
 </dict>
 </plist>

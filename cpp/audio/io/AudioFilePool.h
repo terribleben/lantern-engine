@@ -14,12 +14,6 @@
 #include <map>
 using std::map;
 
-typedef struct AudioFileSharedBuffer {
-    Sample* buffer;
-    size_t length;
-} AudioFileSharedBuffer;
-
-
 class AudioFilePool {
 public:
     static AudioFilePool& getInstance();
@@ -27,7 +21,7 @@ public:
     bool load(const char* filename, const char* key);
     bool remove(const char* key);
     
-    bool getData(const char* key, AudioFileSharedBuffer* sharedBuffer);
+    bool getData(const char* key, AudioSharedBuffer* sharedBuffer);
     
 private:
     AudioFilePool();

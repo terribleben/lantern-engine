@@ -46,6 +46,12 @@ public:
     // audio
     void getAudioFrame(Sample* samples);
     
+    void setAudioInputBuffer(unsigned int key, AudioSharedBuffer* buffer);
+    AudioSharedBuffer* getAudioInputBuffer(unsigned int key);
+    
+    void setIsMicrophoneEnabled(bool);
+    bool getIsMicrophoneEnabled();
+    
 protected:
     Lantern(const Lantern& other);
     static void setPrimaryInstance(Lantern* lantern);
@@ -57,6 +63,7 @@ protected:
     
 protected:
     bool isRunning;
+    bool isMicrophoneEnabled;
     
     GLfloat screenWidth, screenHeight, screenScale;
     bool isPortrait;
@@ -66,6 +73,7 @@ protected:
     map<string, View*> views;
     
     list<Track*> audioTracks;
+    map<unsigned int, AudioSharedBuffer*> inputBuffers;
 };
 
 #endif
