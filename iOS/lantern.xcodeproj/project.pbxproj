@@ -51,6 +51,7 @@
 		B52C1D9F182F163400DF3BAA /* ProcessorPan.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1D9D182F163300DF3BAA /* ProcessorPan.h */; };
 		B52C1DA21830360700DF3BAA /* ProcessorDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DA11830360600DF3BAA /* ProcessorDelay.cpp */; };
 		B52C1DA51830513500DF3BAA /* ProcessorEnvelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DA41830513400DF3BAA /* ProcessorEnvelope.cpp */; };
+		B52C1DB018385DB200DF3BAA /* ProcessorCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -150,6 +151,8 @@
 		B52C1DA11830360600DF3BAA /* ProcessorDelay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorDelay.cpp; sourceTree = "<group>"; };
 		B52C1DA318304CCF00DF3BAA /* ProcessorEnvelope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorEnvelope.h; sourceTree = "<group>"; };
 		B52C1DA41830513400DF3BAA /* ProcessorEnvelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorEnvelope.cpp; sourceTree = "<group>"; };
+		B52C1DAE18385B4A00DF3BAA /* ProcessorCompressor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorCompressor.h; sourceTree = "<group>"; };
+		B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorCompressor.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +382,8 @@
 				B52C1DA11830360600DF3BAA /* ProcessorDelay.cpp */,
 				B52C1DA318304CCF00DF3BAA /* ProcessorEnvelope.h */,
 				B52C1DA41830513400DF3BAA /* ProcessorEnvelope.cpp */,
+				B52C1DAE18385B4A00DF3BAA /* ProcessorCompressor.h */,
+				B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */,
 			);
 			path = processor;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				B52C1D9E182F163400DF3BAA /* ProcessorPan.cpp in Sources */,
 				B52C1DA21830360700DF3BAA /* ProcessorDelay.cpp in Sources */,
 				B52C1DA51830513500DF3BAA /* ProcessorEnvelope.cpp in Sources */,
+				B52C1DB018385DB200DF3BAA /* ProcessorCompressor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
