@@ -1,13 +1,13 @@
 //
-//  GeneratorSin.cpp
+//  GeneratorSinCache.cpp
 //  lantern
 //
 
 #include <cstdlib>
 #include <cmath>
-#include "GeneratorSin.h"
+#include "GeneratorSinCache.h"
 
-GeneratorSin::GeneratorSin() : Generator() {
+GeneratorSinCache::GeneratorSinCache() : Generator() {
     phase = 0.0f;
     phaseInc = 0.0f;
     
@@ -18,18 +18,18 @@ GeneratorSin::GeneratorSin() : Generator() {
     setFreq(220.0f);
 }
 
-GeneratorSin::~GeneratorSin() {
+GeneratorSinCache::~GeneratorSinCache() {
     if (cache) {
         free(cache);
         cache = NULL;
     }
 }
 
-void GeneratorSin::recompute() {
+void GeneratorSinCache::recompute() {
     phaseInc = freq / (float)LANTERN_AUDIO_SAMPLE_RATE;
 }
 
-void GeneratorSin::generateCache() {
+void GeneratorSinCache::generateCache() {
     // the higher this number, the higher resolution the sin is.
     // uses (cacheLength * sizeof(Sample)) bytes of memory.
     cacheLength = 128;
@@ -49,7 +49,7 @@ void GeneratorSin::generateCache() {
     }
 }
 
-Sample GeneratorSin::next() {
+Sample GeneratorSinCache::next() {
     unsigned int idxLower = cacheLength * phase;
     unsigned int idxUpper = (idxLower + 1) % cacheLength;
     float interp = ((float)cacheLength * phase) - idxLower;

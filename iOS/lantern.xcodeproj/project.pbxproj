@@ -14,7 +14,6 @@
 		B52C1CC5181C8D4400DF3BAA /* LAViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1CC1181C8D4400DF3BAA /* LAViewController.mm */; };
 		B52C1D09181C8DEB00DF3BAA /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1CCD181C8DEB00DF3BAA /* Generator.cpp */; };
 		B52C1D0A181C8DEB00DF3BAA /* GeneratorSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1CCF181C8DEB00DF3BAA /* GeneratorSaw.cpp */; };
-		B52C1D0B181C8DEB00DF3BAA /* GeneratorSin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1CD1181C8DEB00DF3BAA /* GeneratorSin.cpp */; };
 		B52C1D0C181C8DEB00DF3BAA /* AudioFilePool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1CD4181C8DEB00DF3BAA /* AudioFilePool.cpp */; };
 		B52C1D0D181C8DEB00DF3BAA /* AudioFileStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = B52C1CD7181C8DEB00DF3BAA /* AudioFileStream.mm */; };
 		B52C1D0E181C8DEB00DF3BAA /* TrackSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1CD9181C8DEB00DF3BAA /* TrackSample.cpp */; };
@@ -52,6 +51,8 @@
 		B52C1DA21830360700DF3BAA /* ProcessorDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DA11830360600DF3BAA /* ProcessorDelay.cpp */; };
 		B52C1DA51830513500DF3BAA /* ProcessorEnvelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DA41830513400DF3BAA /* ProcessorEnvelope.cpp */; };
 		B52C1DB018385DB200DF3BAA /* ProcessorCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */; };
+		B52C1DB318394AED00DF3BAA /* GeneratorSinCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DB118394AE000DF3BAA /* GeneratorSinCache.cpp */; };
+		B52C1DB418394AED00DF3BAA /* GeneratorSinCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1DB218394AE300DF3BAA /* GeneratorSinCache.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,8 +88,6 @@
 		B52C1CCE181C8DEB00DF3BAA /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
 		B52C1CCF181C8DEB00DF3BAA /* GeneratorSaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSaw.cpp; sourceTree = "<group>"; };
 		B52C1CD0181C8DEB00DF3BAA /* GeneratorSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSaw.h; sourceTree = "<group>"; };
-		B52C1CD1181C8DEB00DF3BAA /* GeneratorSin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSin.cpp; sourceTree = "<group>"; };
-		B52C1CD2181C8DEB00DF3BAA /* GeneratorSin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSin.h; sourceTree = "<group>"; };
 		B52C1CD4181C8DEB00DF3BAA /* AudioFilePool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFilePool.cpp; sourceTree = "<group>"; };
 		B52C1CD5181C8DEB00DF3BAA /* AudioFilePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFilePool.h; sourceTree = "<group>"; };
 		B52C1CD6181C8DEB00DF3BAA /* AudioFileStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileStream.h; sourceTree = "<group>"; };
@@ -153,6 +152,8 @@
 		B52C1DA41830513400DF3BAA /* ProcessorEnvelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorEnvelope.cpp; sourceTree = "<group>"; };
 		B52C1DAE18385B4A00DF3BAA /* ProcessorCompressor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorCompressor.h; sourceTree = "<group>"; };
 		B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorCompressor.cpp; sourceTree = "<group>"; };
+		B52C1DB118394AE000DF3BAA /* GeneratorSinCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSinCache.cpp; sourceTree = "<group>"; };
+		B52C1DB218394AE300DF3BAA /* GeneratorSinCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSinCache.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,10 +278,10 @@
 				B52C1CCD181C8DEB00DF3BAA /* Generator.cpp */,
 				B52C1CD0181C8DEB00DF3BAA /* GeneratorSaw.h */,
 				B52C1CCF181C8DEB00DF3BAA /* GeneratorSaw.cpp */,
-				B52C1CD2181C8DEB00DF3BAA /* GeneratorSin.h */,
-				B52C1CD1181C8DEB00DF3BAA /* GeneratorSin.cpp */,
 				B52C1D7D1828BC7000DF3BAA /* GeneratorSinSHM.h */,
 				B52C1D7E1828BD0F00DF3BAA /* GeneratorSinSHM.cpp */,
+				B52C1DB218394AE300DF3BAA /* GeneratorSinCache.h */,
+				B52C1DB118394AE000DF3BAA /* GeneratorSinCache.cpp */,
 				B52C1D801828C88600DF3BAA /* GeneratorSquare.h */,
 				B52C1D811828C99800DF3BAA /* GeneratorSquare.cpp */,
 				B52C1D8A182CBBFF00DF3BAA /* GeneratorSquareSeries.h */,
@@ -401,6 +402,7 @@
 				B52C1D77181DA3DA00DF3BAA /* Lantern.h in Headers */,
 				B52C1D8C182CBC0100DF3BAA /* GeneratorSquareSeries.h in Headers */,
 				B52C1D9F182F163400DF3BAA /* ProcessorPan.h in Headers */,
+				B52C1DB418394AED00DF3BAA /* GeneratorSinCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +465,6 @@
 				B52C1CC5181C8D4400DF3BAA /* LAViewController.mm in Sources */,
 				B52C1D09181C8DEB00DF3BAA /* Generator.cpp in Sources */,
 				B52C1D0A181C8DEB00DF3BAA /* GeneratorSaw.cpp in Sources */,
-				B52C1D0B181C8DEB00DF3BAA /* GeneratorSin.cpp in Sources */,
 				B52C1D0C181C8DEB00DF3BAA /* AudioFilePool.cpp in Sources */,
 				B52C1D0D181C8DEB00DF3BAA /* AudioFileStream.mm in Sources */,
 				B52C1D0E181C8DEB00DF3BAA /* TrackSample.cpp in Sources */,
@@ -495,6 +496,7 @@
 				B52C1DA21830360700DF3BAA /* ProcessorDelay.cpp in Sources */,
 				B52C1DA51830513500DF3BAA /* ProcessorEnvelope.cpp in Sources */,
 				B52C1DB018385DB200DF3BAA /* ProcessorCompressor.cpp in Sources */,
+				B52C1DB318394AED00DF3BAA /* GeneratorSinCache.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

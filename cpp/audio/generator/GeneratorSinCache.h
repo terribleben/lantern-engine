@@ -1,19 +1,21 @@
 //
-//  GeneratorSin.h
+//  GeneratorSinCache.h
 //  Sine wave generator.
 //  Internally uses a fixed-length sin cache and linear interpolation.
+//
+//  The SHM class is better, use that.
 //  lantern
 //
 
-#ifndef __LANTERN_GENERATOR_SIN_H__
-#define __LANTERN_GENERATOR_SIN_H__
+#ifndef __LANTERN_GENERATOR_SIN_CACHE_H__
+#define __LANTERN_GENERATOR_SIN_CACHE_H__
 
 #include "Generator.h"
 
-class GeneratorSin : public Generator {
+class GeneratorSinCache : public Generator {
 public:
-    GeneratorSin();
-    ~GeneratorSin();
+    GeneratorSinCache();
+    ~GeneratorSinCache();
     
     Sample next();
     
