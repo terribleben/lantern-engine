@@ -53,6 +53,7 @@
 		B52C1DB018385DB200DF3BAA /* ProcessorCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */; };
 		B52C1DB318394AED00DF3BAA /* GeneratorSinCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DB118394AE000DF3BAA /* GeneratorSinCache.cpp */; };
 		B52C1DB418394AED00DF3BAA /* GeneratorSinCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1DB218394AE300DF3BAA /* GeneratorSinCache.h */; };
+		B5AD674518396A3100205B40 /* InputBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AD674418396A3100205B40 /* InputBuffer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -154,6 +155,8 @@
 		B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorCompressor.cpp; sourceTree = "<group>"; };
 		B52C1DB118394AE000DF3BAA /* GeneratorSinCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorSinCache.cpp; sourceTree = "<group>"; };
 		B52C1DB218394AE300DF3BAA /* GeneratorSinCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSinCache.h; sourceTree = "<group>"; };
+		B5AD6743183967D200205B40 /* InputBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputBuffer.h; sourceTree = "<group>"; };
+		B5AD674418396A3100205B40 /* InputBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputBuffer.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +300,8 @@
 				B52C1CD4181C8DEB00DF3BAA /* AudioFilePool.cpp */,
 				B52C1CD6181C8DEB00DF3BAA /* AudioFileStream.h */,
 				B52C1CD7181C8DEB00DF3BAA /* AudioFileStream.mm */,
+				B5AD6743183967D200205B40 /* InputBuffer.h */,
+				B5AD674418396A3100205B40 /* InputBuffer.cpp */,
 			);
 			path = io;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				B52C1DA51830513500DF3BAA /* ProcessorEnvelope.cpp in Sources */,
 				B52C1DB018385DB200DF3BAA /* ProcessorCompressor.cpp in Sources */,
 				B52C1DB318394AED00DF3BAA /* GeneratorSinCache.cpp in Sources */,
+				B5AD674518396A3100205B40 /* InputBuffer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
