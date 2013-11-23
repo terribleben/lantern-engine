@@ -34,8 +34,15 @@ void ProcessorBiquad::setCoefficients(Sample a0, Sample a1, Sample a2, Sample b0
 }
 
 void ProcessorBiquad::setPole(float radius, float frequency) {
-    a2 = (radius * radius) / a0;
-    a1 = (-2.0f * radius * std::cos(M_2PI * (frequency / LANTERN_AUDIO_SAMPLE_RATE))) / a0;
+    a2 = (radius * radius);
+    a1 = (-2.0f * radius * std::cos(M_2PI * (frequency / LANTERN_AUDIO_SAMPLE_RATE)));
+    
+    // constant gain
+    b0 = 0.5f - (0.5f * a2);
+    b1 = 0;
+    b2 = -b0;
+    
+    a1 /= a0; a2 /= a0; b0 /= a0; b1 /= a0; b2 /= a0;
 }
 
 void ProcessorBiquad::setZero(float radius, float frequency) {
