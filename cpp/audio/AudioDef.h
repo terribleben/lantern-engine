@@ -3,10 +3,11 @@
 //  lantern
 //
 
-#ifndef lantern_AudioDef_h
-#define lantern_AudioDef_h
+#ifndef __LANTERN_AUDIO_DEF_H__
+#define __LANTERN_AUDIO_DEF_H__
 
 #include <cstdlib>
+#include <complex>
 
 typedef float Sample; // 32 bit
 
@@ -23,5 +24,7 @@ typedef struct AudioSharedBuffer {
     Sample* buffer;
     size_t length;
 } AudioSharedBuffer;
+
+typedef std::complex<Sample> AudioComplex;
 
 #endif
