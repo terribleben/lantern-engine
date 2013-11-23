@@ -54,6 +54,8 @@
 		B52C1DB318394AED00DF3BAA /* GeneratorSinCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52C1DB118394AE000DF3BAA /* GeneratorSinCache.cpp */; };
 		B52C1DB418394AED00DF3BAA /* GeneratorSinCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B52C1DB218394AE300DF3BAA /* GeneratorSinCache.h */; };
 		B5AD674518396A3100205B40 /* InputBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AD674418396A3100205B40 /* InputBuffer.cpp */; };
+		B5AD67481841457E00205B40 /* ProcessorBiquad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AD67471841457D00205B40 /* ProcessorBiquad.cpp */; };
+		B5AD674B1841518800205B40 /* GeneratorNoise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AD674A1841518700205B40 /* GeneratorNoise.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,6 +159,10 @@
 		B52C1DB218394AE300DF3BAA /* GeneratorSinCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorSinCache.h; sourceTree = "<group>"; };
 		B5AD6743183967D200205B40 /* InputBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputBuffer.h; sourceTree = "<group>"; };
 		B5AD674418396A3100205B40 /* InputBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputBuffer.cpp; sourceTree = "<group>"; };
+		B5AD6746184143AF00205B40 /* ProcessorBiquad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessorBiquad.h; sourceTree = "<group>"; };
+		B5AD67471841457D00205B40 /* ProcessorBiquad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProcessorBiquad.cpp; sourceTree = "<group>"; };
+		B5AD67491841511700205B40 /* GeneratorNoise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratorNoise.h; sourceTree = "<group>"; };
+		B5AD674A1841518700205B40 /* GeneratorNoise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorNoise.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,8 @@
 				B52C1D811828C99800DF3BAA /* GeneratorSquare.cpp */,
 				B52C1D8A182CBBFF00DF3BAA /* GeneratorSquareSeries.h */,
 				B52C1D89182CBBFE00DF3BAA /* GeneratorSquareSeries.cpp */,
+				B5AD67491841511700205B40 /* GeneratorNoise.h */,
+				B5AD674A1841518700205B40 /* GeneratorNoise.cpp */,
 			);
 			path = generator;
 			sourceTree = "<group>";
@@ -390,6 +398,8 @@
 				B52C1DA41830513400DF3BAA /* ProcessorEnvelope.cpp */,
 				B52C1DAE18385B4A00DF3BAA /* ProcessorCompressor.h */,
 				B52C1DAF18385DB200DF3BAA /* ProcessorCompressor.cpp */,
+				B5AD6746184143AF00205B40 /* ProcessorBiquad.h */,
+				B5AD67471841457D00205B40 /* ProcessorBiquad.cpp */,
 			);
 			path = processor;
 			sourceTree = "<group>";
@@ -503,6 +513,8 @@
 				B52C1DB018385DB200DF3BAA /* ProcessorCompressor.cpp in Sources */,
 				B52C1DB318394AED00DF3BAA /* GeneratorSinCache.cpp in Sources */,
 				B5AD674518396A3100205B40 /* InputBuffer.cpp in Sources */,
+				B5AD67481841457E00205B40 /* ProcessorBiquad.cpp in Sources */,
+				B5AD674B1841518800205B40 /* GeneratorNoise.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
