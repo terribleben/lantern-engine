@@ -10,13 +10,14 @@
 #include <cstdlib>
 
 Rectangle3f::Rectangle3f(Point3f origin, Point3f size, float orientation) {
-    orientation = 0;
     corners = NULL;
     
     this->origin = origin;
     this->size = size;
     if (orientation != 0)
         this->setOrientation(orientation);
+    else
+        this->orientation = orientation;
 }
 
 Rectangle3f::Rectangle3f(Point3f bottomLeft, Point3f topRight) {
