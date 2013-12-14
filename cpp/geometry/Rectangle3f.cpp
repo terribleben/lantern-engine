@@ -72,8 +72,8 @@ bool Rectangle3f::contains(Point3f& p) {
         return (p.x >= origin.x - halfWidth && p.x <= origin.x + halfWidth && p.y >= origin.y - halfHeight && p.y <= origin.y + halfHeight);
     } else {
         return (
-                   Triangle3f(corners[0], corners[1], corners[2]).contains(p)
-                || Triangle3f(corners[1], corners[2], corners[3]).contains(p)
+                   Triangle3f(corners[2], corners[1], corners[0]).contains(p)
+                || Triangle3f(corners[3], corners[2], corners[1]).contains(p)
             );
     }
 }
