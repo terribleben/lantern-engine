@@ -30,4 +30,6 @@
 - (void) setFramebuffer;
 - (BOOL) presentFramebuffer;
 
+- (UIImage *)getSnapshot;
+
 @end

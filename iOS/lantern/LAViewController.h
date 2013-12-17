@@ -13,6 +13,11 @@ FOUNDATION_EXPORT NSString* const kLanternConfigAccelerometerEnabled;
 - (void) suspend;
 
 /**
+ *  Take a snapshot of the lantern view.
+ */
+- (UIImage *) getSnapshot;
+
+/**
  *  The Lantern instance that this view controller will manage.
  */
 @property (nonatomic, assign) void* lantern;

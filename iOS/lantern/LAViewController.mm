@@ -267,12 +267,25 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
     }
 }
 
-- (void) draw {
+- (void) draw
+{
     [(EAGLView*)self.view setFramebuffer];
     
     _lantern->draw();
 	
 	[(EAGLView*)self.view presentFramebuffer];
+}
+
+- (UIImage *) getSnapshot
+{
+    [(EAGLView*)self.view setFramebuffer];
+    
+    _lantern->draw();
+    
+	UIImage *result = [(EAGLView*)self.view getSnapshot];
+	[(EAGLView*)self.view presentFramebuffer];
+    
+    return result;
 }
 
 - (void) touchesBegan: (NSSet*)touches withEvent: (UIEvent*)event
