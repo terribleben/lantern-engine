@@ -21,6 +21,7 @@ ProcessorCompressor::ProcessorCompressor() : Processor() {
     rms = 0;
     rmsFrameSum = 0;
     rmsInnerSum = 0;
+    rmsTrigger = 0;
     
     setAttack(0);
     setRelease(0);
@@ -95,8 +96,10 @@ Sample ProcessorCompressor::compress(Sample input, Sample trigger) {
         } else {
             Sample difference = trigger - threshold;
             Sample compressed = threshold + (difference / ratio);
+            Sample wetCompression = (compressed / trigger);
+            Sample compression = (wetCompression * wet) + (1.0f * (1.0f - wet));
             
-            return (std::fabs(input) * (compressed / trigger)) * sign;
+            return (std::fabs(input) * compression) * sign;
         }
     }
 }
@@ -129,10 +132,15 @@ Sample ProcessorCompressor::process(Sample input) {
                 isAttacking = true;
             } else if (wet > 0.0f) {
                 wet += releaseInc;
-                if (wet <= 0.0f)
+                if (wet <= 0.0f) {
                     wet = 0.0f;
+                    rmsTrigger = 0;
+                }
             }
         }
+        
+        if (wet > 0.0f)
+            rmsTrigger = std::max(rmsTrigger, rms); // peak
         
         positionInFrame = 0;
         rmsFrameSum = 0;
@@ -141,10 +149,9 @@ Sample ProcessorCompressor::process(Sample input) {
     // compress (or not)
     Sample output = 0;
     
-    if (wet > 0.0f) {
-        output = compress(input, rms);
-        output = output * wet + input * (1.0f - wet);
-    } else
+    if (wet > 0.0f)
+        output = compress(input, rmsTrigger);
+    else
         output = input;
     
     return gain * output * makeup;

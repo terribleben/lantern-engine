@@ -41,6 +41,7 @@ protected:
     Sample rmsFrameSum;
     Sample rmsInnerSum;
     Sample rms;
+    Sample rmsTrigger;
     
     Sample threshold;
     Sample makeup;
