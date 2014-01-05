@@ -14,7 +14,7 @@ ProcessorCompressor::ProcessorCompressor() : Processor() {
     isLimiter = false;
     
     threshold = 1.0f;
-    makeup = 0.0f;
+    makeup = 1.0f;
     ratio = 1.0f;
     attackInc = 0;
     releaseInc = 0;
@@ -26,10 +26,18 @@ ProcessorCompressor::ProcessorCompressor() : Processor() {
     setRelease(0);
     
     positionInFrame = 0;
+    
+    history = new Sample[LANTERN_PROCESSOR_COMPRESSOR_HISTORY_LENGTH];
+    memset(history, 0, sizeof(Sample) * LANTERN_PROCESSOR_COMPRESSOR_HISTORY_LENGTH);
+    historyIdx = 0;
 }
 
 ProcessorCompressor::~ProcessorCompressor() {
-    history.clear();
+    delete [] history;
+}
+
+void ProcessorCompressor::recompute() {
+    // nothing
 }
 
 void ProcessorCompressor::setIsLimiter(bool isLimiter) {
@@ -45,11 +53,15 @@ void ProcessorCompressor::setRatio(Sample ratioSample) {
 }
 
 void ProcessorCompressor::setMakeup(Sample makeup) {
-    this->makeup = makeup;
+    this->makeup = powf(10.0f, makeup / 20.0f);
 }
 
-void ProcessorCompressor::setThreshold(Sample thresholdSample) {
-    this->threshold = std::fabs(thresholdSample);
+void ProcessorCompressor::setThreshold(float threshold) {
+    if (threshold > 0)
+        threshold = 0;
+    
+    Sample thresholdGain = powf(10.0f, threshold / 20.0f);
+    this->threshold = thresholdGain;
 }
 
 void ProcessorCompressor::setAttack(float milliseconds) {
@@ -83,7 +95,8 @@ Sample ProcessorCompressor::compress(Sample input, Sample trigger) {
         } else {
             Sample difference = trigger - threshold;
             Sample compressed = threshold + (difference / ratio);
-            return (std::fabs(input) - (trigger - compressed)) * sign;
+            
+            return (std::fabs(input) * (compressed / trigger)) * sign;
         }
     }
 }
@@ -96,13 +109,12 @@ Sample ProcessorCompressor::process(Sample input) {
         rmsFrameSum /= (float)LANTERN_AUDIO_NUM_CHANNELS;
     
         // compute signal RMS from all channels
-        history.push_back((rmsFrameSum * rmsFrameSum) * (1.0f / LANTERN_PROCESSOR_COMPRESSOR_HISTORY_LENGTH));
-        rmsInnerSum += history.back();
+        rmsInnerSum -= history[historyIdx];
+        history[historyIdx] = (rmsFrameSum * rmsFrameSum) * (1.0f / LANTERN_PROCESSOR_COMPRESSOR_HISTORY_LENGTH);
+        rmsInnerSum += history[historyIdx];
+        historyIdx++;
+        historyIdx %= LANTERN_PROCESSOR_COMPRESSOR_HISTORY_LENGTH;
         
-        if (history.size() > LANTERN_PROCESSOR_COMPRESSOR_HISTORY_LENGTH) {
-            rmsInnerSum -= history.front();
-            history.pop_front();
-        }
         rms = std::sqrt(rmsInnerSum);
         
         // compute envelope state
@@ -135,5 +147,5 @@ Sample ProcessorCompressor::process(Sample input) {
     } else
         output = input;
     
-    return gain * (output + makeup);
+    return gain * output * makeup;
 }

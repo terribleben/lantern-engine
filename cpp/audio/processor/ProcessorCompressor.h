@@ -10,8 +10,6 @@
 #define __LANTERN_PROCESSOR_COMPRESSOR_H__
 
 #include "Processor.h"
-#include <list>
-using std::list;
 
 class ProcessorCompressor : public Processor {
 public:
@@ -23,11 +21,11 @@ public:
     void setAttack(float milliseconds);
     void setRelease(float milliseconds);
     
-    void setRatio(Sample ratioSample); // set the ratio. TODO make this operate in decibels. Automatically turns off isLimiter.
+    void setRatio(Sample ratioSample); // set the ratio; automatically turns off isLimiter.
     void setIsLimiter(bool); // set the ratio to infinity.
     
-    void setThreshold(Sample thresholdSample); // TODO make this accept decibels from zero.
-    void setMakeup(Sample makeup); // added to the output
+    void setThreshold(float threshold); // in decibels; expected to be negative.
+    void setMakeup(float makeup); // output amplitude is increased by (makeup) decibels
     
 protected:
     Sample compress(Sample input, Sample trigger);
@@ -37,7 +35,9 @@ protected:
     bool isAttacking;
     bool isLimiter;
     
-    list<Sample> history;
+    Sample* history;
+    unsigned int historyIdx;
+    
     Sample rmsFrameSum;
     Sample rmsInnerSum;
     Sample rms;
