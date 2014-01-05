@@ -78,6 +78,10 @@ inline void Point3f::operator -=(const Point3f& other) {
     x -= other.x; y -= other.y; z -= other.z;
 }
 
+const bool Point3f::operator ==(const Point3f& other) {
+    return (x == other.x && y == other.y && z == other.z);
+}
+
 inline void Point3f::operator *=(float scalar) {
      x *= scalar; y *= scalar; z *= scalar;
 }

@@ -44,6 +44,7 @@ public:
     static float zero;
     
     const Point3f& operator =(const Point3f&);
+    const bool operator ==(const Point3f&);
     Point3f operator +(const Point3f&) const;
     Point3f operator -(const Point3f&) const;
     Point3f operator *(float) const;
