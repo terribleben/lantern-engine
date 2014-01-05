@@ -22,6 +22,7 @@ public:
     // this class maintains a list of inputs and outputs the sum of their outputs.
     virtual void setInput(Track*);
     virtual void addInput(Track*);
+    virtual void removeInput(Track*);
     virtual void clearInputs();
 protected:
     list<Track*> inputs;

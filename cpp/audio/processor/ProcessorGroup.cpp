@@ -13,9 +13,9 @@ ProcessorGroup::~ProcessorGroup() {
     // we don't own any of the memory inside this->inputs
 }
 
-Sample ProcessorGroup::process(Sample input) {
+Sample ProcessorGroup::process(Sample inputSamp) {
     // pass through
-    return gain * input;
+    return gain * inputSamp;
 }
 
 void ProcessorGroup::recompute() {
@@ -52,4 +52,17 @@ void ProcessorGroup::clearInputs() {
 
 void ProcessorGroup::addInput(Track* track) {
     inputs.push_back(track);
+}
+
+void ProcessorGroup::removeInput(Track* track) {
+    list<Track*>::iterator itr = inputs.begin();
+    bool found = false;
+    
+    while (!found && itr != inputs.end()) {
+        if (*itr == track) {
+            inputs.erase(itr++);
+            found = true;
+        } else
+            itr++;
+    }
 }

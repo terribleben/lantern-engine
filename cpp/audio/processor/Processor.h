@@ -17,12 +17,14 @@ public:
     virtual Sample process(Sample input) = 0;
     virtual void getFrame(Sample* samples);
     virtual bool isFinished();
+    void stop();
     
     virtual void setGain(float);
     virtual void setInput(Track*);
     
 protected:
     Track* input;
+    bool isStopped;
     
     // called after setting a property of the processor
     // in case you need to recompute internal parameters.
