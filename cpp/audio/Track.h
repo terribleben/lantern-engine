@@ -17,7 +17,8 @@ public:
     virtual void getFrame(Sample* samples) = 0;
     virtual bool isFinished() = 0;
     
-    virtual void setGain(float); // bounded between 0 and 1.
+    virtual void setGainDb(float decibels); // decibels below max
+    virtual void setGain(float);
     float getGain();
     
 protected:
