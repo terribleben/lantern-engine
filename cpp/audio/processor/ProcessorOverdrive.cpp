@@ -21,6 +21,10 @@ void ProcessorOverdrive::setDrive(float thresholdDb) {
     drive = powf(10.0f, thresholdDb / 20.0f);
 }
 
+void ProcessorOverdrive::setLevel(float gainDb) {
+    level = powf(10.0f, gainDb / 20.0f);
+}
+
 void ProcessorOverdrive::setMix(float wet) {
     if (wet > 1.0f)
         wet = 1.0f;
@@ -39,7 +43,7 @@ Sample ProcessorOverdrive::process(Sample input) {
         else
             output = (input < drive) ? input : drive;
         
-        return (output * wet) + (input * (1.0f - wet));
+        return ((output * level * wet) + (input * (1.0f - wet))) * gain;
     } else
         return input * gain;
 }

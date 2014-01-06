@@ -18,6 +18,10 @@ void Processor::setInput(Track* input) {
     recompute();
 }
 
+Track* Processor::getInput() {
+    return this->input;
+}
+
 void Processor::setGain(float gain) {
     this->gain = gain;
     recompute();

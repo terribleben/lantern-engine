@@ -21,6 +21,7 @@ public:
     
     virtual void setGain(float);
     virtual void setInput(Track*);
+    virtual Track* getInput();
     
 protected:
     Track* input;
