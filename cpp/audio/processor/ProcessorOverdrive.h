@@ -22,12 +22,17 @@ public:
     // threshold at which to clip the input signal.
     // measured in decibels (zero is no clip, -3 is 3 decibels below max, etc.)
     void setDrive(float thresholdDb);
+    
+    // 1: all processed signal; 0: pass through
+    void setMix(float wet);
+    
     Sample process(Sample);
     
 protected:
     void recompute();
     
     float drive;
+    float wet;
 };
 
 #endif
