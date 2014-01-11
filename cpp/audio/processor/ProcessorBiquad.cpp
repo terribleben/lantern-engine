@@ -50,6 +50,18 @@ void ProcessorBiquad::setZero(float radius, float frequency) {
     b1 = (-2.0f * radius * std::cos(M_2PI * (frequency / LANTERN_AUDIO_SAMPLE_RATE))) / a0;
 }
 
+void ProcessorBiquad::setAllpass(float radius, float frequency) {
+    // from wikipedia allpass filter
+    // given a pole z0,
+    // radius2 = |z0|^2
+    // R = real component of z0
+    // y[k] = radius2 * x[k]  - 2R * x[k - 1] + x[k - 2] + 2R * y[k - 1] - radius2 * y[k - 2]
+    setPole(radius, frequency);
+    b0 = a2;
+    b1 = a1;
+    b2 = 1;
+}
+
 /**
  *  y[n] = (b0/a0) * x[n] + (b1/a0) * x[n-1] + (b2/a0) * x[n-2]
  *                        - (a1/a0) * y[n-1] - (a2/a0) * y[n-2]
