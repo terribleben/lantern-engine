@@ -59,7 +59,7 @@ void ProcessorBiquad::setAllpass(float radius, float frequency) {
     setPole(radius, frequency);
     b0 = a2;
     b1 = a1;
-    b2 = 1;
+    b2 = 1.0f / a0;
 }
 
 /**
