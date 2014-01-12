@@ -10,17 +10,17 @@ ProcessorReverbSimple::ProcessorReverbSimple() : Processor() {
     biquad = new ProcessorBiquad();
     biquad->setAllpass(1, M_PI * 0.3f);
     
-    combs[0] = new ProcessorDelay(113, 0.7f);
-    combs[1] = new ProcessorDelay(337, 0.7f);
-    combs[2] = new ProcessorDelay(1051, 0.7f);
-    combs[0]->setInput(biquad);
-    combs[1]->setInput(biquad);
-    combs[2]->setInput(biquad);
-    
     output = new ProcessorGroup();
-    output->addInput(combs[0]);
-    output->addInput(combs[1]);
-    output->addInput(combs[2]);
+    combDelays[0] = 113; combDelays[1] = 337; combDelays[2] = 1051;
+    
+    for (int ii = 0; ii < 3; ii++) {
+        combs[ii] = new ProcessorDelay(combDelays[ii], 0.7f);
+        combs[ii]->setInput(biquad);
+        output->addInput(combs[ii]);
+    }
+    
+    setMix(1.0f);
+    setDecayT60(2.0f);
 }
 
 ProcessorReverbSimple::~ProcessorReverbSimple() {
@@ -31,10 +31,11 @@ ProcessorReverbSimple::~ProcessorReverbSimple() {
     }
     
     if (combs[0]) {
-        combs[0]->stop();
-        combs[1]->stop();
-        delete combs[0];
-        delete combs[1];
+        for (int ii = 0; ii < 3; ii++) {
+            combs[ii]->stop();
+            delete combs[ii];
+            combs[ii] = NULL;
+        }
     }
     
     if (biquad) {
@@ -42,6 +43,23 @@ ProcessorReverbSimple::~ProcessorReverbSimple() {
         delete biquad;
         biquad = NULL;
     }
+}
+
+void ProcessorReverbSimple::setDecayT60(float seconds) {
+    float decaySamples = seconds * LANTERN_AUDIO_SAMPLE_RATE;
+    for (int ii = 0; ii < 3; ii++) {
+        // want 60 decibel dropoff in (seconds) seconds
+        // -60 / 20 = -3
+        combs[ii]->feedback = powf(10.0f, -3.0f * (combs[ii]->getLength() / decaySamples));
+    }
+}
+
+void ProcessorReverbSimple::setMix(float mix) {
+    if (mix < 0.0f) mix = 0.0f;
+    if (mix > 1.0f) mix = 1.0f;
+    
+    wet = mix;
+    dry = 1.0f - mix;
 }
 
 void ProcessorReverbSimple::setInput(Track* input) {
@@ -53,7 +71,15 @@ void ProcessorReverbSimple::recompute() {
 }
 
 void ProcessorReverbSimple::getFrame(Sample* samples, long long frameId) {
-    output->getFrameCached(samples, frameId);
+    Sample processed[LANTERN_AUDIO_NUM_CHANNELS];
+    for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
+        processed[cc] = samples[cc];
+    }
+    output->getFrameCached(processed, frameId);
+    
+    for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
+        samples[cc] = (processed[cc] * wet + samples[cc] * dry);
+    }
 }
 
 Sample ProcessorReverbSimple::process(Sample input) {

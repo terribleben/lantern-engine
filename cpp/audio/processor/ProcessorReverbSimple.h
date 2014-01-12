@@ -19,6 +19,12 @@ public:
     ProcessorReverbSimple();
     ~ProcessorReverbSimple();
     
+    // set the T60 decay time in seconds.
+    void setDecayT60(float seconds);
+    
+    // 0 = dry signal, 1 = processed signal
+    void setMix(float mix);
+    
     virtual void getFrame(Sample*, long long frameId);
     void setInput(Track*);
     
@@ -29,6 +35,9 @@ protected:
     ProcessorBiquad* biquad;
     ProcessorDelay* combs[3];
     ProcessorGroup* output;
+    
+    unsigned int combDelays[3];
+    float wet, dry;
 };
 
 #endif
