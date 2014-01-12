@@ -17,7 +17,7 @@ public:
     ProcessorGroup();
     virtual ~ProcessorGroup();
     virtual Sample process(Sample input);
-    virtual void getFrame(Sample* samples);
+    virtual void getFrame(Sample* samples, long long frameId);
 
     // this class maintains a list of inputs and outputs the sum of their outputs.
     virtual void setInput(Track*);

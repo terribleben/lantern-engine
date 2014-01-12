@@ -36,7 +36,7 @@ void Generator::stop() {
     isStopped = true;
 }
 
-void Generator::getFrame(Sample* samples) {
+void Generator::getFrame(Sample* samples, long long frameId) {
     // mono output of our next sample.
     Sample s = next();
     for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {

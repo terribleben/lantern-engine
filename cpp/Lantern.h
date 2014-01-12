@@ -74,6 +74,7 @@ protected:
     
     list<Track*> audioTracks;
     map<unsigned int, AudioSharedBuffer*> inputBuffers;
+    long long audioFrameId;
 };
 
 #endif

@@ -37,9 +37,9 @@ void ProcessorPan::setPan(float panVal) {
     leftChannelWeight = std::min(1.0f, (1.0f - panVal) * 2.0f);
 }
 
-void ProcessorPan::getFrame(Sample* samples) {
+void ProcessorPan::getFrame(Sample* samples, long long frameId) {
     if (this->input)
-        this->input->getFrame(samples);
+        this->input->getFrameCached(samples, frameId);
     
     for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc += 2) {
         Sample leftVal = *samples, rightVal = *(samples + 1);

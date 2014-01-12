@@ -22,13 +22,13 @@ void ProcessorGroup::recompute() {
     // do nothing
 }
 
-void ProcessorGroup::getFrame(Sample* samples) {
+void ProcessorGroup::getFrame(Sample* samples, long long frameId) {
     // input
     memset(samples, 0, LANTERN_AUDIO_NUM_CHANNELS * sizeof(Sample));
     Sample samplesSum[LANTERN_AUDIO_NUM_CHANNELS];
     for (list<Track*>::iterator itr = inputs.begin(); itr != inputs.end(); itr++) {
         Track* input = *itr;
-        input->getFrame(samplesSum);
+        input->getFrameCached(samplesSum, frameId);
         for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
             samples[cc] += samplesSum[cc];
         }

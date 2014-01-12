@@ -15,7 +15,7 @@ public:
     virtual ~Generator();
     
     virtual Sample next() = 0;
-    virtual void getFrame(Sample* samples);
+    virtual void getFrame(Sample* samples, long long frameId);
     virtual bool isFinished();
     
     virtual void setGain(float);

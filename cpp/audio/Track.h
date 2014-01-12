@@ -11,10 +11,11 @@
 
 class Track {
 public:
-    Track() : gain(1.0f) {  }
+    Track() : gain(1.0f), cachedFrameId(-1) {  }
     virtual ~Track() {  }
     
-    virtual void getFrame(Sample* samples) = 0;
+    void getFrameCached(Sample* samples, long long frameId);
+    virtual void getFrame(Sample* samples, long long frameId) = 0;
     virtual bool isFinished() = 0;
     
     virtual void setGainDb(float decibels); // decibels below max
@@ -23,6 +24,9 @@ public:
     
 protected:
     float gain;
+    
+    Sample cachedFrame[LANTERN_AUDIO_NUM_CHANNELS];
+    long long cachedFrameId;
 };
 
 #endif
