@@ -8,7 +8,7 @@
 ProcessorReverbSimple::ProcessorReverbSimple() : Processor() {
     // allpass => 3 parallel mutually prime combs => add gate
     biquad = new ProcessorBiquad();
-    biquad->setAllpass(1, M_PI * 0.6f);
+    biquad->setAllpass(0.8f, 8000.0f);
     
     output = new ProcessorGroup();
     combDelays[0] = 113; combDelays[1] = 337; combDelays[2] = 1051;

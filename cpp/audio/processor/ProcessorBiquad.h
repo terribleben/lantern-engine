@@ -24,7 +24,12 @@ public:
     void setCoefficients(Sample a0, Sample a1, Sample a2, Sample b0, Sample b1, Sample b2);
     void setPole(float radius, float frequency);
     void setZero(float radius, float frequency);
-    void setAllpass(float radius, float frequency);
+    
+    // constructors for particular filter types
+    void setAllpass(float Q, float frequency);
+    void setLowpass(float Q, float frequency);
+    void setHighpass(float Q, float frequency);
+    void setBandpass(float Q, float frequency);
     
     Sample process(Sample input);
     
