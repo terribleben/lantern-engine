@@ -6,7 +6,7 @@
 #include "ProcessorReverbSimple.h"
 
 ProcessorReverbSimple::ProcessorReverbSimple() : Processor() {
-    // allpass => 2 parallel combs
+    // allpass => 3 parallel mutually prime combs => add gate
     biquad = new ProcessorBiquad();
     biquad->setAllpass(1, M_PI * 0.3f);
     

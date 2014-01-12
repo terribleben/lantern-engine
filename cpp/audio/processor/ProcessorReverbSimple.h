@@ -1,5 +1,8 @@
 //
 //  ProcessorReverbSimple.h
+//
+//  Mono => mono reverb processor. One allpass filter and three parallel comb filters.
+//
 //  lantern
 //
 
