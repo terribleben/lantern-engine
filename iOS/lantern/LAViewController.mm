@@ -299,7 +299,7 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
         
         // touch
         float touchParam[] = { location.x, location.y };
-        Event touchEvent(LANTERN_EVENT_TOUCH_DOWN, (unsigned int)touch, touchParam);
+        Event touchEvent(LANTERN_EVENT_TOUCH_DOWN, (unsigned long)touch, touchParam);
         _lantern->event(touchEvent);
     }
 }
@@ -315,7 +315,7 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
         
         // touch
         float touchParam[] = { location.x, location.y };
-        Event touchEvent(LANTERN_EVENT_TOUCH_MOVE, (unsigned int)touch, touchParam);
+        Event touchEvent(LANTERN_EVENT_TOUCH_MOVE, (unsigned long)touch, touchParam);
         _lantern->event(touchEvent);
     }
 }
@@ -331,7 +331,7 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
         
         // touch
         float touchParam[] = { location.x, location.y };
-        Event touchEvent(LANTERN_EVENT_TOUCH_UP, (unsigned int)touch, touchParam);
+        Event touchEvent(LANTERN_EVENT_TOUCH_UP, (unsigned long)touch, touchParam);
         _lantern->event(touchEvent);
     }
 }
@@ -345,7 +345,7 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
 {
     // accel event
     float accelParam[] = { (float)acceleration.x, (float)acceleration.y, (float)acceleration.z };
-    Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned int)accelerometer, accelParam);
+    Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned long)accelerometer, accelParam);
     _lantern->event(accelEvent);
 }
 

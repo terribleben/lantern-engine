@@ -491,7 +491,7 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
         err = AudioUnitRender(theAudio.audioUnit, ioActionFlags, inTimeStamp, 1, inNumberFrames, ioData);
         if (err) {
             if (LANTERN_AUDIO_VERBOSE)
-                fprintf(stdout, "Audio: input render procedure encountered error %ld\n", err);
+                fprintf(stdout, "Audio: input render procedure encountered error %d\n", (int)err);
             return err;
         }
     }
