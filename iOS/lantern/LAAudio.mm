@@ -33,11 +33,6 @@ static Float32 theFloatBuffer[LANTERN_AUDIO_MAX_BUFFER_SIZE * LANTERN_AUDIO_NUM_
  */
 OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, const AudioTimeStamp* inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList* ioData);
 
-/**
- *  Route change callback
- */
-void audioRouteDidChangeCallback(void* userData, AudioSessionPropertyID propertyID, UInt32 propertyValueSize, const void* propertyValue);
-
 
 #pragma mark actual class definition
 
@@ -51,7 +46,7 @@ void audioRouteDidChangeCallback(void* userData, AudioSessionPropertyID property
 - (BOOL) disposeAudio;
 
 - (NSString*) getCurrentRoute;
-- (void) audioRouteDidChange: (NSString*)newRoute;
+- (void) audioRouteDidChange: (NSNotification*)notification; // audio route change listener
 
 - (void) AudioLog: (NSString*)str, ...;
 
@@ -118,7 +113,10 @@ void audioRouteDidChangeCallback(void* userData, AudioSessionPropertyID property
     }
     
     // listen for route changes
-    AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange, audioRouteDidChangeCallback, (__bridge void*)self);
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(audioRouteDidChange:)
+                                                 name:AVAudioSessionRouteChangeNotification
+                                               object:nil];
     
     // microphone?
     hasMic = [[AVAudioSession sharedInstance] inputIsAvailable];
@@ -272,7 +270,7 @@ void audioRouteDidChangeCallback(void* userData, AudioSessionPropertyID property
     }
     
     // stop listening for route changes
-    AudioSessionRemovePropertyListenerWithUserData(kAudioSessionProperty_AudioRouteChange, audioRouteDidChangeCallback, (__bridge void*)self);
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVAudioSessionRouteChangeNotification object:nil];
     
     isSessionActive = NO;
     return YES;
@@ -364,8 +362,11 @@ void audioRouteDidChangeCallback(void* userData, AudioSessionPropertyID property
     return routeNSString;
 }
 
-- (void) audioRouteDidChange: (NSString*)newRoute
+- (void) audioRouteDidChange: (NSNotification*)notification
 {
+    if (LANTERN_AUDIO_VERBOSE)
+        [self AudioLog:@"New route: %@", notification.userInfo];
+    
     // reestablish speaker override if necessary
     if (_overrideToSpeaker)
         [self setOverrideToSpeaker:YES];
@@ -425,29 +426,6 @@ void audioRouteDidChangeCallback(void* userData, AudioSessionPropertyID property
 
 
 #pragma mark the dirty c stuff
-
-void audioRouteDidChangeCallback(void* userData, AudioSessionPropertyID propertyID, UInt32 propertyValueSize, const void* propertyValue)
-{
-    // all we care about here are route changes, but we're listening for all property changes.
-    if (propertyID != kAudioSessionProperty_AudioRouteChange) return;
-    
-    CFStringRef route;
-    size_t routeValueSize = sizeof(CFStringRef);
-    
-    OSStatus err = AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &routeValueSize, &route);
-    if (err == kAudioSessionNoError) {
-        NSString* currentRoute = (__bridge NSString*)route;
-        if (LANTERN_AUDIO_VERBOSE)
-            fprintf(stdout, "Audio: new route: %s\n", [currentRoute UTF8String]);
-        [(__bridge LAAudio*)userData audioRouteDidChange:currentRoute];
-    } else {
-        if (LANTERN_AUDIO_VERBOSE)
-            fprintf(stdout, "Audio: failed to read new audio route\n");
-    }
-    
-    // dispose of the route
-    CFRelease(route);
-}
 
 
 void convertAUToFloat(AudioBufferList* input, Float32* buffer, UInt32 numFrames, UInt32* actualFrames) {
