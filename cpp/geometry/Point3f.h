@@ -50,10 +50,10 @@ public:
     Point3f operator *(float) const;
     Point3f operator /(float) const;
     
-    inline void operator +=(const Point3f&);
-    inline void operator -=(const Point3f&);
-    inline void operator *=(float);
-    inline void operator /=(float);
+    void operator +=(const Point3f&);
+    void operator -=(const Point3f&);
+    void operator *=(float);
+    void operator /=(float);
     
     inline float operator *(const Point3f&) const;
 };

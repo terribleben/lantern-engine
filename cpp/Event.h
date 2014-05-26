@@ -17,12 +17,12 @@
 
 class Event {
 public:
-    Event(unsigned int type, unsigned int sourceId, void* data) { this->data = data; this->sourceId = sourceId; this->type = type; }
+    Event(unsigned int type, unsigned long sourceId, void* data) { this->data = data; this->sourceId = sourceId; this->type = type; }
     ~Event() {  }
     
 public:
     unsigned int type;       // from the enum above
-    unsigned int sourceId;   // varies. for example, the id of the touch, or the id of the joystick
+    unsigned long sourceId;   // varies. for example, the id of the touch, or the id of the joystick
     void* data;              // varies. for example, the (x, y) pair indicating the touch position onscreen.
 };
 
