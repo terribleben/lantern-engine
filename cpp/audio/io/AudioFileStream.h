@@ -36,9 +36,9 @@ public:
     unsigned int getNumChannels();
     
 protected:
-    bool seek(unsigned int idx);
+    bool seek(signed long long idx);
     void swapBuffers();
-    bool loadSegment(unsigned int startIdx, unsigned int endIdx);
+    bool loadSegment(signed long long startIdx, signed long long endIdx);
     
 protected:
     bool isLoaded;

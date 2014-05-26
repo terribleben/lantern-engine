@@ -155,13 +155,13 @@ bool AudioFileStream::open(const char* filepath) {
 // this idx parameter is measured according to our own sample rate and number of channels.
 // technically, ExtAudioFileSeek takes a parameter measured in the native specs for that file, which may not be the same.
 // so this is missing some conversion.
-bool AudioFileStream::seek(unsigned int idx) {
+bool AudioFileStream::seek(signed long long idx) {
     ExtAudioFileRef xafRef = (ExtAudioFileRef)xafRef_ptr;
     if (xafRef) {
         @try {
             OSStatus error = ExtAudioFileSeek(xafRef, (SInt64)idx + numHeaderFrames);
             if (error) {
-                fprintf(stdout, "AudioFileStream failed seek to idx %u\n", idx);
+                fprintf(stdout, "AudioFileStream failed seek to idx %lld\n", idx);
             } else
                 fileIdx = idx;
         }
@@ -178,20 +178,20 @@ bool AudioFileStream::seek(unsigned int idx) {
     return false;
 }
 
-bool AudioFileStream::loadSegment(unsigned int startIdx, unsigned int endIdx) {
+bool AudioFileStream::loadSegment(signed long long startIdx, signed long long endIdx) {
 	assert(startIdx >= 0);
 	assert(endIdx < length);
     assert(endIdx > startIdx);
 	
 	seek(startIdx);
-	return loadNextSegment(endIdx - startIdx);
+	return loadNextSegment((unsigned int) (endIdx - startIdx));
 }
 
 bool AudioFileStream::loadNextSegment(unsigned int segmentLength) {
     if (segmentLength % numChannels != 0)
         segmentLength += (numChannels - (segmentLength % numChannels));
     
-	unsigned int endIdx = fileIdx + segmentLength;
+	long long endIdx = fileIdx + segmentLength;
 	if (endIdx > length) endIdx = length;
 	
 	@try {

@@ -72,8 +72,8 @@ bool ResourceManager::loadTexture(const char* name, const char* ext) {
     }
     
     // convert to RGBA
-    GLuint width = CGImageGetWidth(image.CGImage);
-    GLuint height = CGImageGetHeight(image.CGImage);
+    GLuint width = (GLuint) CGImageGetWidth(image.CGImage);
+    GLuint height = (GLuint) CGImageGetHeight(image.CGImage);
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     void* imageData = malloc(height * width * 4);
     CGContextRef context = CGBitmapContextCreate( 
