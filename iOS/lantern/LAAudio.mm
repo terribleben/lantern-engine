@@ -45,7 +45,6 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
 - (BOOL) configureAudioDataFormat;
 - (BOOL) disposeAudio;
 
-- (NSString*) getCurrentRoute;
 - (void) audioRouteDidChange: (NSNotification*)notification; // audio route change listener
 
 - (void) AudioLog: (NSString*)str, ...;
@@ -63,7 +62,7 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
 {
     if (self = [super init]) {
         _enableMic = NO;
-        _overrideToSpeaker = YES;
+        _overrideToSpeaker = NO;
         isSessionActive = NO;
 
         _sampleRate = sampleRate;
@@ -299,22 +298,19 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
     if (TARGET_IPHONE_SIMULATOR)
         return;
     
-    OSStatus err = kAudioSessionNoError;
-    UInt32 paramOverrideType = kAudioSessionOverrideAudioRoute_None;
+    NSError *err;
+    AVAudioSessionPortOverride overrideType = AVAudioSessionPortOverrideNone;
     
-    NSString* currentRoute = [self getCurrentRoute];
+    if (!overrideToSpeaker) {
+        _overrideToSpeaker = NO;
+    } else {
+        _overrideToSpeaker = YES;
+        overrideType = AVAudioSessionPortOverrideSpeaker;
+    }
+
+    [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&err];
     
-    if (!overrideToSpeaker)
-        _overrideToSpeaker = false;
-    else if (currentRoute) {
-        _overrideToSpeaker = true;
-        if (!([currentRoute hasPrefix:@"Headset"] || [currentRoute hasPrefix:@"Headphone"]))
-            paramOverrideType = kAudioSessionOverrideAudioRoute_Speaker;
-    } else
-        paramOverrideType = kAudioSessionOverrideAudioRoute_Speaker;
-    
-    err = AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(paramOverrideType), &paramOverrideType);
-    if (err != kAudioSessionNoError)
+    if (err)
         [self AudioLog:@"failed to set override to speaker to %d", overrideToSpeaker];
 }
 
@@ -339,28 +335,6 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
 
 
 #pragma mark audio routing
-
-- (NSString*) getCurrentRoute
-{
-    CFStringRef route;
-    UInt32 routeValueSize = sizeof(CFStringRef);
-    OSStatus err = AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &routeValueSize, &route);
-    
-    if (err != kAudioSessionNoError) {
-        if (route)
-            CFRelease(route);
-        
-        [self AudioLog:@"couldn't determine new audio route"];
-        return nil;
-    }
-    
-    NSString* routeNSString = (__bridge NSString*)route;
-    if (route)
-        CFRelease(route);
-    
-    [self AudioLog:@"current route is %@", routeNSString];
-    return routeNSString;
-}
 
 - (void) audioRouteDidChange: (NSNotification*)notification
 {
