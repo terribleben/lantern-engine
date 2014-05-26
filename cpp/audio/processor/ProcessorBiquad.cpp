@@ -51,6 +51,36 @@ void ProcessorBiquad::setZero(float radius, float frequency) {
 }
 
 /**
+ * This and others:
+ * Robert Bristow-Johnson, http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt
+ */
+void ProcessorBiquad::setAllpass(float Q, float frequency) {
+    float angularFreq = M_2PI * (frequency / LANTERN_AUDIO_SAMPLE_RATE);
+    float alpha = sin(angularFreq) / (2.0f * Q);
+    setCoefficients(1.0f + alpha, -2.0f * cos(angularFreq), 1.0f - alpha, 1.0f - alpha, -2.0f * cos(angularFreq), 1.0f + alpha);
+}
+
+void ProcessorBiquad::setLowpass(float Q, float frequency) {
+    float angularFreq = M_2PI * (frequency / LANTERN_AUDIO_SAMPLE_RATE);
+    float alpha = sin(angularFreq) / (2.0f * Q);
+    float invCos = 1.0f - cos(angularFreq);
+    setCoefficients(1.0f + alpha, -2.0f * cos(angularFreq), 1.0f - alpha, 0.5f * invCos, invCos, 0.5f * invCos);
+}
+
+void ProcessorBiquad::setHighpass(float Q, float frequency) {
+    float angularFreq = M_2PI * (frequency / LANTERN_AUDIO_SAMPLE_RATE);
+    float alpha = sin(angularFreq) / (2.0f * Q);
+    float incCos = 1.0f + cos(angularFreq);
+    setCoefficients(1.0f + alpha, -2.0f * cos(angularFreq), 1.0f - alpha, incCos * 0.5f, -incCos, incCos * 0.5f);
+}
+
+void ProcessorBiquad::setBandpass(float Q, float frequency) {
+    float angularFreq = M_2PI * (frequency / LANTERN_AUDIO_SAMPLE_RATE);
+    float alpha = sin(angularFreq) / (2.0f * Q);
+    setCoefficients(1.0f + alpha, -2.0f * cos(angularFreq), 1.0f - alpha, Q * alpha, 0, -Q * alpha);
+}
+
+/**
  *  y[n] = (b0/a0) * x[n] + (b1/a0) * x[n-1] + (b2/a0) * x[n-2]
  *                        - (a1/a0) * y[n-1] - (a2/a0) * y[n-2]
  */

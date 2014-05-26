@@ -25,6 +25,12 @@ public:
     void setPole(float radius, float frequency);
     void setZero(float radius, float frequency);
     
+    // constructors for particular filter types
+    void setAllpass(float Q, float frequency);
+    void setLowpass(float Q, float frequency);
+    void setHighpass(float Q, float frequency);
+    void setBandpass(float Q, float frequency);
+    
     Sample process(Sample input);
     
 protected:

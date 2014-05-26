@@ -15,7 +15,7 @@ public:
     ProcessorPan();
     ~ProcessorPan();
     
-    void getFrame(Sample* samples);
+    void getFrame(Sample* samples, long long frameId);
     
     void setWidth(float width); // 0 mono, 1 stereo (default 1)
     void setPan(float pan); // 0 left channel, 1 right channel (default 0.5)

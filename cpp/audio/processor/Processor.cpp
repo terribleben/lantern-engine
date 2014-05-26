@@ -35,7 +35,7 @@ void Processor::stop() {
     isStopped = true;
 }
 
-void Processor::getFrame(Sample* samples) {
+void Processor::getFrame(Sample* samples, long long frameId) {
     if (isStopped) {
         // silence
         for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
@@ -43,7 +43,7 @@ void Processor::getFrame(Sample* samples) {
         }
     } else {
         // input
-        this->input->getFrame(samples);
+        this->input->getFrameCached(samples, frameId);
         
         for (int cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
             // output

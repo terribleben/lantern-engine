@@ -39,6 +39,7 @@ void Lantern::init() {
     initialViewKey = "";
     isRunning = false;
     isMicrophoneEnabled = false;
+    audioFrameId = 0;
     
     glEnable(GL_TEXTURE_2D);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
@@ -238,7 +239,7 @@ void Lantern::getAudioFrame(Sample* samples) {
     int cc = 0;
     
     while (it != end_it) {
-        (*it)->getFrame(singleTrack);
+        (*it)->getFrame(singleTrack, audioFrameId);
         
         for (cc = 0; cc < LANTERN_AUDIO_NUM_CHANNELS; cc++) {
             samples[cc] += singleTrack[cc];
@@ -250,6 +251,7 @@ void Lantern::getAudioFrame(Sample* samples) {
         } else
             it++;
     }
+    audioFrameId++; // allow overflow
 }
 
 void Lantern::draw() {

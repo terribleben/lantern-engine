@@ -15,7 +15,7 @@ public:
     virtual ~Processor();
     
     virtual Sample process(Sample input) = 0;
-    virtual void getFrame(Sample* samples);
+    virtual void getFrame(Sample* samples, long long frameId);
     virtual bool isFinished();
     void stop();
     
