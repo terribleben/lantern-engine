@@ -6,6 +6,7 @@
 #import "LAViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <CoreMotion/CoreMotion.h>
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
@@ -37,6 +38,8 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
 
 @property (nonatomic, strong) EAGLContext* context;
 @property (nonatomic, assign) CADisplayLink* displayLink;
+
+@property (nonatomic, strong) CMMotionManager *motionManager;
 
 - (void) draw;
 - (void) initializeLantern;
@@ -110,7 +113,7 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
     // enable the accelerometer?
     NSString* accelParam = [lanternConfig objectForKey:kLanternConfigAccelerometerEnabled];
     if (accelParam && [accelParam intValue] == 1) {
-        [[UIAccelerometer sharedAccelerometer] setDelegate:self];
+        self.motionManager = [[CMMotionManager alloc] init];
     }
     
     // enable audio?
@@ -168,6 +171,12 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
         delete _lantern;
         _lantern = NULL;
         isLanternInitialized = NO;
+    }
+    
+    if (_motionManager) {
+        if (_motionManager.isAccelerometerActive)
+            [_motionManager stopAccelerometerUpdates];
+        _motionManager = nil;
     }
     
     // [super dealloc];
@@ -255,6 +264,9 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
         [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         
         _animating = YES;
+        
+        if (_motionManager)
+            [_motionManager startAccelerometerUpdates];
     }
 }
 
@@ -264,11 +276,26 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
         [self.displayLink invalidate];
         self.displayLink = nil;
         _animating = NO;
+        
+        if (_motionManager)
+            [_motionManager stopAccelerometerUpdates];
     }
 }
 
 - (void) draw
 {
+    if (_motionManager) {
+        // accel event
+        CMAccelerometerData *accelData = _motionManager.accelerometerData;
+        float accelParam[] = {
+            (float) accelData.acceleration.x,
+            (float) accelData.acceleration.y,
+            (float) accelData.acceleration.z
+        };
+        Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned long)_motionManager, accelParam);
+        _lantern->event(accelEvent);
+    }
+    
     [(EAGLView*)self.view setFramebuffer];
     
     _lantern->draw();
@@ -339,14 +366,6 @@ void audioCallback(Sample* buffer, unsigned int numFrames, void* userData);
 - (void) touchesCancelled: (NSSet*)touches withEvent: (UIEvent*)event
 {
     [self touchesEnded:touches withEvent:event];
-}
-
-- (void) accelerometer: (UIAccelerometer*)accelerometer didAccelerate: (UIAcceleration*)acceleration
-{
-    // accel event
-    float accelParam[] = { (float)acceleration.x, (float)acceleration.y, (float)acceleration.z };
-    Event accelEvent(LANTERN_EVENT_ACCEL, (unsigned long)accelerometer, accelParam);
-    _lantern->event(accelEvent);
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation

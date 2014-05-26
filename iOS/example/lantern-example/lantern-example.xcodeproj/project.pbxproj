@@ -25,6 +25,7 @@
 		B52C1D84182C4B6300DF3BAA /* LanternConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D83182C4B6300DF3BAA /* LanternConfig.plist */; };
 		B52C1D97182ED1CF00DF3BAA /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */; };
 		B52C1D98182ED1CF00DF3BAA /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D96182ED1CF00DF3BAA /* white_bevel.png */; };
+		B5D909341933002000DB1AFA /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D909331933002000DB1AFA /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		B52C1D83182C4B6300DF3BAA /* LanternConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LanternConfig.plist; sourceTree = "<group>"; };
 		B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
 		B52C1D96182ED1CF00DF3BAA /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
+		B5D909331933002000DB1AFA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B52C1D34181C952E00DF3BAA /* UIKit.framework in Frameworks */,
 				B52C1D36181C952E00DF3BAA /* Foundation.framework in Frameworks */,
 				B52C1D38181C952E00DF3BAA /* CoreGraphics.framework in Frameworks */,
+				B5D909341933002000DB1AFA /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +100,7 @@
 		B52C1D32181C952E00DF3BAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5D909331933002000DB1AFA /* CoreMotion.framework */,
 				B52C1D56181C966000DF3BAA /* liblantern.a */,
 				B52C1D5C181C98CD00DF3BAA /* QuartzCore.framework */,
 				B52C1D33181C952E00DF3BAA /* UIKit.framework */,
@@ -322,10 +326,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lantern-example/lantern-example-Prefix.pch";
 				INFOPLIST_FILE = "lantern-example/lantern-example-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/lantern-example-eqqljnyygsvicjhblrgchhpwigyn/Build/Products/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -341,10 +342,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lantern-example/lantern-example-Prefix.pch";
 				INFOPLIST_FILE = "lantern-example/lantern-example-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/lantern-example-eqqljnyygsvicjhblrgchhpwigyn/Build/Products/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
