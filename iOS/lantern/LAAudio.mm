@@ -45,7 +45,9 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
 - (BOOL) configureAudioDataFormat;
 - (BOOL) disposeAudio;
 
-- (void) audioRouteDidChange: (NSNotification*)notification; // audio route change listener
+// listeners for audio state changes
+- (void) handleAudioRouteChange: (NSNotification*)notification;
+- (void) handleAudioInterruption: (NSNotification*)notification;
 
 - (void) AudioLog: (NSString*)str, ...;
 
@@ -93,8 +95,6 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
     NSError* err = nil;
     
     // push our parameters into the AVAudioSession
-    [[AVAudioSession sharedInstance] setDelegate:self];
-    
     [[AVAudioSession sharedInstance] setPreferredSampleRate:_sampleRate error:&err];
     if (err) 
         [self AudioLog:@"failed to set sample rate to %lf: %@", _sampleRate, err.description];
@@ -111,10 +111,14 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
         return NO;
     }
     
-    // listen for route changes
+    // listen for audio notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(audioRouteDidChange:)
+                                             selector:@selector(handleAudioRouteChange:)
                                                  name:AVAudioSessionRouteChangeNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleAudioInterruption:)
+                                                 name:AVAudioSessionInterruptionNotification
                                                object:nil];
     
     // microphone?
@@ -334,9 +338,9 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
 
 
 
-#pragma mark audio routing
+#pragma mark audio listeners
 
-- (void) audioRouteDidChange: (NSNotification*)notification
+- (void) handleAudioRouteChange:(NSNotification *)notification
 {
     if (LANTERN_AUDIO_VERBOSE)
         [self AudioLog:@"New route: %@", notification.userInfo];
@@ -349,34 +353,24 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
     [self setEnableMic:_enableMic];
 }
 
-
-#pragma mark AVAudioSessionDelegate methods
-
-- (void) beginInterruption
+- (void) handleAudioInterruption:(NSNotification *)notification
 {
-    [self AudioLog:@"session interrupted"];
-    [self disposeAudio];
-}
-
-- (void) endInterruption
-{
-    [self AudioLog:@"session interruption ended"];
-    [self startSession];
-
-}
-
-- (void) inputIsAvailableChanged: (BOOL)isInputAvailable
-{
-    [self AudioLog:@"audio input is %@ available", isInputAvailable ? @"now" : @"no longer"];
-    
-    if (!isInputAvailable)
-        hasMic = NO;
-    
-    [self disposeAudio];
-    [self startSession];
-    
-    if (isInputAvailable)
-        hasMic = YES;
+    NSDictionary *info = notification.userInfo;
+    if (info && [info objectForKey:AVAudioSessionInterruptionTypeKey]) {
+        AVAudioSessionInterruptionType type = [[info objectForKey:AVAudioSessionInterruptionTypeKey] unsignedIntegerValue];
+        switch (type) {
+            case AVAudioSessionInterruptionTypeBegan: {
+                [self AudioLog:@"session interrupted"];
+                [self disposeAudio];
+                break;
+            }
+            case AVAudioSessionInterruptionTypeEnded: {
+                [self AudioLog:@"session interruption ended"];
+                [self startSession];
+                break;
+            }
+        }
+    }
 }
 
 
