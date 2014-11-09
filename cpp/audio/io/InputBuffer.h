@@ -26,7 +26,7 @@ protected:
     unsigned int bufferKey;
     AudioSharedBuffer* buffer;
     unsigned int position;
-    unsigned int length;
+    unsigned long length;
     
     void getBuffer();
     Sample next();

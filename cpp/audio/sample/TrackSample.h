@@ -25,7 +25,7 @@ public:
 public:
     virtual void arm() = 0; // load any necessary data into RAM and prepare to play.
     virtual void clear(); // delete all owned audio data and become empty.
-    virtual unsigned int getLength();
+    virtual unsigned long getLength();
     void setLoopBehavior(unsigned int behavior);
     float tickSpeed;
     
@@ -35,7 +35,7 @@ protected:
 	float idxFraction;
 	unsigned int channelIdx;
     
-    unsigned int length;
+    unsigned long length;
 	bool eof;
     bool isArmed;
     

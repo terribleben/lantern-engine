@@ -26,6 +26,7 @@
 		B52C1D97182ED1CF00DF3BAA /* white_bevel.lanternfont in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */; };
 		B52C1D98182ED1CF00DF3BAA /* white_bevel.png in Resources */ = {isa = PBXBuildFile; fileRef = B52C1D96182ED1CF00DF3BAA /* white_bevel.png */; };
 		B5D909341933002000DB1AFA /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D909331933002000DB1AFA /* CoreMotion.framework */; };
+		B5F8EDB11A0FF5D700A3CBBE /* lantern-example.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F8EDB01A0FF5D700A3CBBE /* lantern-example.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = white_bevel.lanternfont; sourceTree = "<group>"; };
 		B52C1D96182ED1CF00DF3BAA /* white_bevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bevel.png; sourceTree = "<group>"; };
 		B5D909331933002000DB1AFA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		B5F8EDB01A0FF5D700A3CBBE /* lantern-example.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "lantern-example.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		B52C1D94182ED1CF00DF3BAA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				B5F8EDB01A0FF5D700A3CBBE /* lantern-example.xcassets */,
 				B52C1D95182ED1CF00DF3BAA /* white_bevel.lanternfont */,
 				B52C1D96182ED1CF00DF3BAA /* white_bevel.png */,
 			);
@@ -219,6 +222,7 @@
 			files = (
 				B52C1D3E181C952E00DF3BAA /* InfoPlist.strings in Resources */,
 				B52C1D84182C4B6300DF3BAA /* LanternConfig.plist in Resources */,
+				B5F8EDB11A0FF5D700A3CBBE /* lantern-example.xcassets in Resources */,
 				B52C1D97182ED1CF00DF3BAA /* white_bevel.lanternfont in Resources */,
 				B52C1D98182ED1CF00DF3BAA /* white_bevel.png in Resources */,
 			);
@@ -320,6 +324,8 @@
 		B52C1D4E181C952F00DF3BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -336,6 +342,8 @@
 		B52C1D4F181C952F00DF3BAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";

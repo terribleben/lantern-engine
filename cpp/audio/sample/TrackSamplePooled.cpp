@@ -36,7 +36,7 @@ Sample TrackSamplePooled::sampleAt(unsigned int idx) {
             return sharedBuffer.buffer[idx];
         else {
             // linear interpolation
-            unsigned int crossfadeIdx = idx - (length - crossfadeDurationSamples);
+            unsigned long crossfadeIdx = idx - (length - crossfadeDurationSamples);
             Sample current = sharedBuffer.buffer[idx];
             Sample wrap = sharedBuffer.buffer[crossfadeIdx];
             

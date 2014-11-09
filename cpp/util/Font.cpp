@@ -206,8 +206,8 @@ float Font::getStringWidth(string s, float scale, float spacing) {
         return 0;
     else {
         float width = 0;
-        for (unsigned int i = 0, n = s.length() - 1; i < n; i++) {
-            width += oneCharWidth * characterWidths[s[i]];
+        for (unsigned int ii = 0, nn = (unsigned int)s.length() - 1; ii < nn; ii++) {
+            width += oneCharWidth * characterWidths[s[ii]];
         }
         width += charWidth * scale * characterWidths[s[s.length() - 1]];
         return width;

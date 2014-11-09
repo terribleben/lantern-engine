@@ -34,7 +34,7 @@ void TrackSample::clear() {
     loopBehavior = LANTERN_AUDIO_WAV_LOOP_NONE;
 }
 
-unsigned int TrackSample::getLength() {
+unsigned long TrackSample::getLength() {
     return length;
 }
 
