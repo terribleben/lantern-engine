@@ -95,7 +95,7 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
     // push our parameters into the AVAudioSession
     [[AVAudioSession sharedInstance] setDelegate:self];
     
-    [[AVAudioSession sharedInstance] setPreferredHardwareSampleRate:_sampleRate error:&err];
+    [[AVAudioSession sharedInstance] setPreferredSampleRate:_sampleRate error:&err];
     if (err) 
         [self AudioLog:@"failed to set sample rate to %lf: %@", _sampleRate, err.description];
     
@@ -118,7 +118,7 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
                                                object:nil];
     
     // microphone?
-    hasMic = [[AVAudioSession sharedInstance] inputIsAvailable];
+    hasMic = [AVAudioSession sharedInstance].inputAvailable;
     
     // configure and start audio unit
     if ([self configureAudio]) {
@@ -154,7 +154,7 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
     }
     
     // if there's a mic, enable it
-    UInt32 micAvailable = [[AVAudioSession sharedInstance] inputIsAvailable];
+    UInt32 micAvailable = [AVAudioSession sharedInstance].inputAvailable;
     err = AudioUnitSetProperty(audioUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, 1, &micAvailable, sizeof(micAvailable));
     if (err) {
         [self AudioLog:@"failed to enable mic on the remote I/O unit"];
@@ -320,7 +320,7 @@ OSStatus inputProc(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, co
     _enableMic = enableMic;
     
     // is there a mic to use?
-    hasMic = [[AVAudioSession sharedInstance] inputIsAvailable];
+    hasMic = [AVAudioSession sharedInstance].inputAvailable;
     
     if (hasMic && _enableMic)
         [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayAndRecord error:&err];
